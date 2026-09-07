@@ -19,17 +19,12 @@ Phase 2 updates all exact handoff consumers after verified releases, removes mig
 behavior tests together, preserves persistence/publication/trust/recovery tests, and replaces runtime evaluation only
 with the required verified native computation boundary.
 
-## Development dependency candidate
+## Released dependency coordinates
 
-The `agent/candidate-sequence-dependency-v2` branch uses the actual `kumwe/sequence`
-`dev-main` candidate instead of the unavailable `0.2.0` coordinate. The observed
-Sequence main commit is `3cb1f63437ddec7ddbd8392e997bceb981cd73b5`; it provides
-`NumberSequenceFormat::fromConfiguration`, `MAXIMUM_LENGTH`, scope and reset
-values including `NumberSequenceReset::FiscalPeriod` consumed by the validator.
-No Sequence behavior is copied or changed. Composer repositories are root-only,
-so source consumers must declare both the Business Definition and Sequence GitHub
-VCS repositories and allow their explicit development constraints.
+Composer requires Localization 0.1.0 and Sequence 0.2.0, both published stable releases.
+Use `composer install` for source development and `composer clean-consumer` to prove the built archive with runtime
+dependencies only. No root VCS overrides or development constraints are needed.
 
-This enables source and isolated archive verification. Publication remains blocked
-until actual immutable dependency releases have independent external attestations.
-The source candidate is not an alias for a stable release.
+Exact pins keep pre-1.0 compatibility reviewable. Dependency update pull requests run the complete package gate
+before maintainers merge them. Independent release verification and the separate App adoption train remain the next
+stages.

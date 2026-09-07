@@ -1,6 +1,13 @@
 # Changelog
 
-## 0.1.0 — unreleased extraction candidate
+## 0.1.1 - 2026-09-07
+
+- Detach admitted defaults, configuration, validators, workflow and document collections from caller references.
+Canonical JSON encoding no longer mutates referenced caller arrays.
+- Add package-owned regression tests and refresh extraction handoff, dependency and release documentation.
+- Keep exact stable dependency requirements; grouped weekly update PRs re-run the package gate.
+
+## 0.1.0 - 2026-09-07
 
 - Correct definition admission: field visibility/editability conditions require boolean results, and field reads
   must match statically known scalar families. Previously accepted contradictory definitions now fail validation.

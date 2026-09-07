@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Kumwe\BusinessDefinition\Domain;
 
+use Kumwe\BusinessDefinition\Internal\ValueSnapshot;
 use Kumwe\Localization\Domain\LocaleTag;
 use Ramsey\Uuid\Uuid;
 
@@ -257,7 +258,7 @@ final readonly class EntityTypeDefinition
             throw new InvalidBusinessDefinition('A public view requires entity-level public exposure.');
         }
         CanonicalDefinitionJson::encode($compatibilityMetadata);
-        $this->compatibilityMetadata = $compatibilityMetadata;
+        $this->compatibilityMetadata = ValueSnapshot::copy($compatibilityMetadata);
         $this->labelTranslations = LocalizedDefinitionText::normalize($labelTranslations, [
             'singular_label' => 120,
             'plural_label' => 120,

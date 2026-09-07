@@ -1,29 +1,29 @@
 {
-  "schema": "kumwe-package-service-map/v1",
-  "package": "kumwe/business-definition",
-  "release": "0.1.0",
-  "config_provider": "Kumwe\\BusinessDefinition\\ConfigProvider",
-  "provider_absence_reason": null,
-  "factories": [
-    {
-      "service": "Kumwe\\BusinessDefinition\\Application\\FieldTypeRegistry",
-      "factory": "Kumwe\\BusinessDefinition\\Container\\FieldTypeRegistryFactory",
-      "lifetime": "shared"
+    "schema": "kumwe-package-service-map/v1",
+    "package": "kumwe/business-definition",
+    "release": "0.1.1",
+    "config_provider": "Kumwe\\BusinessDefinition\\ConfigProvider",
+    "provider_absence_reason": null,
+    "factories": [
+        {
+            "service": "Kumwe\\BusinessDefinition\\Application\\FieldTypeRegistry",
+            "factory": "Kumwe\\BusinessDefinition\\Container\\FieldTypeRegistryFactory",
+            "lifetime": "shared"
+        },
+        {
+            "service": "Kumwe\\BusinessDefinition\\Application\\BusinessDefinitionValidator",
+            "factory": "Kumwe\\BusinessDefinition\\Container\\BusinessDefinitionValidatorFactory",
+            "lifetime": "non-shared"
+        },
+        {
+            "service": "Kumwe\\BusinessDefinition\\Application\\BusinessDefinitionContributionRegistry",
+            "factory": "Kumwe\\BusinessDefinition\\Container\\BusinessDefinitionContributionRegistryFactory",
+            "lifetime": "non-shared"
+        }
+    ],
+    "aliases": {
+        "Kumwe\\BusinessDefinition\\Application\\FieldTypeDefinitionResolver": "Kumwe\\BusinessDefinition\\Application\\FieldTypeRegistry"
     },
-    {
-      "service": "Kumwe\\BusinessDefinition\\Application\\BusinessDefinitionValidator",
-      "factory": "Kumwe\\BusinessDefinition\\Container\\BusinessDefinitionValidatorFactory",
-      "lifetime": "non-shared"
-    },
-    {
-      "service": "Kumwe\\BusinessDefinition\\Application\\BusinessDefinitionContributionRegistry",
-      "factory": "Kumwe\\BusinessDefinition\\Container\\BusinessDefinitionContributionRegistryFactory",
-      "lifetime": "non-shared"
-    }
-  ],
-  "aliases": {
-    "Kumwe\\BusinessDefinition\\Application\\FieldTypeDefinitionResolver": "Kumwe\\BusinessDefinition\\Application\\FieldTypeRegistry"
-  },
-  "delegators": [],
-  "configuration_keys": []
+    "delegators": [],
+    "configuration_keys": []
 }

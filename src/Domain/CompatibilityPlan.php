@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Kumwe\BusinessDefinition\Domain;
 
+use Kumwe\BusinessDefinition\Internal\ValueSnapshot;
+
 /**
  * The complete machine-readable account of what publishing a draft would change, and what that costs.
  *
@@ -70,7 +72,7 @@ final readonly class CompatibilityPlan
             $right->classification->value,
             $right->message,
         ]);
-        $this->changes = $changes;
+        $this->changes = ValueSnapshot::copy($changes);
     }
 
     /**

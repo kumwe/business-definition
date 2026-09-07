@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Kumwe\BusinessDefinition\Domain;
 
+use Kumwe\BusinessDefinition\Internal\ValueSnapshot;
+
 /**
  * One field type a business field may declare, pairing the value family with its storage family.
  *
@@ -20,6 +22,9 @@ namespace Kumwe\BusinessDefinition\Domain;
  */
 final readonly class FieldTypeDefinition
 {
+    /** @var list<string> Independent declaration keys. @since 0.1.1 */
+    public array $configurationKeys;
+
     /**
      * Declare a field type and reject a value and storage pairing no conversion could serve.
      *
@@ -42,7 +47,7 @@ final readonly class FieldTypeDefinition
         public string $description,
         public string $valueType,
         public string $storageType,
-        public array $configurationKeys = [],
+        array $configurationKeys = [],
     ) {
         if (preg_match('/^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)+$/D', $id) !== 1 || strlen($id) > 191) {
             throw new InvalidBusinessDefinition('A field-type identifier must be namespaced.');
@@ -86,6 +91,7 @@ final readonly class FieldTypeDefinition
                 throw new InvalidBusinessDefinition('A field-type configuration key is invalid.');
             }
         }
+        $this->configurationKeys = ValueSnapshot::copy($configurationKeys);
     }
 
     /**
