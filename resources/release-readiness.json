@@ -1,14 +1,15 @@
 {
   "status": "blocked",
-  "reason": "Exact draft dependency pins lack independent immutable release attestations.",
+  "reason": "The actual Sequence development candidate is installable source, but is mutable and has no independent immutable release attestation.",
   "dependencies": {
     "kumwe/localization": {
       "version": "0.1.0",
       "attestation": null
     },
     "kumwe/sequence": {
-      "version": "0.2.0",
-      "attestation": null
+      "version": "dev-main",
+      "attestation": null,
+      "observed_source_commit": "3cb1f63437ddec7ddbd8392e997bceb981cd73b5"
     }
   },
   "required_followup": "Select independently verified upstream releases, commit their attestation coordinates and re-run package gates before changing status."

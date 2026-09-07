@@ -155,7 +155,8 @@ if (
 
 // The package repository points at the exact built ZIP; no source checkout or path repository is reachable.
 // Version metadata describes this local candidate and does not mutate the archive or publish a release.
-$metadata['version'] = $release;
+$candidateVersion = 'dev-source-candidate';
+$metadata['version'] = $candidateVersion;
 $metadata['dist'] = ['type' => 'zip', 'url' => 'file://' . $archive, 'shasum' => sha1_file($archive)];
 $consumer = $workspace . '/consumer';
 if (!mkdir($consumer)) {
@@ -165,10 +166,13 @@ $consumerMetadata = [
     'name' => 'kumwe/clean-consumer',
     'description' => 'Isolated verification of the built package archive.',
     'license' => 'proprietary',
-    'require' => ['kumwe/business-definition' => $release, 'laminas/laminas-servicemanager' => '^4.0'],
+    'require' => ['kumwe/business-definition' => $candidateVersion, 'laminas/laminas-servicemanager' => '^4.0'],
     'repositories' => [
         ['type' => 'package', 'package' => $metadata],
+        ...($metadata['repositories'] ?? []),
     ],
+    'minimum-stability' => 'dev',
+    'prefer-stable' => true,
     'config' => ['allow-plugins' => false],
 ];
 if (
