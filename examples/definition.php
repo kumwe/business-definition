@@ -48,3 +48,5 @@ if ($plan->toChecksum !== $definition->published(1)->checksum()) {
     throw new RuntimeException('Compatibility target does not match canonical definition bytes.');
 }
 echo 'Definition consumer verified: ', $definition->handle, ', ', $definition->checksum(), "\n";
+
+return [$definition, $admission];

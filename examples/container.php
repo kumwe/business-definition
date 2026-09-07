@@ -13,9 +13,15 @@ use Kumwe\BusinessDefinition\Domain\EntityTypeDefinition;
 use Laminas\ServiceManager\ServiceManager;
 
 // The fixture script selects the consumer autoloader and its explicit empty-configuration admission.
-require __DIR__ . '/definition.php';
-/** @var FieldConfigurationAdmission $admission */
-/** @var EntityTypeDefinition $definition */
+$fixture = require __DIR__ . '/definition.php';
+if (
+    !is_array($fixture) || count($fixture) !== 2
+    || !$fixture[0] instanceof EntityTypeDefinition
+    || !$fixture[1] instanceof FieldConfigurationAdmission
+) {
+    throw new RuntimeException('The isolated example fixture is invalid.');
+}
+[$definition, $admission] = $fixture;
 $container = new ServiceManager((new ConfigProvider())()['dependencies'] + [
     'services' => [FieldConfigurationAdmission::class => $admission],
 ]);
