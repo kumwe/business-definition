@@ -91,8 +91,8 @@ if (!is_array($symbols) || !is_array($expected) || array_keys($symbols) !== $exp
 $require = $metadata['require'] ?? null;
 if (
     !is_array($require) || $require !== [
-    'php' => '^8.5', 'php-64bit' => '*', 'ext-mbstring' => '*', 'kumwe/localization' => '0.1.0',
-    'kumwe/sequence' => '0.2.0', 'psr/container' => '^2.0', 'ramsey/uuid' => '^4.9',
+    'php' => '^8.5', 'php-64bit' => '*', 'ext-mbstring' => '*', 'kumwe/localization' => '0.1.1',
+    'kumwe/sequence' => '0.2.1', 'psr/container' => '^2.0', 'ramsey/uuid' => '^4.9',
     ]
 ) {
     $errors[] = 'The reviewed dependency ceiling or draft pin changed without boundary review.';

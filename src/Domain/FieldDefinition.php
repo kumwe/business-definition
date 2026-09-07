@@ -276,7 +276,7 @@ final readonly class FieldDefinition
         if (preg_match('/^[a-z][a-z0-9_-]{0,62}$/D', $formGroup) !== 1 || $order < 0 || $order > 100_000) {
             throw new InvalidBusinessDefinition('A business field form placement is invalid.');
         }
-        $this->normalizers = self::identifiers($normalizers, 'normalizer', 32);
+        $this->normalizers = ValueSnapshot::copy(self::identifiers($normalizers, 'normalizer', 32));
         if (count($validators) > 32) {
             throw new InvalidBusinessDefinition('A business field has too many validators.');
         }
@@ -291,11 +291,11 @@ final readonly class FieldDefinition
         }
         sort($placements, SORT_STRING);
         $this->placements = ValueSnapshot::copy($placements);
-        $this->textTranslations = LocalizedDefinitionText::normalize($textTranslations, [
+        $this->textTranslations = ValueSnapshot::copy(LocalizedDefinitionText::normalize($textTranslations, [
             'label' => 120,
             'description' => 1000,
             'help_text' => 1000,
-        ]);
+        ]));
         $this->default = ValueSnapshot::copy($default);
     }
 

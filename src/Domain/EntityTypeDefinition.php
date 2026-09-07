@@ -217,24 +217,28 @@ final readonly class EntityTypeDefinition
         ) {
             throw new InvalidBusinessDefinition('A business entity definition collection is empty or unbounded.');
         }
-        $this->fields = self::unique($fields, static fn (FieldDefinition $field): string => $field->handle, 'field');
-        $this->relationships = self::unique(
+        $this->fields = ValueSnapshot::copy(
+            self::unique($fields, static fn (FieldDefinition $field): string => $field->handle, 'field'),
+        );
+        $this->relationships = ValueSnapshot::copy(self::unique(
             $relationships,
             static fn (RelationshipDefinition $relationship): string => $relationship->handle,
             'relationship',
+        ));
+        $this->views = ValueSnapshot::copy(
+            self::unique($views, static fn (ViewDefinition $view): string => $view->handle, 'view'),
         );
-        $this->views = self::unique($views, static fn (ViewDefinition $view): string => $view->handle, 'view');
-        $this->actions = self::unique(
+        $this->actions = ValueSnapshot::copy(self::unique(
             $actions,
             static fn (ActionDefinition $action): string => $action->handle,
             'action',
-        );
-        $this->recordInvariants = self::unique(
+        ));
+        $this->recordInvariants = ValueSnapshot::copy(self::unique(
             $recordInvariants,
             static fn (RecordInvariantDefinition $invariant): string => $invariant->handle,
             'record invariant',
-        );
-        $this->portalOperations = self::normalizePortalOperations($portalOperations);
+        ));
+        $this->portalOperations = ValueSnapshot::copy(self::normalizePortalOperations($portalOperations));
         if (!$administratorExposure && !$portalExposure && !$publicExposure) {
             throw new InvalidBusinessDefinition('A business entity requires at least one declared exposure surface.');
         }
@@ -259,10 +263,10 @@ final readonly class EntityTypeDefinition
         }
         CanonicalDefinitionJson::encode($compatibilityMetadata);
         $this->compatibilityMetadata = ValueSnapshot::copy($compatibilityMetadata);
-        $this->labelTranslations = LocalizedDefinitionText::normalize($labelTranslations, [
+        $this->labelTranslations = ValueSnapshot::copy(LocalizedDefinitionText::normalize($labelTranslations, [
             'singular_label' => 120,
             'plural_label' => 120,
-        ]);
+        ]));
         $this->assertInternalGraph();
     }
 

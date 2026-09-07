@@ -23,7 +23,7 @@ source:
   semantic_inputs: []
   examined_dependencies:
     - "App locked kumwe/conversion 0.1.2, extension-sdk 0.2.4, producer 0.2.0"
-    - "Sequence 0.2.0 and Localization 0.1.0 exact installable draft pins; independently verified publication remains blocked"
+    - "Sequence 0.2.1 and Localization 0.1.1 exact published stable pins; final independent verification remains separate"
     - "SDK FieldPresentationConfiguration profile is outside allowed ceiling; mandatory host admission port retains this owner"
     - "ContributionOwner does not preserve site owners or the persisted definition extension grammar; no unused dependency"
   active_related_pull_requests:
@@ -34,8 +34,8 @@ target:
   repository: "https://github.com/kumwe/business-definition"
   artifact_identity: "kumwe/business-definition"
   canonical_namespace_or_abi: "Kumwe\\BusinessDefinition"
-  branch: "agent/extract-business-definition-20260907"
-  pull_request: "https://github.com/kumwe/business-definition/pull/1"
+  branch: "codex/extraction-readiness-20260907"
+  pull_request: "https://github.com/kumwe/business-definition/pull/7"
 ownership:
   responsibility: "Immutable definition metadata, bounded semantic ASTs, canonical profiles, structural validation, compatibility and registries."
   non_responsibilities:
@@ -53,13 +53,13 @@ ownership:
   public_manifests:
     - 
       path: "resources/public-api/v1.json"
-      sha256: "bdc624a8d670e78ca18457cea2ddf928c8ee1629133ccd4c07a57b758b78e737"
+      sha256: "1dc8eee145c2ceadc8cb56f2ec20981c404fef6c1b1b9864940386ce98598a91"
     - 
       path: "resources/capabilities/v1.json"
-      sha256: "2a2a094aeb5a861fbd6663e6a25cd9c6e53f83b00f85491d3ee24fcc8b505eb5"
+      sha256: "bf58d886792915c0a33e236713dda587c85a3a64bcea3c77359193faf45ba2f4"
     - 
       path: "resources/service-map/v1.json"
-      sha256: "b6e303b391a9803c3bf510b107e38dae68bbb253ce12d2a8160f94f7a8edde27"
+      sha256: "3e77901220b9b54e2cf9297ea038343325c692d4fa60edb13967861a4636789a"
     - 
       path: "resources/native-ownership/v1.json"
       sha256: "eb0ed6131fd12b32d4fa73991bdfdd53ba42a0614587317108e05cd0687a13b7"
@@ -1107,9 +1107,9 @@ documentation:
   examples:
     - "examples/definition.php"
     - "examples/container.php"
-  changelog_record: "CHANGELOG.md / 0.1.0 (NRM-2026-012 extraction candidate, no release claimed)"
+  changelog_record: "CHANGELOG.md / 0.1.1 (maintenance release record; human merge triggers publication)"
 release_expectations:
-  version_policy: "Exact pre-1.0 pins, independently verified upstream releases required before publication; protected main and immutable future releases."
+  version_policy: "Exact pre-1.0 pins; publication verifies dependency tag/source/dist identity. Independent final release verification precedes App adoption."
   expected_artifact_types:
     - "Composer package ZIP"
     - "GitHub source archive"
@@ -1117,14 +1117,14 @@ release_expectations:
     - "composer check on 64-bit PHP 8.5"
     - "Exact source/API/test ownership and language-neutral corpus parity"
     - "Built ZIP no-dev classmap-authoritative dependency consumer"
-    - "resources/release-readiness.json must remain blocked until independent upstream attestations are reviewed"
+    - "resources/release-readiness.json records published dependency readiness; final release verification remains separate"
     - "Independent package release/archive/manifest/registry verification after human merge"
   required_registry_or_installer: "Packagist + Composer"
   required_external_attestation: true
 next_task:
   phase_name: "Verify upstream and package releases, then Business Definition App adoption"
   permitted_only_when:
-    - "Every selected upstream release independently verified; draft pins updated with exact evidence"
+    - "Every selected upstream release independently verified; exact published pins updated with evidence"
     - "Human merge, immutable package publication and independent RELEASE-ATTESTATION.yaml"
     - "Reconcile every portable source/test with exact App baseline before adoption"
     - "Runtime execution-method removals adopted only with required verified Computation/Engine/extension readiness"
@@ -1488,11 +1488,11 @@ decisions:
   - "BUSDEF-001: preserve Core/Extension/Site owner and existing extension grammar; no unused Contribution dependency"
   - "BUSDEF-002: mandatory host presentation admission port, with no permissive/default implementation"
   - "BUSDEF-003: semantic package removes evaluate/isSatisfied methods; non-distributed oracle and normative corpus preserve semantics"
-  - "BUSDEF-004: exact Sequence and Localization draft pins are not release attestations; publication is blocked"
+  - "BUSDEF-004: exact published Sequence and Localization pins do not themselves establish an independent release attestation"
   - "BUSDEF-005: 36 existing types plus one port, one provider and three factories = 41 public types"
 blockers:
-  - "Selected Sequence0.2.0 and Localization0.1.0 have no successful independent immutable release attestation"
-  - "Package release and external attestation have not occurred"
+  - "The 0.1.1 maintenance branch requires maintainer review and merge before release automation"
+  - "Version 0.1.0 is published; independent verification of the final 0.1.1 release and dependency closure remains separate"
   - "App runtime cutover requires verified native chain and readiness; no fallback is shipped"
 ---
 
@@ -1509,8 +1509,7 @@ execution parity independently. tests/ownership.json owns executable test transf
 host responsibility.
 
 Run composer check on the final PR tree. Upstream verification, protected-main immutable publication and fresh
-independent package attestation remain separate gates. resources/release-readiness.json prevents premature
-release-on-record mutation.
+independent package attestation remain separate gates. resources/release-readiness.json records published dependency identities without replacing independent verification.
 
 ## Migration/implementation summary
 
@@ -1528,8 +1527,7 @@ implementation ships in the consumer archive.
 ## Capability reuse/semantic input review
 
 Reviewed App's exact locked Conversion 0.1.2, SDK 0.2.4 and Producer 0.2.0 APIs and the prepared extraction closure.
-Localization supplies locale semantics; Sequence supplies proven format/scope/reset types. Their exact draft pins do
-not assert independently verified releases. DefinitionOwner's site dimension and persisted grammar are distinct from
+Localization supplies locale semantics; Sequence supplies proven format/scope/reset types. Their exact published pins do not assert independently verified releases. DefinitionOwner's site dimension and persisted grammar are distinct from
 ContributionOwner. Mandatory FieldConfigurationAdmission keeps SDK profile implementation at its existing owner and
 host composition boundary.
 
@@ -1569,7 +1567,7 @@ architecture, real discovered test-ownership checks, strict static analysis and 
 Corpus provenance binds six exact App source hashes and two frozen oracle files; an independent reviewer confirmed
 their bytes and namespace-only oracle transformation. The archive consumer uses a real built ZIP installed as a no-dev
 authoritative dependency. Local Packagist advisory lookup times out; CI retains the mandatory online audit, and final
-CI results are the authoritative security gate. No release or native performance result is claimed.
+CI results are the authoritative security gate. The published 0.1.0 release is observed; no native performance result or independent attestation is claimed.
 
 Final local implementation evidence: 131 PHPUnit cases / 1,743 assertions; 41 API exports; 122 named discovered test
 methods; 16 architecture, nine ownership and 92 release-integrity negative fixtures; 12 release-parser cases. The
@@ -1584,4 +1582,17 @@ validation correction: previously admitted contradictory definitions require cor
 Decimal/temporal string representations and dynamic any/null checks remain unchanged. Entity label translation
 changes now appear as behavior-changing compatibility changes. The runtime explicitly requires ext-mbstring, and
 the archived example exercises text default admission. Public signatures and the frozen native formula corpus
-remain unchanged. These corrections do not authorize App adoption or publication of this development candidate.
+remain unchanged. App adoption follows independent verification of the final maintenance release.
+
+## Maintenance review 2026-09-07
+
+The current App baseline 24ecf956423c18933e824b43cea1bfb9127a79a9 has no additional
+changes under BusinessDefinition source or unit tests compared with this extraction baseline.
+The library retains the full 41-symbol public closure and frozen semantic corpus. Its internal
+array snapshot helper prevents caller references from changing immutable definitions; canonical
+encoding does not write through caller references. New regression tests belong to this package.
+
+Version 0.1.0 is published at f3b86f8af1469066637fd1b4b8f71c4df634adf8. This PR prepares
+0.1.1 and uses published Localization 0.1.1 and Sequence 0.2.1. These are exact pins, with
+grouped update PRs for later releases. Dependent libraries remain on their coherent published
+graph until this maintenance release is merged, published and independently verified.

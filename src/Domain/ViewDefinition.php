@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Kumwe\BusinessDefinition\Domain;
 
+use Kumwe\BusinessDefinition\Internal\ValueSnapshot;
+
 /**
  * One named projection of a business entity: the fields a surface shows, filters on, and sorts by.
  *
@@ -118,9 +120,9 @@ final readonly class ViewDefinition
                 throw new InvalidBusinessDefinition('A custom business view reference is invalid.');
             }
         }
-        $this->fields = self::identifiers($fields, false);
-        $this->filters = self::identifiers($filters, true);
-        $this->sorts = self::identifiers($sorts, true);
+        $this->fields = ValueSnapshot::copy(self::identifiers($fields, false));
+        $this->filters = ValueSnapshot::copy(self::identifiers($filters, true));
+        $this->sorts = ValueSnapshot::copy(self::identifiers($sorts, true));
     }
 
     /**

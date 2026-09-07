@@ -21,7 +21,7 @@ with the required verified native computation boundary.
 
 ## Released dependency coordinates
 
-Composer requires Localization 0.1.0 and Sequence 0.2.0, both published stable releases.
+Composer requires Localization 0.1.1 and Sequence 0.2.1, both published stable releases.
 Use `composer install` for source development and `composer clean-consumer` to prove the built archive with runtime
 dependencies only. No root VCS overrides or development constraints are needed.
 

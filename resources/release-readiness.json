@@ -1,15 +1,15 @@
 {
-  "status": "ready",
-  "reason": "All direct Kumwe dependencies use published exact stable versions; publication verifies their tag, source and installed dist identity.",
-  "dependencies": {
-    "kumwe/localization": {
-      "version": "0.1.0",
-      "attestation": null
+    "status": "ready",
+    "reason": "All direct Kumwe dependencies use published exact stable versions; publication verifies their tag, source and installed dist identity.",
+    "dependencies": {
+        "kumwe/localization": {
+            "version": "0.1.1",
+            "attestation": null
+        },
+        "kumwe/sequence": {
+            "version": "0.2.1",
+            "attestation": null
+        }
     },
-    "kumwe/sequence": {
-      "version": "0.2.0",
-      "attestation": null
-    }
-  },
-  "required_followup": "Independent attestations remain optional evidence for later verification and adoption; they do not block normal package publication."
+    "required_followup": "Independent attestations remain optional evidence for later verification and adoption; they do not block normal package publication."
 }

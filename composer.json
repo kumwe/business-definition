@@ -12,8 +12,8 @@
     "php": "^8.5",
     "php-64bit": "*",
     "ext-mbstring": "*",
-    "kumwe/localization": "0.1.0",
-    "kumwe/sequence": "0.2.0",
+    "kumwe/localization": "0.1.1",
+    "kumwe/sequence": "0.2.1",
     "psr/container": "^2.0",
     "ramsey/uuid": "^4.9"
   },
