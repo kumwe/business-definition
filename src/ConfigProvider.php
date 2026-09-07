@@ -28,7 +28,9 @@ final class ConfigProvider
                 'factories' => [
                     FieldTypeRegistry::class => FieldTypeRegistryFactory::class,
                     BusinessDefinitionValidator::class => BusinessDefinitionValidatorFactory::class,
-                    BusinessDefinitionContributionRegistry::class => BusinessDefinitionContributionRegistryFactory::class,
+                    BusinessDefinitionContributionRegistry::class
+                        => BusinessDefinitionContributionRegistryFactory::class,
+
                 ],
                 'aliases' => [FieldTypeDefinitionResolver::class => FieldTypeRegistry::class],
                 'shared' => [

@@ -1,0 +1,3536 @@
+{
+    "schema": "kumwe-business-definition-corpus/v1",
+    "profile": "kumwe.business-definition.canonical.v1",
+    "admission": "fixture-already-admitted; SDK presentation profile is host-owned",
+    "definitions": [
+        {
+            "id": "baseline-definition",
+            "definitions": [
+                {
+                    "id": "018f4f24-98d8-7ad4-8f3f-38c909178b6b",
+                    "owner": {
+                        "type": "site",
+                        "identifier": "default"
+                    },
+                    "site": "default",
+                    "handle": "site.default.asset",
+                    "singular_label": "Asset",
+                    "plural_label": "Assets",
+                    "status": "draft",
+                    "definition_version": 0,
+                    "storage_mode": "relational",
+                    "identity_strategy": "uuid",
+                    "scope": "site",
+                    "audit_enabled": true,
+                    "revisions_enabled": true,
+                    "fields": [
+                        {
+                            "handle": "id",
+                            "label": "ID",
+                            "type": "core.uuid",
+                            "required": true,
+                            "nullable": false,
+                            "unique": true,
+                            "indexed": true,
+                            "immutable_after_create": true,
+                            "server_only": true,
+                            "read_only": true
+                        },
+                        {
+                            "handle": "name",
+                            "label": "Name",
+                            "type": "core.text",
+                            "required": true,
+                            "nullable": false,
+                            "length": 160,
+                            "searchable": true,
+                            "filterable": true,
+                            "sortable": true
+                        },
+                        {
+                            "handle": "normalized_name",
+                            "label": "Normalized name",
+                            "type": "core.computed",
+                            "nullable": true,
+                            "server_only": true,
+                            "computed": true,
+                            "read_only": true,
+                            "formula": {
+                                "op": "field",
+                                "type": "string",
+                                "field": "name"
+                            }
+                        }
+                    ],
+                    "relationships": [],
+                    "views": [
+                        {
+                            "handle": "list",
+                            "label": "Assets",
+                            "kind": "list",
+                            "fields": [
+                                "name"
+                            ],
+                            "filters": [
+                                "name"
+                            ],
+                            "sorts": [
+                                "name"
+                            ],
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "handle": "archive",
+                            "label": "Archive",
+                            "capability": "content.archive",
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "workflow": null,
+                    "compatibility_metadata": [],
+                    "administrator_exposure": true,
+                    "portal_exposure": false,
+                    "public_exposure": false
+                }
+            ],
+            "expected": {
+                "definitions": [
+                    {
+                        "canonical": "{\"actions\":[{\"administrator\":true,\"bulk\":false,\"capability\":\"content.archive\",\"condition\":null,\"handle\":\"archive\",\"high_impact\":false,\"label\":\"Archive\",\"portal\":false,\"public\":false,\"transition\":null}],\"administrator_exposure\":true,\"audit_enabled\":true,\"compatibility_metadata\":[],\"definition_version\":0,\"fields\":[{\"computed\":false,\"configuration\":[],\"create_visible\":true,\"default\":null,\"description\":\"\",\"editability_condition\":null,\"exportable\":false,\"filterable\":false,\"form_group\":\"general\",\"formula\":null,\"handle\":\"id\",\"help_text\":\"\",\"immutable_after_create\":true,\"indexed\":true,\"label\":\"ID\",\"length\":null,\"localized\":false,\"normalizers\":[],\"nullable\":false,\"order\":0,\"placements\":[\"detail\",\"form\"],\"precision\":null,\"read_only\":true,\"read_visible\":true,\"reportable\":false,\"required\":true,\"scale\":null,\"searchable\":false,\"sensitivity\":\"internal\",\"server_only\":true,\"sortable\":false,\"type\":\"core.uuid\",\"unique\":true,\"update_visible\":true,\"validators\":[],\"visibility_condition\":null},{\"computed\":false,\"configuration\":[],\"create_visible\":true,\"default\":null,\"description\":\"\",\"editability_condition\":null,\"exportable\":false,\"filterable\":true,\"form_group\":\"general\",\"formula\":null,\"handle\":\"name\",\"help_text\":\"\",\"immutable_after_create\":false,\"indexed\":false,\"label\":\"Name\",\"length\":160,\"localized\":false,\"normalizers\":[],\"nullable\":false,\"order\":0,\"placements\":[\"detail\",\"form\"],\"precision\":null,\"read_only\":false,\"read_visible\":true,\"reportable\":false,\"required\":true,\"scale\":null,\"searchable\":true,\"sensitivity\":\"internal\",\"server_only\":false,\"sortable\":true,\"type\":\"core.text\",\"unique\":false,\"update_visible\":true,\"validators\":[],\"visibility_condition\":null},{\"computed\":true,\"configuration\":[],\"create_visible\":true,\"default\":null,\"description\":\"\",\"editability_condition\":null,\"exportable\":false,\"filterable\":false,\"form_group\":\"general\",\"formula\":{\"field\":\"name\",\"op\":\"field\",\"type\":\"string\"},\"handle\":\"normalized_name\",\"help_text\":\"\",\"immutable_after_create\":false,\"indexed\":false,\"label\":\"Normalized name\",\"length\":null,\"localized\":false,\"normalizers\":[],\"nullable\":true,\"order\":0,\"placements\":[\"detail\",\"form\"],\"precision\":null,\"read_only\":true,\"read_visible\":true,\"reportable\":false,\"required\":false,\"scale\":null,\"searchable\":false,\"sensitivity\":\"internal\",\"server_only\":true,\"sortable\":false,\"type\":\"core.computed\",\"unique\":false,\"update_visible\":true,\"validators\":[],\"visibility_condition\":null}],\"handle\":\"site.default.asset\",\"id\":\"018f4f24-98d8-7ad4-8f3f-38c909178b6b\",\"identity_strategy\":\"uuid\",\"owner\":{\"identifier\":\"default\",\"type\":\"site\"},\"plural_label\":\"Assets\",\"portal_exposure\":false,\"public_exposure\":false,\"relationships\":[],\"revisions_enabled\":true,\"scope\":\"site\",\"singular_label\":\"Asset\",\"site\":\"default\",\"status\":\"draft\",\"storage_mode\":\"relational\",\"views\":[{\"administrator\":true,\"fields\":[\"name\"],\"filters\":[\"name\"],\"handle\":\"list\",\"kind\":\"list\",\"label\":\"Assets\",\"portal\":false,\"public\":false,\"sorts\":[\"name\"]}],\"workflow\":null}",
+                        "checksum": "f4a2969ec31dde01d65ea8496b105c74678dfe85cd0d332a5c66338fcd6301b5"
+                    }
+                ]
+            }
+        },
+        {
+            "id": "invalid-owner",
+            "definitions": [
+                {
+                    "id": "018f4f24-98d8-7ad4-8f3f-38c909178b6b",
+                    "owner": {
+                        "type": "site",
+                        "identifier": "other"
+                    },
+                    "site": "default",
+                    "handle": "site.default.asset",
+                    "singular_label": "Asset",
+                    "plural_label": "Assets",
+                    "status": "draft",
+                    "definition_version": 0,
+                    "storage_mode": "relational",
+                    "identity_strategy": "uuid",
+                    "scope": "site",
+                    "audit_enabled": true,
+                    "revisions_enabled": true,
+                    "fields": [
+                        {
+                            "handle": "id",
+                            "label": "ID",
+                            "type": "core.uuid",
+                            "required": true,
+                            "nullable": false,
+                            "unique": true,
+                            "indexed": true,
+                            "immutable_after_create": true,
+                            "server_only": true,
+                            "read_only": true
+                        },
+                        {
+                            "handle": "name",
+                            "label": "Name",
+                            "type": "core.text",
+                            "required": true,
+                            "nullable": false,
+                            "length": 160,
+                            "searchable": true,
+                            "filterable": true,
+                            "sortable": true
+                        },
+                        {
+                            "handle": "normalized_name",
+                            "label": "Normalized name",
+                            "type": "core.computed",
+                            "nullable": true,
+                            "server_only": true,
+                            "computed": true,
+                            "read_only": true,
+                            "formula": {
+                                "op": "field",
+                                "type": "string",
+                                "field": "name"
+                            }
+                        }
+                    ],
+                    "relationships": [],
+                    "views": [
+                        {
+                            "handle": "list",
+                            "label": "Assets",
+                            "kind": "list",
+                            "fields": [
+                                "name"
+                            ],
+                            "filters": [
+                                "name"
+                            ],
+                            "sorts": [
+                                "name"
+                            ],
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "handle": "archive",
+                            "label": "Archive",
+                            "capability": "content.archive",
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "workflow": null,
+                    "compatibility_metadata": [],
+                    "administrator_exposure": true,
+                    "portal_exposure": false,
+                    "public_exposure": false
+                }
+            ],
+            "expected": {
+                "refusal": "invalid_definition",
+                "message": "Definition site.default.asset is outside the site.other owner namespace."
+            }
+        },
+        {
+            "id": "unknown-field-type",
+            "definitions": [
+                {
+                    "id": "018f4f24-98d8-7ad4-8f3f-38c909178b6b",
+                    "owner": {
+                        "type": "site",
+                        "identifier": "default"
+                    },
+                    "site": "default",
+                    "handle": "site.default.asset",
+                    "singular_label": "Asset",
+                    "plural_label": "Assets",
+                    "status": "draft",
+                    "definition_version": 0,
+                    "storage_mode": "relational",
+                    "identity_strategy": "uuid",
+                    "scope": "site",
+                    "audit_enabled": true,
+                    "revisions_enabled": true,
+                    "fields": [
+                        {
+                            "handle": "id",
+                            "label": "ID",
+                            "type": "core.uuid",
+                            "required": true,
+                            "nullable": false,
+                            "unique": true,
+                            "indexed": true,
+                            "immutable_after_create": true,
+                            "server_only": true,
+                            "read_only": true
+                        },
+                        {
+                            "handle": "name",
+                            "label": "Name",
+                            "type": "unknown.field",
+                            "required": true,
+                            "nullable": false,
+                            "length": 160,
+                            "searchable": true,
+                            "filterable": true,
+                            "sortable": true
+                        },
+                        {
+                            "handle": "normalized_name",
+                            "label": "Normalized name",
+                            "type": "core.computed",
+                            "nullable": true,
+                            "server_only": true,
+                            "computed": true,
+                            "read_only": true,
+                            "formula": {
+                                "op": "field",
+                                "type": "string",
+                                "field": "name"
+                            }
+                        }
+                    ],
+                    "relationships": [],
+                    "views": [
+                        {
+                            "handle": "list",
+                            "label": "Assets",
+                            "kind": "list",
+                            "fields": [
+                                "name"
+                            ],
+                            "filters": [
+                                "name"
+                            ],
+                            "sorts": [
+                                "name"
+                            ],
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "handle": "archive",
+                            "label": "Archive",
+                            "capability": "content.archive",
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "workflow": null,
+                    "compatibility_metadata": [],
+                    "administrator_exposure": true,
+                    "portal_exposure": false,
+                    "public_exposure": false
+                }
+            ],
+            "expected": {
+                "refusal": "invalid_definition",
+                "message": "Field type unknown.field is not active."
+            }
+        },
+        {
+            "id": "identity-not-required",
+            "definitions": [
+                {
+                    "id": "018f4f24-98d8-7ad4-8f3f-38c909178b6b",
+                    "owner": {
+                        "type": "site",
+                        "identifier": "default"
+                    },
+                    "site": "default",
+                    "handle": "site.default.asset",
+                    "singular_label": "Asset",
+                    "plural_label": "Assets",
+                    "status": "draft",
+                    "definition_version": 0,
+                    "storage_mode": "relational",
+                    "identity_strategy": "uuid",
+                    "scope": "site",
+                    "audit_enabled": true,
+                    "revisions_enabled": true,
+                    "fields": [
+                        {
+                            "handle": "id",
+                            "label": "ID",
+                            "type": "core.uuid",
+                            "required": false,
+                            "nullable": false,
+                            "unique": true,
+                            "indexed": true,
+                            "immutable_after_create": true,
+                            "server_only": true,
+                            "read_only": true
+                        },
+                        {
+                            "handle": "name",
+                            "label": "Name",
+                            "type": "core.text",
+                            "required": true,
+                            "nullable": false,
+                            "length": 160,
+                            "searchable": true,
+                            "filterable": true,
+                            "sortable": true
+                        },
+                        {
+                            "handle": "normalized_name",
+                            "label": "Normalized name",
+                            "type": "core.computed",
+                            "nullable": true,
+                            "server_only": true,
+                            "computed": true,
+                            "read_only": true,
+                            "formula": {
+                                "op": "field",
+                                "type": "string",
+                                "field": "name"
+                            }
+                        }
+                    ],
+                    "relationships": [],
+                    "views": [
+                        {
+                            "handle": "list",
+                            "label": "Assets",
+                            "kind": "list",
+                            "fields": [
+                                "name"
+                            ],
+                            "filters": [
+                                "name"
+                            ],
+                            "sorts": [
+                                "name"
+                            ],
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "handle": "archive",
+                            "label": "Archive",
+                            "capability": "content.archive",
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "workflow": null,
+                    "compatibility_metadata": [],
+                    "administrator_exposure": true,
+                    "portal_exposure": false,
+                    "public_exposure": false
+                }
+            ],
+            "expected": {
+                "refusal": "invalid_definition",
+                "message": "A business identity field must be required, non-null, unique, and immutable after creation."
+            }
+        },
+        {
+            "id": "identity-nullable",
+            "definitions": [
+                {
+                    "id": "018f4f24-98d8-7ad4-8f3f-38c909178b6b",
+                    "owner": {
+                        "type": "site",
+                        "identifier": "default"
+                    },
+                    "site": "default",
+                    "handle": "site.default.asset",
+                    "singular_label": "Asset",
+                    "plural_label": "Assets",
+                    "status": "draft",
+                    "definition_version": 0,
+                    "storage_mode": "relational",
+                    "identity_strategy": "uuid",
+                    "scope": "site",
+                    "audit_enabled": true,
+                    "revisions_enabled": true,
+                    "fields": [
+                        {
+                            "handle": "id",
+                            "label": "ID",
+                            "type": "core.uuid",
+                            "required": true,
+                            "nullable": true,
+                            "unique": true,
+                            "indexed": true,
+                            "immutable_after_create": true,
+                            "server_only": true,
+                            "read_only": true
+                        },
+                        {
+                            "handle": "name",
+                            "label": "Name",
+                            "type": "core.text",
+                            "required": true,
+                            "nullable": false,
+                            "length": 160,
+                            "searchable": true,
+                            "filterable": true,
+                            "sortable": true
+                        },
+                        {
+                            "handle": "normalized_name",
+                            "label": "Normalized name",
+                            "type": "core.computed",
+                            "nullable": true,
+                            "server_only": true,
+                            "computed": true,
+                            "read_only": true,
+                            "formula": {
+                                "op": "field",
+                                "type": "string",
+                                "field": "name"
+                            }
+                        }
+                    ],
+                    "relationships": [],
+                    "views": [
+                        {
+                            "handle": "list",
+                            "label": "Assets",
+                            "kind": "list",
+                            "fields": [
+                                "name"
+                            ],
+                            "filters": [
+                                "name"
+                            ],
+                            "sorts": [
+                                "name"
+                            ],
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "handle": "archive",
+                            "label": "Archive",
+                            "capability": "content.archive",
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "workflow": null,
+                    "compatibility_metadata": [],
+                    "administrator_exposure": true,
+                    "portal_exposure": false,
+                    "public_exposure": false
+                }
+            ],
+            "expected": {
+                "refusal": "invalid_definition",
+                "message": "A required business field cannot also be nullable."
+            }
+        },
+        {
+            "id": "secret-default-refused",
+            "definitions": [
+                {
+                    "id": "018f4f24-98d8-7ad4-8f3f-38c909178b6b",
+                    "owner": {
+                        "type": "site",
+                        "identifier": "default"
+                    },
+                    "site": "default",
+                    "handle": "site.default.asset",
+                    "singular_label": "Asset",
+                    "plural_label": "Assets",
+                    "status": "draft",
+                    "definition_version": 0,
+                    "storage_mode": "relational",
+                    "identity_strategy": "uuid",
+                    "scope": "site",
+                    "audit_enabled": true,
+                    "revisions_enabled": true,
+                    "fields": [
+                        {
+                            "handle": "id",
+                            "label": "ID",
+                            "type": "core.uuid",
+                            "required": true,
+                            "nullable": false,
+                            "unique": true,
+                            "indexed": true,
+                            "immutable_after_create": true,
+                            "server_only": true,
+                            "read_only": true
+                        },
+                        {
+                            "handle": "name",
+                            "label": "Name",
+                            "type": "core.text",
+                            "required": true,
+                            "nullable": false,
+                            "length": 160,
+                            "searchable": true,
+                            "filterable": true,
+                            "sortable": true,
+                            "sensitivity": "secret",
+                            "default": "plaintext"
+                        },
+                        {
+                            "handle": "normalized_name",
+                            "label": "Normalized name",
+                            "type": "core.computed",
+                            "nullable": true,
+                            "server_only": true,
+                            "computed": true,
+                            "read_only": true,
+                            "formula": {
+                                "op": "field",
+                                "type": "string",
+                                "field": "name"
+                            }
+                        }
+                    ],
+                    "relationships": [],
+                    "views": [
+                        {
+                            "handle": "list",
+                            "label": "Assets",
+                            "kind": "list",
+                            "fields": [
+                                "name"
+                            ],
+                            "filters": [
+                                "name"
+                            ],
+                            "sorts": [
+                                "name"
+                            ],
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "handle": "archive",
+                            "label": "Archive",
+                            "capability": "content.archive",
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "workflow": null,
+                    "compatibility_metadata": [],
+                    "administrator_exposure": true,
+                    "portal_exposure": false,
+                    "public_exposure": false
+                }
+            ],
+            "expected": {
+                "refusal": "invalid_definition",
+                "message": "A sortable business field must be read-visible and cannot contain redacted values."
+            }
+        },
+        {
+            "id": "unknown-computation-dependency",
+            "definitions": [
+                {
+                    "id": "018f4f24-98d8-7ad4-8f3f-38c909178b6b",
+                    "owner": {
+                        "type": "site",
+                        "identifier": "default"
+                    },
+                    "site": "default",
+                    "handle": "site.default.asset",
+                    "singular_label": "Asset",
+                    "plural_label": "Assets",
+                    "status": "draft",
+                    "definition_version": 0,
+                    "storage_mode": "relational",
+                    "identity_strategy": "uuid",
+                    "scope": "site",
+                    "audit_enabled": true,
+                    "revisions_enabled": true,
+                    "fields": [
+                        {
+                            "handle": "id",
+                            "label": "ID",
+                            "type": "core.uuid",
+                            "required": true,
+                            "nullable": false,
+                            "unique": true,
+                            "indexed": true,
+                            "immutable_after_create": true,
+                            "server_only": true,
+                            "read_only": true
+                        },
+                        {
+                            "handle": "name",
+                            "label": "Name",
+                            "type": "core.text",
+                            "required": true,
+                            "nullable": false,
+                            "length": 160,
+                            "searchable": true,
+                            "filterable": true,
+                            "sortable": true
+                        },
+                        {
+                            "handle": "normalized_name",
+                            "label": "Normalized name",
+                            "type": "core.computed",
+                            "nullable": true,
+                            "server_only": true,
+                            "computed": true,
+                            "read_only": true,
+                            "formula": {
+                                "op": "field",
+                                "type": "string",
+                                "field": "missing"
+                            }
+                        }
+                    ],
+                    "relationships": [],
+                    "views": [
+                        {
+                            "handle": "list",
+                            "label": "Assets",
+                            "kind": "list",
+                            "fields": [
+                                "name"
+                            ],
+                            "filters": [
+                                "name"
+                            ],
+                            "sorts": [
+                                "name"
+                            ],
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "handle": "archive",
+                            "label": "Archive",
+                            "capability": "content.archive",
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "workflow": null,
+                    "compatibility_metadata": [],
+                    "administrator_exposure": true,
+                    "portal_exposure": false,
+                    "public_exposure": false
+                }
+            ],
+            "expected": {
+                "refusal": "invalid_definition",
+                "message": "Business field normalized_name depends on missing field missing."
+            }
+        },
+        {
+            "id": "computed-cycle",
+            "definitions": [
+                {
+                    "id": "018f4f24-98d8-7ad4-8f3f-38c909178b6b",
+                    "owner": {
+                        "type": "site",
+                        "identifier": "default"
+                    },
+                    "site": "default",
+                    "handle": "site.default.asset",
+                    "singular_label": "Asset",
+                    "plural_label": "Assets",
+                    "status": "draft",
+                    "definition_version": 0,
+                    "storage_mode": "relational",
+                    "identity_strategy": "uuid",
+                    "scope": "site",
+                    "audit_enabled": true,
+                    "revisions_enabled": true,
+                    "fields": [
+                        {
+                            "handle": "id",
+                            "label": "ID",
+                            "type": "core.uuid",
+                            "required": true,
+                            "nullable": false,
+                            "unique": true,
+                            "indexed": true,
+                            "immutable_after_create": true,
+                            "server_only": true,
+                            "read_only": true
+                        },
+                        {
+                            "handle": "name",
+                            "label": "Name",
+                            "type": "core.text",
+                            "required": true,
+                            "nullable": false,
+                            "length": 160,
+                            "searchable": true,
+                            "filterable": true,
+                            "sortable": true
+                        },
+                        {
+                            "handle": "normalized_name",
+                            "label": "Normalized name",
+                            "type": "core.computed",
+                            "nullable": true,
+                            "server_only": true,
+                            "computed": true,
+                            "read_only": true,
+                            "formula": {
+                                "op": "field",
+                                "type": "string",
+                                "field": "normalized_name"
+                            }
+                        }
+                    ],
+                    "relationships": [],
+                    "views": [
+                        {
+                            "handle": "list",
+                            "label": "Assets",
+                            "kind": "list",
+                            "fields": [
+                                "name"
+                            ],
+                            "filters": [
+                                "name"
+                            ],
+                            "sorts": [
+                                "name"
+                            ],
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "handle": "archive",
+                            "label": "Archive",
+                            "capability": "content.archive",
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "workflow": null,
+                    "compatibility_metadata": [],
+                    "administrator_exposure": true,
+                    "portal_exposure": false,
+                    "public_exposure": false
+                }
+            ],
+            "expected": {
+                "refusal": "invalid_definition",
+                "message": "A business field dependency cycle was detected at normalized_name."
+            }
+        },
+        {
+            "id": "oversized-length",
+            "definitions": [
+                {
+                    "id": "018f4f24-98d8-7ad4-8f3f-38c909178b6b",
+                    "owner": {
+                        "type": "site",
+                        "identifier": "default"
+                    },
+                    "site": "default",
+                    "handle": "site.default.asset",
+                    "singular_label": "Asset",
+                    "plural_label": "Assets",
+                    "status": "draft",
+                    "definition_version": 0,
+                    "storage_mode": "relational",
+                    "identity_strategy": "uuid",
+                    "scope": "site",
+                    "audit_enabled": true,
+                    "revisions_enabled": true,
+                    "fields": [
+                        {
+                            "handle": "id",
+                            "label": "ID",
+                            "type": "core.uuid",
+                            "required": true,
+                            "nullable": false,
+                            "unique": true,
+                            "indexed": true,
+                            "immutable_after_create": true,
+                            "server_only": true,
+                            "read_only": true
+                        },
+                        {
+                            "handle": "name",
+                            "label": "Name",
+                            "type": "core.text",
+                            "required": true,
+                            "nullable": false,
+                            "length": 100000,
+                            "searchable": true,
+                            "filterable": true,
+                            "sortable": true
+                        },
+                        {
+                            "handle": "normalized_name",
+                            "label": "Normalized name",
+                            "type": "core.computed",
+                            "nullable": true,
+                            "server_only": true,
+                            "computed": true,
+                            "read_only": true,
+                            "formula": {
+                                "op": "field",
+                                "type": "string",
+                                "field": "name"
+                            }
+                        }
+                    ],
+                    "relationships": [],
+                    "views": [
+                        {
+                            "handle": "list",
+                            "label": "Assets",
+                            "kind": "list",
+                            "fields": [
+                                "name"
+                            ],
+                            "filters": [
+                                "name"
+                            ],
+                            "sorts": [
+                                "name"
+                            ],
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "handle": "archive",
+                            "label": "Archive",
+                            "capability": "content.archive",
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "workflow": null,
+                    "compatibility_metadata": [],
+                    "administrator_exposure": true,
+                    "portal_exposure": false,
+                    "public_exposure": false
+                }
+            ],
+            "expected": {
+                "refusal": "invalid_definition",
+                "message": "Business field name length exceeds its portable physical storage limit of 1000."
+            }
+        },
+        {
+            "id": "unknown-view-field",
+            "definitions": [
+                {
+                    "id": "018f4f24-98d8-7ad4-8f3f-38c909178b6b",
+                    "owner": {
+                        "type": "site",
+                        "identifier": "default"
+                    },
+                    "site": "default",
+                    "handle": "site.default.asset",
+                    "singular_label": "Asset",
+                    "plural_label": "Assets",
+                    "status": "draft",
+                    "definition_version": 0,
+                    "storage_mode": "relational",
+                    "identity_strategy": "uuid",
+                    "scope": "site",
+                    "audit_enabled": true,
+                    "revisions_enabled": true,
+                    "fields": [
+                        {
+                            "handle": "id",
+                            "label": "ID",
+                            "type": "core.uuid",
+                            "required": true,
+                            "nullable": false,
+                            "unique": true,
+                            "indexed": true,
+                            "immutable_after_create": true,
+                            "server_only": true,
+                            "read_only": true
+                        },
+                        {
+                            "handle": "name",
+                            "label": "Name",
+                            "type": "core.text",
+                            "required": true,
+                            "nullable": false,
+                            "length": 160,
+                            "searchable": true,
+                            "filterable": true,
+                            "sortable": true
+                        },
+                        {
+                            "handle": "normalized_name",
+                            "label": "Normalized name",
+                            "type": "core.computed",
+                            "nullable": true,
+                            "server_only": true,
+                            "computed": true,
+                            "read_only": true,
+                            "formula": {
+                                "op": "field",
+                                "type": "string",
+                                "field": "name"
+                            }
+                        }
+                    ],
+                    "relationships": [],
+                    "views": [
+                        {
+                            "handle": "list",
+                            "label": "Assets",
+                            "kind": "list",
+                            "fields": [
+                                "name",
+                                "missing"
+                            ],
+                            "filters": [
+                                "name"
+                            ],
+                            "sorts": [
+                                "name"
+                            ],
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "handle": "archive",
+                            "label": "Archive",
+                            "capability": "content.archive",
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "workflow": null,
+                    "compatibility_metadata": [],
+                    "administrator_exposure": true,
+                    "portal_exposure": false,
+                    "public_exposure": false
+                }
+            ],
+            "expected": {
+                "refusal": "invalid_definition",
+                "message": "A business view references missing field missing."
+            }
+        },
+        {
+            "id": "unknown-portal-operation",
+            "definitions": [
+                {
+                    "id": "018f4f24-98d8-7ad4-8f3f-38c909178b6b",
+                    "owner": {
+                        "type": "site",
+                        "identifier": "default"
+                    },
+                    "site": "default",
+                    "handle": "site.default.asset",
+                    "singular_label": "Asset",
+                    "plural_label": "Assets",
+                    "status": "draft",
+                    "definition_version": 0,
+                    "storage_mode": "relational",
+                    "identity_strategy": "uuid",
+                    "scope": "site",
+                    "audit_enabled": true,
+                    "revisions_enabled": true,
+                    "fields": [
+                        {
+                            "handle": "id",
+                            "label": "ID",
+                            "type": "core.uuid",
+                            "required": true,
+                            "nullable": false,
+                            "unique": true,
+                            "indexed": true,
+                            "immutable_after_create": true,
+                            "server_only": true,
+                            "read_only": true
+                        },
+                        {
+                            "handle": "name",
+                            "label": "Name",
+                            "type": "core.text",
+                            "required": true,
+                            "nullable": false,
+                            "length": 160,
+                            "searchable": true,
+                            "filterable": true,
+                            "sortable": true
+                        },
+                        {
+                            "handle": "normalized_name",
+                            "label": "Normalized name",
+                            "type": "core.computed",
+                            "nullable": true,
+                            "server_only": true,
+                            "computed": true,
+                            "read_only": true,
+                            "formula": {
+                                "op": "field",
+                                "type": "string",
+                                "field": "name"
+                            }
+                        }
+                    ],
+                    "relationships": [],
+                    "views": [
+                        {
+                            "handle": "list",
+                            "label": "Assets",
+                            "kind": "list",
+                            "fields": [
+                                "name"
+                            ],
+                            "filters": [
+                                "name"
+                            ],
+                            "sorts": [
+                                "name"
+                            ],
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "handle": "archive",
+                            "label": "Archive",
+                            "capability": "content.archive",
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "workflow": null,
+                    "compatibility_metadata": [],
+                    "administrator_exposure": true,
+                    "portal_exposure": false,
+                    "public_exposure": false,
+                    "portal_operations": [
+                        "execute_php"
+                    ]
+                }
+            ],
+            "expected": {
+                "refusal": "invalid_definition",
+                "message": "A portal operation is invalid."
+            }
+        },
+        {
+            "id": "bad-sequence-scope",
+            "definitions": [
+                {
+                    "id": "018f4f24-98d8-7ad4-8f3f-38c909178b6b",
+                    "owner": {
+                        "type": "site",
+                        "identifier": "default"
+                    },
+                    "site": "default",
+                    "handle": "site.default.asset",
+                    "singular_label": "Asset",
+                    "plural_label": "Assets",
+                    "status": "draft",
+                    "definition_version": 0,
+                    "storage_mode": "relational",
+                    "identity_strategy": "uuid",
+                    "scope": "site",
+                    "audit_enabled": true,
+                    "revisions_enabled": true,
+                    "fields": [
+                        {
+                            "handle": "id",
+                            "label": "ID",
+                            "type": "core.uuid",
+                            "required": true,
+                            "nullable": false,
+                            "unique": true,
+                            "indexed": true,
+                            "immutable_after_create": true,
+                            "server_only": true,
+                            "read_only": true
+                        },
+                        {
+                            "handle": "name",
+                            "label": "Name",
+                            "type": "core.sequence",
+                            "required": true,
+                            "nullable": false,
+                            "length": 160,
+                            "searchable": true,
+                            "filterable": true,
+                            "sortable": true,
+                            "configuration": {
+                                "scope": "organization"
+                            }
+                        },
+                        {
+                            "handle": "normalized_name",
+                            "label": "Normalized name",
+                            "type": "core.computed",
+                            "nullable": true,
+                            "server_only": true,
+                            "computed": true,
+                            "read_only": true,
+                            "formula": {
+                                "op": "field",
+                                "type": "string",
+                                "field": "name"
+                            }
+                        }
+                    ],
+                    "relationships": [],
+                    "views": [
+                        {
+                            "handle": "list",
+                            "label": "Assets",
+                            "kind": "list",
+                            "fields": [
+                                "name"
+                            ],
+                            "filters": [
+                                "name"
+                            ],
+                            "sorts": [
+                                "name"
+                            ],
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "handle": "archive",
+                            "label": "Archive",
+                            "capability": "content.archive",
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "workflow": null,
+                    "compatibility_metadata": [],
+                    "administrator_exposure": true,
+                    "portal_exposure": false,
+                    "public_exposure": false
+                }
+            ],
+            "expected": {
+                "refusal": "invalid_definition",
+                "message": "Business field name length exceeds its portable physical storage limit of 36."
+            }
+        },
+        {
+            "id": "dangling-relationship",
+            "definitions": [
+                {
+                    "id": "018f4f24-98d8-7ad4-8f3f-38c909178b6b",
+                    "owner": {
+                        "type": "site",
+                        "identifier": "default"
+                    },
+                    "site": "default",
+                    "handle": "site.default.asset",
+                    "singular_label": "Asset",
+                    "plural_label": "Assets",
+                    "status": "draft",
+                    "definition_version": 0,
+                    "storage_mode": "relational",
+                    "identity_strategy": "uuid",
+                    "scope": "site",
+                    "audit_enabled": true,
+                    "revisions_enabled": true,
+                    "fields": [
+                        {
+                            "handle": "id",
+                            "label": "ID",
+                            "type": "core.uuid",
+                            "required": true,
+                            "nullable": false,
+                            "unique": true,
+                            "indexed": true,
+                            "immutable_after_create": true,
+                            "server_only": true,
+                            "read_only": true
+                        },
+                        {
+                            "handle": "name",
+                            "label": "Name",
+                            "type": "core.text",
+                            "required": true,
+                            "nullable": false,
+                            "length": 160,
+                            "searchable": true,
+                            "filterable": true,
+                            "sortable": true
+                        },
+                        {
+                            "handle": "normalized_name",
+                            "label": "Normalized name",
+                            "type": "core.computed",
+                            "nullable": true,
+                            "server_only": true,
+                            "computed": true,
+                            "read_only": true,
+                            "formula": {
+                                "op": "field",
+                                "type": "string",
+                                "field": "name"
+                            }
+                        }
+                    ],
+                    "relationships": [
+                        {
+                            "handle": "parent",
+                            "kind": "many_to_one",
+                            "target": "site.default.missing",
+                            "inverse": null,
+                            "required": false,
+                            "delete_behavior": "restrict"
+                        }
+                    ],
+                    "views": [
+                        {
+                            "handle": "list",
+                            "label": "Assets",
+                            "kind": "list",
+                            "fields": [
+                                "name"
+                            ],
+                            "filters": [
+                                "name"
+                            ],
+                            "sorts": [
+                                "name"
+                            ],
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "handle": "archive",
+                            "label": "Archive",
+                            "capability": "content.archive",
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "workflow": null,
+                    "compatibility_metadata": [],
+                    "administrator_exposure": true,
+                    "portal_exposure": false,
+                    "public_exposure": false
+                }
+            ],
+            "expected": {
+                "refusal": "invalid_definition",
+                "message": "A relationship contains an unknown property."
+            }
+        },
+        {
+            "id": "canonical-translations",
+            "definitions": [
+                {
+                    "id": "018f4f24-98d8-7ad4-8f3f-38c909178b6b",
+                    "owner": {
+                        "type": "site",
+                        "identifier": "default"
+                    },
+                    "site": "default",
+                    "handle": "site.default.asset",
+                    "singular_label": "Asset",
+                    "plural_label": "Assets",
+                    "status": "draft",
+                    "definition_version": 0,
+                    "storage_mode": "relational",
+                    "identity_strategy": "uuid",
+                    "scope": "site",
+                    "audit_enabled": true,
+                    "revisions_enabled": true,
+                    "fields": [
+                        {
+                            "handle": "id",
+                            "label": "ID",
+                            "type": "core.uuid",
+                            "required": true,
+                            "nullable": false,
+                            "unique": true,
+                            "indexed": true,
+                            "immutable_after_create": true,
+                            "server_only": true,
+                            "read_only": true
+                        },
+                        {
+                            "handle": "name",
+                            "label": "Name",
+                            "type": "core.text",
+                            "required": true,
+                            "nullable": false,
+                            "length": 160,
+                            "searchable": true,
+                            "filterable": true,
+                            "sortable": true
+                        },
+                        {
+                            "handle": "normalized_name",
+                            "label": "Normalized name",
+                            "type": "core.computed",
+                            "nullable": true,
+                            "server_only": true,
+                            "computed": true,
+                            "read_only": true,
+                            "formula": {
+                                "op": "field",
+                                "type": "string",
+                                "field": "name"
+                            }
+                        }
+                    ],
+                    "relationships": [],
+                    "views": [
+                        {
+                            "handle": "list",
+                            "label": "Assets",
+                            "kind": "list",
+                            "fields": [
+                                "name"
+                            ],
+                            "filters": [
+                                "name"
+                            ],
+                            "sorts": [
+                                "name"
+                            ],
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "handle": "archive",
+                            "label": "Archive",
+                            "capability": "content.archive",
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "workflow": null,
+                    "compatibility_metadata": [],
+                    "administrator_exposure": true,
+                    "portal_exposure": false,
+                    "public_exposure": false,
+                    "translations": {
+                        "singular_label": {
+                            "fr": "Actif",
+                            "en": "Asset"
+                        }
+                    }
+                }
+            ],
+            "expected": {
+                "refusal": "invalid_definition",
+                "message": "A business entity definition contains an unknown property."
+            }
+        },
+        {
+            "id": "unknown-field-key",
+            "definitions": [
+                {
+                    "id": "018f4f24-98d8-7ad4-8f3f-38c909178b6b",
+                    "owner": {
+                        "type": "site",
+                        "identifier": "default"
+                    },
+                    "site": "default",
+                    "handle": "site.default.asset",
+                    "singular_label": "Asset",
+                    "plural_label": "Assets",
+                    "status": "draft",
+                    "definition_version": 0,
+                    "storage_mode": "relational",
+                    "identity_strategy": "uuid",
+                    "scope": "site",
+                    "audit_enabled": true,
+                    "revisions_enabled": true,
+                    "fields": [
+                        {
+                            "handle": "id",
+                            "label": "ID",
+                            "type": "core.uuid",
+                            "required": true,
+                            "nullable": false,
+                            "unique": true,
+                            "indexed": true,
+                            "immutable_after_create": true,
+                            "server_only": true,
+                            "read_only": true
+                        },
+                        {
+                            "handle": "name",
+                            "label": "Name",
+                            "type": "core.text",
+                            "required": true,
+                            "nullable": false,
+                            "length": 160,
+                            "searchable": true,
+                            "filterable": true,
+                            "sortable": true,
+                            "configuration": {
+                                "unknown": "x"
+                            }
+                        },
+                        {
+                            "handle": "normalized_name",
+                            "label": "Normalized name",
+                            "type": "core.computed",
+                            "nullable": true,
+                            "server_only": true,
+                            "computed": true,
+                            "read_only": true,
+                            "formula": {
+                                "op": "field",
+                                "type": "string",
+                                "field": "name"
+                            }
+                        }
+                    ],
+                    "relationships": [],
+                    "views": [
+                        {
+                            "handle": "list",
+                            "label": "Assets",
+                            "kind": "list",
+                            "fields": [
+                                "name"
+                            ],
+                            "filters": [
+                                "name"
+                            ],
+                            "sorts": [
+                                "name"
+                            ],
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "handle": "archive",
+                            "label": "Archive",
+                            "capability": "content.archive",
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "workflow": null,
+                    "compatibility_metadata": [],
+                    "administrator_exposure": true,
+                    "portal_exposure": false,
+                    "public_exposure": false
+                }
+            ],
+            "expected": {
+                "refusal": "invalid_definition",
+                "message": "Business field name has unsupported unknown configuration."
+            }
+        },
+        {
+            "id": "empty-graph",
+            "definitions": [],
+            "expected": {
+                "refusal": "invalid_definition",
+                "message": "A business definition graph is empty or unbounded."
+            }
+        },
+        {
+            "id": "duplicate-graph-handle",
+            "definitions": [
+                {
+                    "id": "018f4f24-98d8-7ad4-8f3f-38c909178b6b",
+                    "owner": {
+                        "type": "site",
+                        "identifier": "default"
+                    },
+                    "site": "default",
+                    "handle": "site.default.asset",
+                    "singular_label": "Asset",
+                    "plural_label": "Assets",
+                    "status": "draft",
+                    "definition_version": 0,
+                    "storage_mode": "relational",
+                    "identity_strategy": "uuid",
+                    "scope": "site",
+                    "audit_enabled": true,
+                    "revisions_enabled": true,
+                    "fields": [
+                        {
+                            "handle": "id",
+                            "label": "ID",
+                            "type": "core.uuid",
+                            "required": true,
+                            "nullable": false,
+                            "unique": true,
+                            "indexed": true,
+                            "immutable_after_create": true,
+                            "server_only": true,
+                            "read_only": true
+                        },
+                        {
+                            "handle": "name",
+                            "label": "Name",
+                            "type": "core.text",
+                            "required": true,
+                            "nullable": false,
+                            "length": 160,
+                            "searchable": true,
+                            "filterable": true,
+                            "sortable": true
+                        },
+                        {
+                            "handle": "normalized_name",
+                            "label": "Normalized name",
+                            "type": "core.computed",
+                            "nullable": true,
+                            "server_only": true,
+                            "computed": true,
+                            "read_only": true,
+                            "formula": {
+                                "op": "field",
+                                "type": "string",
+                                "field": "name"
+                            }
+                        }
+                    ],
+                    "relationships": [],
+                    "views": [
+                        {
+                            "handle": "list",
+                            "label": "Assets",
+                            "kind": "list",
+                            "fields": [
+                                "name"
+                            ],
+                            "filters": [
+                                "name"
+                            ],
+                            "sorts": [
+                                "name"
+                            ],
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "handle": "archive",
+                            "label": "Archive",
+                            "capability": "content.archive",
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "workflow": null,
+                    "compatibility_metadata": [],
+                    "administrator_exposure": true,
+                    "portal_exposure": false,
+                    "public_exposure": false
+                },
+                {
+                    "id": "018f4f24-98d8-7ad4-8f3f-38c909178b6b",
+                    "owner": {
+                        "type": "site",
+                        "identifier": "default"
+                    },
+                    "site": "default",
+                    "handle": "site.default.asset",
+                    "singular_label": "Asset",
+                    "plural_label": "Assets",
+                    "status": "draft",
+                    "definition_version": 0,
+                    "storage_mode": "relational",
+                    "identity_strategy": "uuid",
+                    "scope": "site",
+                    "audit_enabled": true,
+                    "revisions_enabled": true,
+                    "fields": [
+                        {
+                            "handle": "id",
+                            "label": "ID",
+                            "type": "core.uuid",
+                            "required": true,
+                            "nullable": false,
+                            "unique": true,
+                            "indexed": true,
+                            "immutable_after_create": true,
+                            "server_only": true,
+                            "read_only": true
+                        },
+                        {
+                            "handle": "name",
+                            "label": "Name",
+                            "type": "core.text",
+                            "required": true,
+                            "nullable": false,
+                            "length": 160,
+                            "searchable": true,
+                            "filterable": true,
+                            "sortable": true
+                        },
+                        {
+                            "handle": "normalized_name",
+                            "label": "Normalized name",
+                            "type": "core.computed",
+                            "nullable": true,
+                            "server_only": true,
+                            "computed": true,
+                            "read_only": true,
+                            "formula": {
+                                "op": "field",
+                                "type": "string",
+                                "field": "name"
+                            }
+                        }
+                    ],
+                    "relationships": [],
+                    "views": [
+                        {
+                            "handle": "list",
+                            "label": "Assets",
+                            "kind": "list",
+                            "fields": [
+                                "name"
+                            ],
+                            "filters": [
+                                "name"
+                            ],
+                            "sorts": [
+                                "name"
+                            ],
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "handle": "archive",
+                            "label": "Archive",
+                            "capability": "content.archive",
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "workflow": null,
+                    "compatibility_metadata": [],
+                    "administrator_exposure": true,
+                    "portal_exposure": false,
+                    "public_exposure": false
+                }
+            ],
+            "expected": {
+                "refusal": "invalid_definition",
+                "message": "Business entity site.default.asset is duplicated."
+            }
+        },
+        {
+            "id": "first-finding-input-order",
+            "definitions": [
+                {
+                    "id": "018f4f24-98d8-7ad4-8f3f-38c909178b6b",
+                    "owner": {
+                        "type": "site",
+                        "identifier": "default"
+                    },
+                    "site": "default",
+                    "handle": "bad",
+                    "singular_label": "Asset",
+                    "plural_label": "Assets",
+                    "status": "draft",
+                    "definition_version": 0,
+                    "storage_mode": "relational",
+                    "identity_strategy": "uuid",
+                    "scope": "site",
+                    "audit_enabled": true,
+                    "revisions_enabled": true,
+                    "fields": [
+                        {
+                            "handle": "id",
+                            "label": "ID",
+                            "type": "core.uuid",
+                            "required": true,
+                            "nullable": false,
+                            "unique": true,
+                            "indexed": true,
+                            "immutable_after_create": true,
+                            "server_only": true,
+                            "read_only": true
+                        },
+                        {
+                            "handle": "name",
+                            "label": "Name",
+                            "type": "core.text",
+                            "required": true,
+                            "nullable": false,
+                            "length": 160,
+                            "searchable": true,
+                            "filterable": true,
+                            "sortable": true
+                        },
+                        {
+                            "handle": "normalized_name",
+                            "label": "Normalized name",
+                            "type": "core.computed",
+                            "nullable": true,
+                            "server_only": true,
+                            "computed": true,
+                            "read_only": true,
+                            "formula": {
+                                "op": "field",
+                                "type": "string",
+                                "field": "name"
+                            }
+                        }
+                    ],
+                    "relationships": [],
+                    "views": [
+                        {
+                            "handle": "list",
+                            "label": "Assets",
+                            "kind": "list",
+                            "fields": [
+                                "name"
+                            ],
+                            "filters": [
+                                "name"
+                            ],
+                            "sorts": [
+                                "name"
+                            ],
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "handle": "archive",
+                            "label": "Archive",
+                            "capability": "content.archive",
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "workflow": null,
+                    "compatibility_metadata": [],
+                    "administrator_exposure": true,
+                    "portal_exposure": false,
+                    "public_exposure": false
+                },
+                {
+                    "id": "invalid",
+                    "owner": {
+                        "type": "site",
+                        "identifier": "default"
+                    },
+                    "site": "default",
+                    "handle": "site.default.asset",
+                    "singular_label": "Asset",
+                    "plural_label": "Assets",
+                    "status": "draft",
+                    "definition_version": 0,
+                    "storage_mode": "relational",
+                    "identity_strategy": "uuid",
+                    "scope": "site",
+                    "audit_enabled": true,
+                    "revisions_enabled": true,
+                    "fields": [
+                        {
+                            "handle": "id",
+                            "label": "ID",
+                            "type": "core.uuid",
+                            "required": true,
+                            "nullable": false,
+                            "unique": true,
+                            "indexed": true,
+                            "immutable_after_create": true,
+                            "server_only": true,
+                            "read_only": true
+                        },
+                        {
+                            "handle": "name",
+                            "label": "Name",
+                            "type": "core.text",
+                            "required": true,
+                            "nullable": false,
+                            "length": 160,
+                            "searchable": true,
+                            "filterable": true,
+                            "sortable": true
+                        },
+                        {
+                            "handle": "normalized_name",
+                            "label": "Normalized name",
+                            "type": "core.computed",
+                            "nullable": true,
+                            "server_only": true,
+                            "computed": true,
+                            "read_only": true,
+                            "formula": {
+                                "op": "field",
+                                "type": "string",
+                                "field": "name"
+                            }
+                        }
+                    ],
+                    "relationships": [],
+                    "views": [
+                        {
+                            "handle": "list",
+                            "label": "Assets",
+                            "kind": "list",
+                            "fields": [
+                                "name"
+                            ],
+                            "filters": [
+                                "name"
+                            ],
+                            "sorts": [
+                                "name"
+                            ],
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "handle": "archive",
+                            "label": "Archive",
+                            "capability": "content.archive",
+                            "administrator": true,
+                            "portal": false,
+                            "public": false
+                        }
+                    ],
+                    "workflow": null,
+                    "compatibility_metadata": [],
+                    "administrator_exposure": true,
+                    "portal_exposure": false,
+                    "public_exposure": false
+                }
+            ],
+            "expected": {
+                "refusal": "invalid_definition",
+                "message": "A business entity handle must be a stable namespaced identifier."
+            }
+        }
+    ],
+    "compatibility": [
+        {
+            "id": "initial",
+            "before": null,
+            "after": {
+                "id": "018f4f24-98d8-7ad4-8f3f-38c909178b6b",
+                "owner": {
+                    "type": "site",
+                    "identifier": "default"
+                },
+                "site": "default",
+                "handle": "site.default.asset",
+                "singular_label": "Asset",
+                "plural_label": "Assets",
+                "status": "draft",
+                "definition_version": 0,
+                "storage_mode": "relational",
+                "identity_strategy": "uuid",
+                "scope": "site",
+                "audit_enabled": true,
+                "revisions_enabled": true,
+                "fields": [
+                    {
+                        "handle": "id",
+                        "label": "ID",
+                        "type": "core.uuid",
+                        "required": true,
+                        "nullable": false,
+                        "unique": true,
+                        "indexed": true,
+                        "immutable_after_create": true,
+                        "server_only": true,
+                        "read_only": true
+                    },
+                    {
+                        "handle": "name",
+                        "label": "Name",
+                        "type": "core.text",
+                        "required": true,
+                        "nullable": false,
+                        "length": 160,
+                        "searchable": true,
+                        "filterable": true,
+                        "sortable": true
+                    },
+                    {
+                        "handle": "normalized_name",
+                        "label": "Normalized name",
+                        "type": "core.computed",
+                        "nullable": true,
+                        "server_only": true,
+                        "computed": true,
+                        "read_only": true,
+                        "formula": {
+                            "op": "field",
+                            "type": "string",
+                            "field": "name"
+                        }
+                    }
+                ],
+                "relationships": [],
+                "views": [
+                    {
+                        "handle": "list",
+                        "label": "Assets",
+                        "kind": "list",
+                        "fields": [
+                            "name"
+                        ],
+                        "filters": [
+                            "name"
+                        ],
+                        "sorts": [
+                            "name"
+                        ],
+                        "administrator": true,
+                        "portal": false,
+                        "public": false
+                    }
+                ],
+                "actions": [
+                    {
+                        "handle": "archive",
+                        "label": "Archive",
+                        "capability": "content.archive",
+                        "administrator": true,
+                        "portal": false,
+                        "public": false
+                    }
+                ],
+                "workflow": null,
+                "compatibility_metadata": [],
+                "administrator_exposure": true,
+                "portal_exposure": false,
+                "public_exposure": false
+            },
+            "expected": {
+                "from_version": null,
+                "to_version": 1,
+                "from_checksum": null,
+                "to_checksum": "c1b1f947bf09080460cf7bad3cf26e4f28fd03fb95434c7cdfc7880ffb9d17cf",
+                "requires_confirmation": false,
+                "destructive": false,
+                "changes": [
+                    {
+                        "path": "/definition",
+                        "classification": "additive",
+                        "message": "Create the first published definition version."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "unchanged",
+            "before": {
+                "id": "018f4f24-98d8-7ad4-8f3f-38c909178b6b",
+                "owner": {
+                    "type": "site",
+                    "identifier": "default"
+                },
+                "site": "default",
+                "handle": "site.default.asset",
+                "singular_label": "Asset",
+                "plural_label": "Assets",
+                "status": "published",
+                "definition_version": 1,
+                "storage_mode": "relational",
+                "identity_strategy": "uuid",
+                "scope": "site",
+                "audit_enabled": true,
+                "revisions_enabled": true,
+                "fields": [
+                    {
+                        "handle": "id",
+                        "label": "ID",
+                        "type": "core.uuid",
+                        "description": "",
+                        "required": true,
+                        "nullable": false,
+                        "default": null,
+                        "length": null,
+                        "precision": null,
+                        "scale": null,
+                        "configuration": [],
+                        "normalizers": [],
+                        "validators": [],
+                        "unique": true,
+                        "indexed": true,
+                        "immutable_after_create": true,
+                        "server_only": true,
+                        "computed": false,
+                        "read_only": true,
+                        "create_visible": true,
+                        "update_visible": true,
+                        "read_visible": true,
+                        "searchable": false,
+                        "filterable": false,
+                        "sortable": false,
+                        "reportable": false,
+                        "exportable": false,
+                        "sensitivity": "internal",
+                        "localized": false,
+                        "help_text": "",
+                        "form_group": "general",
+                        "order": 0,
+                        "placements": [
+                            "detail",
+                            "form"
+                        ],
+                        "visibility_condition": null,
+                        "editability_condition": null,
+                        "formula": null
+                    },
+                    {
+                        "handle": "name",
+                        "label": "Name",
+                        "type": "core.text",
+                        "description": "",
+                        "required": true,
+                        "nullable": false,
+                        "default": null,
+                        "length": 160,
+                        "precision": null,
+                        "scale": null,
+                        "configuration": [],
+                        "normalizers": [],
+                        "validators": [],
+                        "unique": false,
+                        "indexed": false,
+                        "immutable_after_create": false,
+                        "server_only": false,
+                        "computed": false,
+                        "read_only": false,
+                        "create_visible": true,
+                        "update_visible": true,
+                        "read_visible": true,
+                        "searchable": true,
+                        "filterable": true,
+                        "sortable": true,
+                        "reportable": false,
+                        "exportable": false,
+                        "sensitivity": "internal",
+                        "localized": false,
+                        "help_text": "",
+                        "form_group": "general",
+                        "order": 0,
+                        "placements": [
+                            "detail",
+                            "form"
+                        ],
+                        "visibility_condition": null,
+                        "editability_condition": null,
+                        "formula": null
+                    },
+                    {
+                        "handle": "normalized_name",
+                        "label": "Normalized name",
+                        "type": "core.computed",
+                        "description": "",
+                        "required": false,
+                        "nullable": true,
+                        "default": null,
+                        "length": null,
+                        "precision": null,
+                        "scale": null,
+                        "configuration": [],
+                        "normalizers": [],
+                        "validators": [],
+                        "unique": false,
+                        "indexed": false,
+                        "immutable_after_create": false,
+                        "server_only": true,
+                        "computed": true,
+                        "read_only": true,
+                        "create_visible": true,
+                        "update_visible": true,
+                        "read_visible": true,
+                        "searchable": false,
+                        "filterable": false,
+                        "sortable": false,
+                        "reportable": false,
+                        "exportable": false,
+                        "sensitivity": "internal",
+                        "localized": false,
+                        "help_text": "",
+                        "form_group": "general",
+                        "order": 0,
+                        "placements": [
+                            "detail",
+                            "form"
+                        ],
+                        "visibility_condition": null,
+                        "editability_condition": null,
+                        "formula": {
+                            "op": "field",
+                            "type": "string",
+                            "field": "name"
+                        }
+                    }
+                ],
+                "relationships": [],
+                "views": [
+                    {
+                        "handle": "list",
+                        "label": "Assets",
+                        "kind": "list",
+                        "fields": [
+                            "name"
+                        ],
+                        "filters": [
+                            "name"
+                        ],
+                        "sorts": [
+                            "name"
+                        ],
+                        "administrator": true,
+                        "portal": false,
+                        "public": false
+                    }
+                ],
+                "actions": [
+                    {
+                        "handle": "archive",
+                        "label": "Archive",
+                        "capability": "content.archive",
+                        "bulk": false,
+                        "administrator": true,
+                        "portal": false,
+                        "public": false,
+                        "high_impact": false,
+                        "condition": null,
+                        "transition": null
+                    }
+                ],
+                "workflow": null,
+                "compatibility_metadata": [],
+                "administrator_exposure": true,
+                "portal_exposure": false,
+                "public_exposure": false
+            },
+            "after": {
+                "id": "018f4f24-98d8-7ad4-8f3f-38c909178b6b",
+                "owner": {
+                    "type": "site",
+                    "identifier": "default"
+                },
+                "site": "default",
+                "handle": "site.default.asset",
+                "singular_label": "Asset",
+                "plural_label": "Assets",
+                "status": "draft",
+                "definition_version": 0,
+                "storage_mode": "relational",
+                "identity_strategy": "uuid",
+                "scope": "site",
+                "audit_enabled": true,
+                "revisions_enabled": true,
+                "fields": [
+                    {
+                        "handle": "id",
+                        "label": "ID",
+                        "type": "core.uuid",
+                        "required": true,
+                        "nullable": false,
+                        "unique": true,
+                        "indexed": true,
+                        "immutable_after_create": true,
+                        "server_only": true,
+                        "read_only": true
+                    },
+                    {
+                        "handle": "name",
+                        "label": "Name",
+                        "type": "core.text",
+                        "required": true,
+                        "nullable": false,
+                        "length": 160,
+                        "searchable": true,
+                        "filterable": true,
+                        "sortable": true
+                    },
+                    {
+                        "handle": "normalized_name",
+                        "label": "Normalized name",
+                        "type": "core.computed",
+                        "nullable": true,
+                        "server_only": true,
+                        "computed": true,
+                        "read_only": true,
+                        "formula": {
+                            "op": "field",
+                            "type": "string",
+                            "field": "name"
+                        }
+                    }
+                ],
+                "relationships": [],
+                "views": [
+                    {
+                        "handle": "list",
+                        "label": "Assets",
+                        "kind": "list",
+                        "fields": [
+                            "name"
+                        ],
+                        "filters": [
+                            "name"
+                        ],
+                        "sorts": [
+                            "name"
+                        ],
+                        "administrator": true,
+                        "portal": false,
+                        "public": false
+                    }
+                ],
+                "actions": [
+                    {
+                        "handle": "archive",
+                        "label": "Archive",
+                        "capability": "content.archive",
+                        "administrator": true,
+                        "portal": false,
+                        "public": false
+                    }
+                ],
+                "workflow": null,
+                "compatibility_metadata": [],
+                "administrator_exposure": true,
+                "portal_exposure": false,
+                "public_exposure": false
+            },
+            "expected": {
+                "from_version": 1,
+                "to_version": 2,
+                "from_checksum": "c1b1f947bf09080460cf7bad3cf26e4f28fd03fb95434c7cdfc7880ffb9d17cf",
+                "to_checksum": "ead3e716d8244d44e4c72921fbecf0ecc1be87bc3640ed085de82b5bac4a5fed",
+                "requires_confirmation": false,
+                "destructive": false,
+                "changes": []
+            }
+        },
+        {
+            "id": "label-change",
+            "before": {
+                "id": "018f4f24-98d8-7ad4-8f3f-38c909178b6b",
+                "owner": {
+                    "type": "site",
+                    "identifier": "default"
+                },
+                "site": "default",
+                "handle": "site.default.asset",
+                "singular_label": "Asset",
+                "plural_label": "Assets",
+                "status": "published",
+                "definition_version": 1,
+                "storage_mode": "relational",
+                "identity_strategy": "uuid",
+                "scope": "site",
+                "audit_enabled": true,
+                "revisions_enabled": true,
+                "fields": [
+                    {
+                        "handle": "id",
+                        "label": "ID",
+                        "type": "core.uuid",
+                        "description": "",
+                        "required": true,
+                        "nullable": false,
+                        "default": null,
+                        "length": null,
+                        "precision": null,
+                        "scale": null,
+                        "configuration": [],
+                        "normalizers": [],
+                        "validators": [],
+                        "unique": true,
+                        "indexed": true,
+                        "immutable_after_create": true,
+                        "server_only": true,
+                        "computed": false,
+                        "read_only": true,
+                        "create_visible": true,
+                        "update_visible": true,
+                        "read_visible": true,
+                        "searchable": false,
+                        "filterable": false,
+                        "sortable": false,
+                        "reportable": false,
+                        "exportable": false,
+                        "sensitivity": "internal",
+                        "localized": false,
+                        "help_text": "",
+                        "form_group": "general",
+                        "order": 0,
+                        "placements": [
+                            "detail",
+                            "form"
+                        ],
+                        "visibility_condition": null,
+                        "editability_condition": null,
+                        "formula": null
+                    },
+                    {
+                        "handle": "name",
+                        "label": "Name",
+                        "type": "core.text",
+                        "description": "",
+                        "required": true,
+                        "nullable": false,
+                        "default": null,
+                        "length": 160,
+                        "precision": null,
+                        "scale": null,
+                        "configuration": [],
+                        "normalizers": [],
+                        "validators": [],
+                        "unique": false,
+                        "indexed": false,
+                        "immutable_after_create": false,
+                        "server_only": false,
+                        "computed": false,
+                        "read_only": false,
+                        "create_visible": true,
+                        "update_visible": true,
+                        "read_visible": true,
+                        "searchable": true,
+                        "filterable": true,
+                        "sortable": true,
+                        "reportable": false,
+                        "exportable": false,
+                        "sensitivity": "internal",
+                        "localized": false,
+                        "help_text": "",
+                        "form_group": "general",
+                        "order": 0,
+                        "placements": [
+                            "detail",
+                            "form"
+                        ],
+                        "visibility_condition": null,
+                        "editability_condition": null,
+                        "formula": null
+                    },
+                    {
+                        "handle": "normalized_name",
+                        "label": "Normalized name",
+                        "type": "core.computed",
+                        "description": "",
+                        "required": false,
+                        "nullable": true,
+                        "default": null,
+                        "length": null,
+                        "precision": null,
+                        "scale": null,
+                        "configuration": [],
+                        "normalizers": [],
+                        "validators": [],
+                        "unique": false,
+                        "indexed": false,
+                        "immutable_after_create": false,
+                        "server_only": true,
+                        "computed": true,
+                        "read_only": true,
+                        "create_visible": true,
+                        "update_visible": true,
+                        "read_visible": true,
+                        "searchable": false,
+                        "filterable": false,
+                        "sortable": false,
+                        "reportable": false,
+                        "exportable": false,
+                        "sensitivity": "internal",
+                        "localized": false,
+                        "help_text": "",
+                        "form_group": "general",
+                        "order": 0,
+                        "placements": [
+                            "detail",
+                            "form"
+                        ],
+                        "visibility_condition": null,
+                        "editability_condition": null,
+                        "formula": {
+                            "op": "field",
+                            "type": "string",
+                            "field": "name"
+                        }
+                    }
+                ],
+                "relationships": [],
+                "views": [
+                    {
+                        "handle": "list",
+                        "label": "Assets",
+                        "kind": "list",
+                        "fields": [
+                            "name"
+                        ],
+                        "filters": [
+                            "name"
+                        ],
+                        "sorts": [
+                            "name"
+                        ],
+                        "administrator": true,
+                        "portal": false,
+                        "public": false
+                    }
+                ],
+                "actions": [
+                    {
+                        "handle": "archive",
+                        "label": "Archive",
+                        "capability": "content.archive",
+                        "bulk": false,
+                        "administrator": true,
+                        "portal": false,
+                        "public": false,
+                        "high_impact": false,
+                        "condition": null,
+                        "transition": null
+                    }
+                ],
+                "workflow": null,
+                "compatibility_metadata": [],
+                "administrator_exposure": true,
+                "portal_exposure": false,
+                "public_exposure": false
+            },
+            "after": {
+                "id": "018f4f24-98d8-7ad4-8f3f-38c909178b6b",
+                "owner": {
+                    "type": "site",
+                    "identifier": "default"
+                },
+                "site": "default",
+                "handle": "site.default.asset",
+                "singular_label": "Asset",
+                "plural_label": "Assets",
+                "status": "draft",
+                "definition_version": 0,
+                "storage_mode": "relational",
+                "identity_strategy": "uuid",
+                "scope": "site",
+                "audit_enabled": true,
+                "revisions_enabled": true,
+                "fields": [
+                    {
+                        "handle": "id",
+                        "label": "ID",
+                        "type": "core.uuid",
+                        "required": true,
+                        "nullable": false,
+                        "unique": true,
+                        "indexed": true,
+                        "immutable_after_create": true,
+                        "server_only": true,
+                        "read_only": true
+                    },
+                    {
+                        "handle": "name",
+                        "label": "Renamed",
+                        "type": "core.text",
+                        "required": true,
+                        "nullable": false,
+                        "length": 160,
+                        "searchable": true,
+                        "filterable": true,
+                        "sortable": true
+                    },
+                    {
+                        "handle": "normalized_name",
+                        "label": "Normalized name",
+                        "type": "core.computed",
+                        "nullable": true,
+                        "server_only": true,
+                        "computed": true,
+                        "read_only": true,
+                        "formula": {
+                            "op": "field",
+                            "type": "string",
+                            "field": "name"
+                        }
+                    }
+                ],
+                "relationships": [],
+                "views": [
+                    {
+                        "handle": "list",
+                        "label": "Assets",
+                        "kind": "list",
+                        "fields": [
+                            "name"
+                        ],
+                        "filters": [
+                            "name"
+                        ],
+                        "sorts": [
+                            "name"
+                        ],
+                        "administrator": true,
+                        "portal": false,
+                        "public": false
+                    }
+                ],
+                "actions": [
+                    {
+                        "handle": "archive",
+                        "label": "Archive",
+                        "capability": "content.archive",
+                        "administrator": true,
+                        "portal": false,
+                        "public": false
+                    }
+                ],
+                "workflow": null,
+                "compatibility_metadata": [],
+                "administrator_exposure": true,
+                "portal_exposure": false,
+                "public_exposure": false
+            },
+            "expected": {
+                "from_version": 1,
+                "to_version": 2,
+                "from_checksum": "c1b1f947bf09080460cf7bad3cf26e4f28fd03fb95434c7cdfc7880ffb9d17cf",
+                "to_checksum": "f2a184f52fd9dd6ef97e57775739a69e06af8ed0bdc11df461928d57b1c52588",
+                "requires_confirmation": true,
+                "destructive": false,
+                "changes": [
+                    {
+                        "path": "/fields/name/presentation",
+                        "classification": "behavior_changing",
+                        "message": "Change delivery, visibility, localization, or presentation metadata for field name."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "required-without-default",
+            "before": {
+                "id": "018f4f24-98d8-7ad4-8f3f-38c909178b6b",
+                "owner": {
+                    "type": "site",
+                    "identifier": "default"
+                },
+                "site": "default",
+                "handle": "site.default.asset",
+                "singular_label": "Asset",
+                "plural_label": "Assets",
+                "status": "published",
+                "definition_version": 1,
+                "storage_mode": "relational",
+                "identity_strategy": "uuid",
+                "scope": "site",
+                "audit_enabled": true,
+                "revisions_enabled": true,
+                "fields": [
+                    {
+                        "handle": "id",
+                        "label": "ID",
+                        "type": "core.uuid",
+                        "description": "",
+                        "required": true,
+                        "nullable": false,
+                        "default": null,
+                        "length": null,
+                        "precision": null,
+                        "scale": null,
+                        "configuration": [],
+                        "normalizers": [],
+                        "validators": [],
+                        "unique": true,
+                        "indexed": true,
+                        "immutable_after_create": true,
+                        "server_only": true,
+                        "computed": false,
+                        "read_only": true,
+                        "create_visible": true,
+                        "update_visible": true,
+                        "read_visible": true,
+                        "searchable": false,
+                        "filterable": false,
+                        "sortable": false,
+                        "reportable": false,
+                        "exportable": false,
+                        "sensitivity": "internal",
+                        "localized": false,
+                        "help_text": "",
+                        "form_group": "general",
+                        "order": 0,
+                        "placements": [
+                            "detail",
+                            "form"
+                        ],
+                        "visibility_condition": null,
+                        "editability_condition": null,
+                        "formula": null
+                    },
+                    {
+                        "handle": "name",
+                        "label": "Name",
+                        "type": "core.text",
+                        "description": "",
+                        "required": true,
+                        "nullable": false,
+                        "default": null,
+                        "length": 160,
+                        "precision": null,
+                        "scale": null,
+                        "configuration": [],
+                        "normalizers": [],
+                        "validators": [],
+                        "unique": false,
+                        "indexed": false,
+                        "immutable_after_create": false,
+                        "server_only": false,
+                        "computed": false,
+                        "read_only": false,
+                        "create_visible": true,
+                        "update_visible": true,
+                        "read_visible": true,
+                        "searchable": true,
+                        "filterable": true,
+                        "sortable": true,
+                        "reportable": false,
+                        "exportable": false,
+                        "sensitivity": "internal",
+                        "localized": false,
+                        "help_text": "",
+                        "form_group": "general",
+                        "order": 0,
+                        "placements": [
+                            "detail",
+                            "form"
+                        ],
+                        "visibility_condition": null,
+                        "editability_condition": null,
+                        "formula": null
+                    },
+                    {
+                        "handle": "normalized_name",
+                        "label": "Normalized name",
+                        "type": "core.computed",
+                        "description": "",
+                        "required": false,
+                        "nullable": true,
+                        "default": null,
+                        "length": null,
+                        "precision": null,
+                        "scale": null,
+                        "configuration": [],
+                        "normalizers": [],
+                        "validators": [],
+                        "unique": false,
+                        "indexed": false,
+                        "immutable_after_create": false,
+                        "server_only": true,
+                        "computed": true,
+                        "read_only": true,
+                        "create_visible": true,
+                        "update_visible": true,
+                        "read_visible": true,
+                        "searchable": false,
+                        "filterable": false,
+                        "sortable": false,
+                        "reportable": false,
+                        "exportable": false,
+                        "sensitivity": "internal",
+                        "localized": false,
+                        "help_text": "",
+                        "form_group": "general",
+                        "order": 0,
+                        "placements": [
+                            "detail",
+                            "form"
+                        ],
+                        "visibility_condition": null,
+                        "editability_condition": null,
+                        "formula": {
+                            "op": "field",
+                            "type": "string",
+                            "field": "name"
+                        }
+                    }
+                ],
+                "relationships": [],
+                "views": [
+                    {
+                        "handle": "list",
+                        "label": "Assets",
+                        "kind": "list",
+                        "fields": [
+                            "name"
+                        ],
+                        "filters": [
+                            "name"
+                        ],
+                        "sorts": [
+                            "name"
+                        ],
+                        "administrator": true,
+                        "portal": false,
+                        "public": false
+                    }
+                ],
+                "actions": [
+                    {
+                        "handle": "archive",
+                        "label": "Archive",
+                        "capability": "content.archive",
+                        "bulk": false,
+                        "administrator": true,
+                        "portal": false,
+                        "public": false,
+                        "high_impact": false,
+                        "condition": null,
+                        "transition": null
+                    }
+                ],
+                "workflow": null,
+                "compatibility_metadata": [],
+                "administrator_exposure": true,
+                "portal_exposure": false,
+                "public_exposure": false
+            },
+            "after": {
+                "id": "018f4f24-98d8-7ad4-8f3f-38c909178b6b",
+                "owner": {
+                    "type": "site",
+                    "identifier": "default"
+                },
+                "site": "default",
+                "handle": "site.default.asset",
+                "singular_label": "Asset",
+                "plural_label": "Assets",
+                "status": "draft",
+                "definition_version": 0,
+                "storage_mode": "relational",
+                "identity_strategy": "uuid",
+                "scope": "site",
+                "audit_enabled": true,
+                "revisions_enabled": true,
+                "fields": [
+                    {
+                        "handle": "id",
+                        "label": "ID",
+                        "type": "core.uuid",
+                        "required": true,
+                        "nullable": false,
+                        "unique": true,
+                        "indexed": true,
+                        "immutable_after_create": true,
+                        "server_only": true,
+                        "read_only": true
+                    },
+                    {
+                        "handle": "name",
+                        "label": "Name",
+                        "type": "core.text",
+                        "required": true,
+                        "nullable": false,
+                        "length": 160,
+                        "searchable": true,
+                        "filterable": true,
+                        "sortable": true
+                    },
+                    {
+                        "handle": "normalized_name",
+                        "label": "Normalized name",
+                        "type": "core.computed",
+                        "nullable": true,
+                        "server_only": true,
+                        "computed": true,
+                        "read_only": true,
+                        "formula": {
+                            "op": "field",
+                            "type": "string",
+                            "field": "name"
+                        }
+                    },
+                    {
+                        "handle": "description",
+                        "label": "Description",
+                        "type": "core.text",
+                        "required": true,
+                        "nullable": false,
+                        "length": 100
+                    }
+                ],
+                "relationships": [],
+                "views": [
+                    {
+                        "handle": "list",
+                        "label": "Assets",
+                        "kind": "list",
+                        "fields": [
+                            "name"
+                        ],
+                        "filters": [
+                            "name"
+                        ],
+                        "sorts": [
+                            "name"
+                        ],
+                        "administrator": true,
+                        "portal": false,
+                        "public": false
+                    }
+                ],
+                "actions": [
+                    {
+                        "handle": "archive",
+                        "label": "Archive",
+                        "capability": "content.archive",
+                        "administrator": true,
+                        "portal": false,
+                        "public": false
+                    }
+                ],
+                "workflow": null,
+                "compatibility_metadata": [],
+                "administrator_exposure": true,
+                "portal_exposure": false,
+                "public_exposure": false
+            },
+            "expected": {
+                "from_version": 1,
+                "to_version": 2,
+                "from_checksum": "c1b1f947bf09080460cf7bad3cf26e4f28fd03fb95434c7cdfc7880ffb9d17cf",
+                "to_checksum": "4fe004fc35dc3d91bb752115ce2cc763a72ee2529fb240d82f1dd2ee0435e01d",
+                "requires_confirmation": true,
+                "destructive": false,
+                "changes": [
+                    {
+                        "path": "/fields/description",
+                        "classification": "data_migration_required",
+                        "message": "Add field description."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "field-removal",
+            "before": {
+                "id": "018f4f24-98d8-7ad4-8f3f-38c909178b6b",
+                "owner": {
+                    "type": "site",
+                    "identifier": "default"
+                },
+                "site": "default",
+                "handle": "site.default.asset",
+                "singular_label": "Asset",
+                "plural_label": "Assets",
+                "status": "published",
+                "definition_version": 1,
+                "storage_mode": "relational",
+                "identity_strategy": "uuid",
+                "scope": "site",
+                "audit_enabled": true,
+                "revisions_enabled": true,
+                "fields": [
+                    {
+                        "handle": "id",
+                        "label": "ID",
+                        "type": "core.uuid",
+                        "description": "",
+                        "required": true,
+                        "nullable": false,
+                        "default": null,
+                        "length": null,
+                        "precision": null,
+                        "scale": null,
+                        "configuration": [],
+                        "normalizers": [],
+                        "validators": [],
+                        "unique": true,
+                        "indexed": true,
+                        "immutable_after_create": true,
+                        "server_only": true,
+                        "computed": false,
+                        "read_only": true,
+                        "create_visible": true,
+                        "update_visible": true,
+                        "read_visible": true,
+                        "searchable": false,
+                        "filterable": false,
+                        "sortable": false,
+                        "reportable": false,
+                        "exportable": false,
+                        "sensitivity": "internal",
+                        "localized": false,
+                        "help_text": "",
+                        "form_group": "general",
+                        "order": 0,
+                        "placements": [
+                            "detail",
+                            "form"
+                        ],
+                        "visibility_condition": null,
+                        "editability_condition": null,
+                        "formula": null
+                    },
+                    {
+                        "handle": "name",
+                        "label": "Name",
+                        "type": "core.text",
+                        "description": "",
+                        "required": true,
+                        "nullable": false,
+                        "default": null,
+                        "length": 160,
+                        "precision": null,
+                        "scale": null,
+                        "configuration": [],
+                        "normalizers": [],
+                        "validators": [],
+                        "unique": false,
+                        "indexed": false,
+                        "immutable_after_create": false,
+                        "server_only": false,
+                        "computed": false,
+                        "read_only": false,
+                        "create_visible": true,
+                        "update_visible": true,
+                        "read_visible": true,
+                        "searchable": true,
+                        "filterable": true,
+                        "sortable": true,
+                        "reportable": false,
+                        "exportable": false,
+                        "sensitivity": "internal",
+                        "localized": false,
+                        "help_text": "",
+                        "form_group": "general",
+                        "order": 0,
+                        "placements": [
+                            "detail",
+                            "form"
+                        ],
+                        "visibility_condition": null,
+                        "editability_condition": null,
+                        "formula": null
+                    },
+                    {
+                        "handle": "normalized_name",
+                        "label": "Normalized name",
+                        "type": "core.computed",
+                        "description": "",
+                        "required": false,
+                        "nullable": true,
+                        "default": null,
+                        "length": null,
+                        "precision": null,
+                        "scale": null,
+                        "configuration": [],
+                        "normalizers": [],
+                        "validators": [],
+                        "unique": false,
+                        "indexed": false,
+                        "immutable_after_create": false,
+                        "server_only": true,
+                        "computed": true,
+                        "read_only": true,
+                        "create_visible": true,
+                        "update_visible": true,
+                        "read_visible": true,
+                        "searchable": false,
+                        "filterable": false,
+                        "sortable": false,
+                        "reportable": false,
+                        "exportable": false,
+                        "sensitivity": "internal",
+                        "localized": false,
+                        "help_text": "",
+                        "form_group": "general",
+                        "order": 0,
+                        "placements": [
+                            "detail",
+                            "form"
+                        ],
+                        "visibility_condition": null,
+                        "editability_condition": null,
+                        "formula": {
+                            "op": "field",
+                            "type": "string",
+                            "field": "name"
+                        }
+                    }
+                ],
+                "relationships": [],
+                "views": [
+                    {
+                        "handle": "list",
+                        "label": "Assets",
+                        "kind": "list",
+                        "fields": [
+                            "name"
+                        ],
+                        "filters": [
+                            "name"
+                        ],
+                        "sorts": [
+                            "name"
+                        ],
+                        "administrator": true,
+                        "portal": false,
+                        "public": false
+                    }
+                ],
+                "actions": [
+                    {
+                        "handle": "archive",
+                        "label": "Archive",
+                        "capability": "content.archive",
+                        "bulk": false,
+                        "administrator": true,
+                        "portal": false,
+                        "public": false,
+                        "high_impact": false,
+                        "condition": null,
+                        "transition": null
+                    }
+                ],
+                "workflow": null,
+                "compatibility_metadata": [],
+                "administrator_exposure": true,
+                "portal_exposure": false,
+                "public_exposure": false
+            },
+            "after": {
+                "id": "018f4f24-98d8-7ad4-8f3f-38c909178b6b",
+                "owner": {
+                    "type": "site",
+                    "identifier": "default"
+                },
+                "site": "default",
+                "handle": "site.default.asset",
+                "singular_label": "Asset",
+                "plural_label": "Assets",
+                "status": "draft",
+                "definition_version": 0,
+                "storage_mode": "relational",
+                "identity_strategy": "uuid",
+                "scope": "site",
+                "audit_enabled": true,
+                "revisions_enabled": true,
+                "fields": [
+                    {
+                        "handle": "id",
+                        "label": "ID",
+                        "type": "core.uuid",
+                        "required": true,
+                        "nullable": false,
+                        "unique": true,
+                        "indexed": true,
+                        "immutable_after_create": true,
+                        "server_only": true,
+                        "read_only": true
+                    },
+                    {
+                        "handle": "name",
+                        "label": "Name",
+                        "type": "core.text",
+                        "required": true,
+                        "nullable": false,
+                        "length": 160,
+                        "searchable": true,
+                        "filterable": true,
+                        "sortable": true
+                    }
+                ],
+                "relationships": [],
+                "views": [
+                    {
+                        "handle": "list",
+                        "label": "Assets",
+                        "kind": "list",
+                        "fields": [
+                            "name"
+                        ],
+                        "filters": [
+                            "name"
+                        ],
+                        "sorts": [
+                            "name"
+                        ],
+                        "administrator": true,
+                        "portal": false,
+                        "public": false
+                    }
+                ],
+                "actions": [
+                    {
+                        "handle": "archive",
+                        "label": "Archive",
+                        "capability": "content.archive",
+                        "administrator": true,
+                        "portal": false,
+                        "public": false
+                    }
+                ],
+                "workflow": null,
+                "compatibility_metadata": [],
+                "administrator_exposure": true,
+                "portal_exposure": false,
+                "public_exposure": false
+            },
+            "expected": {
+                "from_version": 1,
+                "to_version": 2,
+                "from_checksum": "c1b1f947bf09080460cf7bad3cf26e4f28fd03fb95434c7cdfc7880ffb9d17cf",
+                "to_checksum": "dcd4a5cc33ba8f3671258306b452d287e3a2feb943148f65b4d5525422daa137",
+                "requires_confirmation": true,
+                "destructive": true,
+                "changes": [
+                    {
+                        "path": "/fields/normalized_name",
+                        "classification": "destructive",
+                        "message": "Remove field normalized_name."
+                    }
+                ]
+            }
+        },
+        {
+            "id": "portal-change",
+            "before": {
+                "id": "018f4f24-98d8-7ad4-8f3f-38c909178b6b",
+                "owner": {
+                    "type": "site",
+                    "identifier": "default"
+                },
+                "site": "default",
+                "handle": "site.default.asset",
+                "singular_label": "Asset",
+                "plural_label": "Assets",
+                "status": "published",
+                "definition_version": 1,
+                "storage_mode": "relational",
+                "identity_strategy": "uuid",
+                "scope": "site",
+                "audit_enabled": true,
+                "revisions_enabled": true,
+                "fields": [
+                    {
+                        "handle": "id",
+                        "label": "ID",
+                        "type": "core.uuid",
+                        "description": "",
+                        "required": true,
+                        "nullable": false,
+                        "default": null,
+                        "length": null,
+                        "precision": null,
+                        "scale": null,
+                        "configuration": [],
+                        "normalizers": [],
+                        "validators": [],
+                        "unique": true,
+                        "indexed": true,
+                        "immutable_after_create": true,
+                        "server_only": true,
+                        "computed": false,
+                        "read_only": true,
+                        "create_visible": true,
+                        "update_visible": true,
+                        "read_visible": true,
+                        "searchable": false,
+                        "filterable": false,
+                        "sortable": false,
+                        "reportable": false,
+                        "exportable": false,
+                        "sensitivity": "internal",
+                        "localized": false,
+                        "help_text": "",
+                        "form_group": "general",
+                        "order": 0,
+                        "placements": [
+                            "detail",
+                            "form"
+                        ],
+                        "visibility_condition": null,
+                        "editability_condition": null,
+                        "formula": null
+                    },
+                    {
+                        "handle": "name",
+                        "label": "Name",
+                        "type": "core.text",
+                        "description": "",
+                        "required": true,
+                        "nullable": false,
+                        "default": null,
+                        "length": 160,
+                        "precision": null,
+                        "scale": null,
+                        "configuration": [],
+                        "normalizers": [],
+                        "validators": [],
+                        "unique": false,
+                        "indexed": false,
+                        "immutable_after_create": false,
+                        "server_only": false,
+                        "computed": false,
+                        "read_only": false,
+                        "create_visible": true,
+                        "update_visible": true,
+                        "read_visible": true,
+                        "searchable": true,
+                        "filterable": true,
+                        "sortable": true,
+                        "reportable": false,
+                        "exportable": false,
+                        "sensitivity": "internal",
+                        "localized": false,
+                        "help_text": "",
+                        "form_group": "general",
+                        "order": 0,
+                        "placements": [
+                            "detail",
+                            "form"
+                        ],
+                        "visibility_condition": null,
+                        "editability_condition": null,
+                        "formula": null
+                    },
+                    {
+                        "handle": "normalized_name",
+                        "label": "Normalized name",
+                        "type": "core.computed",
+                        "description": "",
+                        "required": false,
+                        "nullable": true,
+                        "default": null,
+                        "length": null,
+                        "precision": null,
+                        "scale": null,
+                        "configuration": [],
+                        "normalizers": [],
+                        "validators": [],
+                        "unique": false,
+                        "indexed": false,
+                        "immutable_after_create": false,
+                        "server_only": true,
+                        "computed": true,
+                        "read_only": true,
+                        "create_visible": true,
+                        "update_visible": true,
+                        "read_visible": true,
+                        "searchable": false,
+                        "filterable": false,
+                        "sortable": false,
+                        "reportable": false,
+                        "exportable": false,
+                        "sensitivity": "internal",
+                        "localized": false,
+                        "help_text": "",
+                        "form_group": "general",
+                        "order": 0,
+                        "placements": [
+                            "detail",
+                            "form"
+                        ],
+                        "visibility_condition": null,
+                        "editability_condition": null,
+                        "formula": {
+                            "op": "field",
+                            "type": "string",
+                            "field": "name"
+                        }
+                    }
+                ],
+                "relationships": [],
+                "views": [
+                    {
+                        "handle": "list",
+                        "label": "Assets",
+                        "kind": "list",
+                        "fields": [
+                            "name"
+                        ],
+                        "filters": [
+                            "name"
+                        ],
+                        "sorts": [
+                            "name"
+                        ],
+                        "administrator": true,
+                        "portal": false,
+                        "public": false
+                    }
+                ],
+                "actions": [
+                    {
+                        "handle": "archive",
+                        "label": "Archive",
+                        "capability": "content.archive",
+                        "bulk": false,
+                        "administrator": true,
+                        "portal": false,
+                        "public": false,
+                        "high_impact": false,
+                        "condition": null,
+                        "transition": null
+                    }
+                ],
+                "workflow": null,
+                "compatibility_metadata": [],
+                "administrator_exposure": true,
+                "portal_exposure": false,
+                "public_exposure": false
+            },
+            "after": {
+                "id": "018f4f24-98d8-7ad4-8f3f-38c909178b6b",
+                "owner": {
+                    "type": "site",
+                    "identifier": "default"
+                },
+                "site": "default",
+                "handle": "site.default.asset",
+                "singular_label": "Asset",
+                "plural_label": "Assets",
+                "status": "draft",
+                "definition_version": 0,
+                "storage_mode": "relational",
+                "identity_strategy": "uuid",
+                "scope": "site",
+                "audit_enabled": true,
+                "revisions_enabled": true,
+                "fields": [
+                    {
+                        "handle": "id",
+                        "label": "ID",
+                        "type": "core.uuid",
+                        "required": true,
+                        "nullable": false,
+                        "unique": true,
+                        "indexed": true,
+                        "immutable_after_create": true,
+                        "server_only": true,
+                        "read_only": true
+                    },
+                    {
+                        "handle": "name",
+                        "label": "Name",
+                        "type": "core.text",
+                        "required": true,
+                        "nullable": false,
+                        "length": 160,
+                        "searchable": true,
+                        "filterable": true,
+                        "sortable": true
+                    },
+                    {
+                        "handle": "normalized_name",
+                        "label": "Normalized name",
+                        "type": "core.computed",
+                        "nullable": true,
+                        "server_only": true,
+                        "computed": true,
+                        "read_only": true,
+                        "formula": {
+                            "op": "field",
+                            "type": "string",
+                            "field": "name"
+                        }
+                    }
+                ],
+                "relationships": [],
+                "views": [
+                    {
+                        "handle": "list",
+                        "label": "Assets",
+                        "kind": "list",
+                        "fields": [
+                            "name"
+                        ],
+                        "filters": [
+                            "name"
+                        ],
+                        "sorts": [
+                            "name"
+                        ],
+                        "administrator": true,
+                        "portal": false,
+                        "public": false
+                    }
+                ],
+                "actions": [
+                    {
+                        "handle": "archive",
+                        "label": "Archive",
+                        "capability": "content.archive",
+                        "administrator": true,
+                        "portal": false,
+                        "public": false
+                    }
+                ],
+                "workflow": null,
+                "compatibility_metadata": [],
+                "administrator_exposure": true,
+                "portal_exposure": true,
+                "public_exposure": false,
+                "portal_operations": [
+                    "browse"
+                ]
+            },
+            "expected": {
+                "from_version": 1,
+                "to_version": 2,
+                "from_checksum": "c1b1f947bf09080460cf7bad3cf26e4f28fd03fb95434c7cdfc7880ffb9d17cf",
+                "to_checksum": "7eac032d0c718f60946a8b493fb1216bef0b7916d13cc2e487b5ee79b9873996",
+                "requires_confirmation": true,
+                "destructive": false,
+                "changes": [
+                    {
+                        "path": "/exposure/portal",
+                        "classification": "behavior_changing",
+                        "message": "Enable portal exposure."
+                    },
+                    {
+                        "path": "/exposure/portal_operations",
+                        "classification": "behavior_changing",
+                        "message": "Change the explicitly enabled portal business-record operations."
+                    }
+                ]
+            }
+        }
+    ]
+}

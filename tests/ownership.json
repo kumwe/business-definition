@@ -1,0 +1,585 @@
+{
+  "schema": "kumwe-test-ownership/v1",
+  "package": "kumwe/business-definition",
+  "api_manifest": "resources/public-api/v1.json",
+  "suite": {
+    "inventory_command": [
+      "php",
+      "tests/run.php",
+      "--list-json"
+    ]
+  },
+  "exports": {
+    "Kumwe\\BusinessDefinition\\Application\\BusinessDefinitionCompatibilityAnalyzer": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testDefinitionAndCompatibilityCorpusMatchesFrozenBaseline"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testDefinitionAndCompatibilityCorpusMatchesFrozenBaseline"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Application\\BusinessDefinitionContributionRegistry": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testRegistriesKeepOwnerBoundariesAndExplicitRemoval"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testRegistriesKeepOwnerBoundariesAndExplicitRemoval"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Application\\BusinessDefinitionValidator": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testAdmissionIsMandatoryInvokedAndFailClosed"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testAdmissionIsMandatoryInvokedAndFailClosed"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Application\\DefinitionCatalogEntry": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testDefinitionRecordsPreserveSnapshotsAndRefuseInconsistentEvidence"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testDefinitionRecordsPreserveSnapshotsAndRefuseInconsistentEvidence"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Application\\DefinitionDraft": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testDefinitionRecordsPreserveSnapshotsAndRefuseInconsistentEvidence"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testDefinitionRecordsPreserveSnapshotsAndRefuseInconsistentEvidence"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Application\\DefinitionVersionRecord": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testDefinitionRecordsPreserveSnapshotsAndRefuseInconsistentEvidence"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testDefinitionRecordsPreserveSnapshotsAndRefuseInconsistentEvidence"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Application\\FieldConfigurationAdmission": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testAdmissionIsMandatoryInvokedAndFailClosed"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testAdmissionIsMandatoryInvokedAndFailClosed"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Application\\FieldTypeDefinitionResolver": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testRegistriesKeepOwnerBoundariesAndExplicitRemoval"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testRegistriesKeepOwnerBoundariesAndExplicitRemoval"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Application\\FieldTypeRegistry": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testRegistriesKeepOwnerBoundariesAndExplicitRemoval"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testRegistriesKeepOwnerBoundariesAndExplicitRemoval"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\ConfigProvider": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testRealContainerHasExplicitPortsAndServiceLifetimes"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testRealContainerHasExplicitPortsAndServiceLifetimes"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Container\\BusinessDefinitionContributionRegistryFactory": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testRealContainerHasExplicitPortsAndServiceLifetimes"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testRealContainerHasExplicitPortsAndServiceLifetimes"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Container\\BusinessDefinitionValidatorFactory": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testRealContainerHasExplicitPortsAndServiceLifetimes"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testRealContainerHasExplicitPortsAndServiceLifetimes"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Container\\FieldTypeRegistryFactory": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testRealContainerHasExplicitPortsAndServiceLifetimes"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testRealContainerHasExplicitPortsAndServiceLifetimes"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Domain\\ActionDefinition": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\CustomBusinessDefinitionReferenceTest::testLegacyViewAndActionCanonicalBytesRemainUnchanged"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\CustomBusinessDefinitionReferenceTest::testCustomReferencesArePairedBoundedAndMutuallyExclusiveWithTransitions"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Domain\\BuiltInFieldTypes": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testFieldTypeRoundTripsAndRefusesIncompatibleDeclarations"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testFieldTypeRoundTripsAndRefusesIncompatibleDeclarations"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Domain\\CanonicalDefinitionJson": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testFormulaCorpusMatchesFrozenBaseline"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testFormulaCorpusMatchesFrozenBaseline"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Domain\\CompatibilityChange": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testDefinitionAndCompatibilityCorpusMatchesFrozenBaseline"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testDefinitionAndCompatibilityCorpusMatchesFrozenBaseline"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Domain\\CompatibilityClassification": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testDefinitionAndCompatibilityCorpusMatchesFrozenBaseline"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testDefinitionAndCompatibilityCorpusMatchesFrozenBaseline"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Domain\\CompatibilityPlan": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testDefinitionAndCompatibilityCorpusMatchesFrozenBaseline"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testDefinitionAndCompatibilityCorpusMatchesFrozenBaseline"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Domain\\ComputationMode": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testStoredComputationIsExplicitAndVirtualRemainsCanonicalDefault"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testComputedFieldRequiresServerOnlyReadOnlyFormula"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Domain\\DefinitionOwner": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testDefinitionOwnershipPreservesPersistedGrammarAndRefusals"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testDefinitionOwnershipPreservesPersistedGrammarAndRefusals"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Domain\\DefinitionOwnerType": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testDefinitionOwnershipPreservesPersistedGrammarAndRefusals"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testDefinitionOwnershipPreservesPersistedGrammarAndRefusals"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Domain\\DefinitionStatus": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testDefinitionRecordsPreserveSnapshotsAndRefuseInconsistentEvidence"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testDefinitionRecordsPreserveSnapshotsAndRefuseInconsistentEvidence"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Domain\\DeleteBehavior": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\ReversalRelationshipValidationTest::testASameDefinitionReversalPairValidates"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\ReversalRelationshipValidationTest::testAReversalThatDoesNotRestrictDeletionIsRefused"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Domain\\DocumentViewDefinition": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\DocumentViewDefinitionTest::testDocumentViewRoundTripsThroughCanonicalBytes"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\DocumentViewDefinitionTest::testUnknownDocumentPropertyIsRejected"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Domain\\EntityTypeDefinition": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testDefinitionAndCompatibilityCorpusMatchesFrozenBaseline"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testDefinitionAndCompatibilityCorpusMatchesFrozenBaseline"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Domain\\Expression": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testFormulaCorpusMatchesFrozenBaseline"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testFormulaCorpusMatchesFrozenBaseline"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Domain\\FieldDefinition": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testDefinitionAndCompatibilityCorpusMatchesFrozenBaseline"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testDefinitionAndCompatibilityCorpusMatchesFrozenBaseline"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Domain\\FieldTypeDefinition": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testFieldTypeRoundTripsAndRefusesIncompatibleDeclarations"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testFieldTypeRoundTripsAndRefusesIncompatibleDeclarations"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Domain\\IdentityStrategy": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testDefinitionAndCompatibilityCorpusMatchesFrozenBaseline"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testDefinitionAndCompatibilityCorpusMatchesFrozenBaseline"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Domain\\InvalidBusinessDefinition": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testDefinitionAndCompatibilityCorpusMatchesFrozenBaseline"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testDefinitionAndCompatibilityCorpusMatchesFrozenBaseline"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Domain\\LocalizedDefinitionText": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\LocalizedDefinitionLabelTest::testATranslatedDefinitionCarriesItsWordingThroughTheCanonicalDocument"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\LocalizedDefinitionLabelTest::testDuplicateNormalizedLocaleKeysAreRefused"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Domain\\PortalOperation": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testPortalOperationAllowlistIsTypedCanonicalAndSurvivesLifecycleCopies"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testPortalOperationAllowlistRejectsUnknownDuplicateAndUnexposedOperations"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Domain\\RecordInvariantDefinition": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\AggregateInvariantDeclarationTest::testADocumentMayDeclareThatItsTotalEqualsTheSumOfItsLines"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\AggregateInvariantDeclarationTest::testAnInvariantAggregatingAnUndeclaredCollectionIsRefused"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Domain\\RelationshipDefinition": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\ReversalRelationshipValidationTest::testASameDefinitionReversalPairValidates"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\ReversalRelationshipValidationTest::testAReversalThatDoesNotRestrictDeletionIsRefused"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Domain\\RelationshipKind": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\ReversalRelationshipValidationTest::testASameDefinitionReversalPairValidates"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\ReversalRelationshipValidationTest::testAReversalThatDoesNotRestrictDeletionIsRefused"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Domain\\ScopeMode": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\NumberSequenceScopeCoherenceTest::testTheSameSequencePublishesWhenTheEntityCarriesAnOrganizationDimension"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\NumberSequenceScopeCoherenceTest::testAPerOrganizationSequenceOnASitePartitionedEntityIsRefusedAtPublication"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Domain\\Sensitivity": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testDefinitionAndCompatibilityCorpusMatchesFrozenBaseline"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testDefinitionAndCompatibilityCorpusMatchesFrozenBaseline"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Domain\\StorageMode": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testDefinitionAndCompatibilityCorpusMatchesFrozenBaseline"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testDefinitionAndCompatibilityCorpusMatchesFrozenBaseline"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Domain\\ViewDefinition": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\CustomBusinessDefinitionReferenceTest::testLegacyViewAndActionCanonicalBytesRemainUnchanged"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\CustomBusinessDefinitionReferenceTest::testCustomReferencesArePairedBoundedAndMutuallyExclusiveWithTransitions"
+      ]
+    },
+    "Kumwe\\BusinessDefinition\\Domain\\WorkflowBinding": {
+      "behavior": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\WorkflowBindingTest::testDeclaredImmutableStatesAreKeptAndAnswered"
+      ],
+      "boundary": [
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\WorkflowBindingTest::testAnUndeclaredImmutableStateIsRefused"
+      ]
+    }
+  },
+  "conformance": {
+    "status": "owned",
+    "rationale": "This package is the semantic owner of formula/condition ASTs and definition canonical/compatibility profiles; the frozen oracle is non-distributed. Native execution parity remains Engine/PHPT responsibility.",
+    "tests": [
+      "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testFormulaCorpusMatchesFrozenBaseline",
+      "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testDefinitionAndCompatibilityCorpusMatchesFrozenBaseline",
+      "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testCorpusProvenanceDigestsRemainExact"
+    ],
+    "corpora": [
+      "resources/corpus/formula-v1.json",
+      "resources/corpus/definition-v1.json",
+      "resources/corpus/provenance-v1.json"
+    ]
+  },
+  "architecture": [
+    "tools/verify-architecture.php"
+  ],
+  "host": {
+    "repository": "kumwe/app",
+    "baseline": "960ce8ec00cf724a7cae03e5ba09c4852c9ab54e",
+    "transfers": [
+      {
+        "source_test": "tests/Unit/BusinessDefinition/Application/AllocatedNumberFieldRuleTest.php",
+        "action": "remove-on-adoption",
+        "package_tests": [
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\AllocatedNumberFieldRuleTest::testACloselyDeclaredAllocatedNumberFieldPublishes",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\AllocatedNumberFieldRuleTest::testAnOpenOrUnusableAllocatedNumberFieldIsRefused"
+        ],
+        "retained": "No class behavior remains in App after adopting this implementation; retain separate host integration tests."
+      },
+      {
+        "source_test": "tests/Unit/BusinessDefinition/Application/BoundedJsonDefaultBudgetTest.php",
+        "action": "remove-on-adoption",
+        "package_tests": [
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\BoundedJsonDefaultBudgetTest::testADefaultInsideTheDeclaredBudgetPublishes",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\BoundedJsonDefaultBudgetTest::testADefaultLargerThanTheDeclaredBudgetIsRefused",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\BoundedJsonDefaultBudgetTest::testANonIntegerBudgetIsRefusedAsABadBoundRatherThanAsABadDefault",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\BoundedJsonDefaultBudgetTest::testKeyOrderDoesNotChangeWhetherADefaultFits"
+        ],
+        "retained": "No class behavior remains in App after adopting this implementation; retain separate host integration tests."
+      },
+      {
+        "source_test": "tests/Unit/BusinessDefinition/Application/BusinessDefinitionCompatibilityAnalyzerTest.php",
+        "action": "remove-on-adoption",
+        "package_tests": [
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\BusinessDefinitionCompatibilityAnalyzerTest::testFirstPublicationIsAdditiveAndDeterministic",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\BusinessDefinitionCompatibilityAnalyzerTest::testPortalOperationChangesAreExplicitBehaviorChanges",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\BusinessDefinitionCompatibilityAnalyzerTest::testRequiredFieldWithoutDefaultRequiresDataMigration"
+        ],
+        "retained": "No class behavior remains in App after adopting this implementation; retain separate host integration tests."
+      },
+      {
+        "source_test": "tests/Unit/BusinessDefinition/Application/FiscalPeriodSequenceCoherenceTest.php",
+        "action": "remove-on-adoption",
+        "package_tests": [
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\FiscalPeriodSequenceCoherenceTest::testAFiscalPeriodSequenceWithoutAPostingDateFieldIsRefusedAtPublication",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\FiscalPeriodSequenceCoherenceTest::testTheSameSequencePublishesOnceAPostingDateFieldIsDeclared"
+        ],
+        "retained": "No class behavior remains in App after adopting this implementation; retain separate host integration tests."
+      },
+      {
+        "source_test": "tests/Unit/BusinessDefinition/Application/NumberSequenceScopeCoherenceTest.php",
+        "action": "remove-on-adoption",
+        "package_tests": [
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\NumberSequenceScopeCoherenceTest::testAPerOrganizationSequenceOnASitePartitionedEntityIsRefusedAtPublication",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\NumberSequenceScopeCoherenceTest::testTheSameSequencePublishesWhenTheEntityCarriesAnOrganizationDimension"
+        ],
+        "retained": "No class behavior remains in App after adopting this implementation; retain separate host integration tests."
+      },
+      {
+        "source_test": "tests/Unit/BusinessDefinition/Application/ReversalRelationshipValidationTest.php",
+        "action": "remove-on-adoption",
+        "package_tests": [
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\ReversalRelationshipValidationTest::testAReversalTargetingAnotherDefinitionIsRefused",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\ReversalRelationshipValidationTest::testAReversalThatDoesNotRestrictDeletionIsRefused",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\ReversalRelationshipValidationTest::testAReversalWithAWrongInverseCardinalityIsRefused",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\ReversalRelationshipValidationTest::testASameDefinitionReversalPairValidates",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\ReversalRelationshipValidationTest::testTheOtherCardinalityPairingsAreUnchanged"
+        ],
+        "retained": "No class behavior remains in App after adopting this implementation; retain separate host integration tests."
+      },
+      {
+        "source_test": "tests/Unit/BusinessDefinition/Domain/AggregateInvariantDeclarationTest.php",
+        "action": "remove-on-adoption",
+        "package_tests": [
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\AggregateInvariantDeclarationTest::testAComputedFieldCannotAggregateOwnedLines",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\AggregateInvariantDeclarationTest::testADocumentMayDeclareThatItsTotalEqualsTheSumOfItsLines",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\AggregateInvariantDeclarationTest::testAnActionConditionCannotAggregateOwnedLines",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\AggregateInvariantDeclarationTest::testAnInvariantAggregatingANonOwnedRelationshipIsRefused",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\AggregateInvariantDeclarationTest::testAnInvariantAggregatingAnUndeclaredCollectionIsRefused",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\AggregateInvariantDeclarationTest::testAnInvariantSummingAFieldTheLineEntityLacksIsRefused",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\AggregateInvariantDeclarationTest::testAnInvariantSummingANonNumericLineFieldIsRefused",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\AggregateInvariantDeclarationTest::testAnInvariantSummingARestrictedLineFieldIsRefused",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\AggregateInvariantDeclarationTest::testTheDeclaredAggregationRoundTripsThroughTheCanonicalDocument"
+        ],
+        "retained": "No class behavior remains in App after adopting this implementation; retain separate host integration tests."
+      },
+      {
+        "source_test": "tests/Unit/BusinessDefinition/Domain/CustomBusinessDefinitionReferenceTest.php",
+        "action": "remove-on-adoption",
+        "package_tests": [
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\CustomBusinessDefinitionReferenceTest::testCustomReferencesArePairedBoundedAndMutuallyExclusiveWithTransitions",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\CustomBusinessDefinitionReferenceTest::testLegacyViewAndActionCanonicalBytesRemainUnchanged"
+        ],
+        "retained": "No class behavior remains in App after adopting this implementation; retain separate host integration tests."
+      },
+      {
+        "source_test": "tests/Unit/BusinessDefinition/Domain/DocumentViewDefinitionTest.php",
+        "action": "remove-on-adoption",
+        "package_tests": [
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\DocumentViewDefinitionTest::testDocumentBlockRequiresTheDocumentKind",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\DocumentViewDefinitionTest::testDocumentRoleMustNameADeclaredField",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\DocumentViewDefinitionTest::testDocumentRoleMustStayInsideTheViewProjection",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\DocumentViewDefinitionTest::testDocumentRoleRefusesAUuidField",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\DocumentViewDefinitionTest::testDocumentViewCannotBindACustomHandler",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\DocumentViewDefinitionTest::testDocumentViewRoundTripsThroughCanonicalBytes",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\DocumentViewDefinitionTest::testGroupWithoutFieldsIsRejected",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\DocumentViewDefinitionTest::testLinesRoleMustNameAnOwnedLineCollection",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\DocumentViewDefinitionTest::testPartyRoleMustNameAManyToOneRelationship",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\DocumentViewDefinitionTest::testUnknownDocumentPropertyIsRejected",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\DocumentViewDefinitionTest::testViewsWithoutDocumentBlockPreserveLegacyCanonicalBytes"
+        ],
+        "retained": "No class behavior remains in App after adopting this implementation; retain separate host integration tests."
+      },
+      {
+        "source_test": "tests/Unit/BusinessDefinition/Domain/EntityTypeDefinitionTest.php",
+        "action": "split-on-adoption",
+        "package_tests": [
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testAListShapedTranslationMapIsRefusedOnTheEntityAndOnItsFields",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testCanonicalDefinitionProvidesStableChecksumAndDependencyGraph",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testComputedFieldRequiresServerOnlyReadOnlyFormula",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testConditionallyVisibleFieldCannotExposeAQueryOrExportInferenceChannel",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testEmptyPortalOperationAllowlistPreservesLegacyCanonicalBytes",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testEntityAndFieldWordingResolveThroughTheLocaleChainAndThenToTheDeclaredText",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testEnumDefaultMustBelongToDistinctPublishedOptions",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testEnumOptionsAndConfiguredUnitsMatchTheirRuntimeStorageContracts",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testExactNumericFieldScaleCannotExceedThePortableMysqlCeiling",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testFormulaDependencyCyclesFailBeforePersistence",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testIdentityFieldMustRemainRequiredUniqueAndImmutable",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testInvalidScalarAndTemporalDefaultsFailBeforeSchemaPlanning",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testInverseRelationshipsMustBeReciprocalAndCardinalityCompatible",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testNormalizersAndValidatorsMustMatchTheRuntimeValueFamily",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testOptionalNonNullFieldsRequireAnExecutableDefault",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testPortalOperationAllowlistIsTypedCanonicalAndSurvivesLifecycleCopies",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testPortalOperationAllowlistRejectsUnknownDuplicateAndUnexposedOperations",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testRecordInvariantsUseBoundedBooleanExpressionsAndKnownFields",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testRequiredRelationshipsCannotPublishWithoutAtomicCreateInputs",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testRuntimeRevisionEvidenceHandleIsReservedAtPublication",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testSecretFieldRejectsAReusablePlaintextDefault",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testSortsRequireVisibleNonSensitiveBoundedScalarStorage",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testStoredComputationIsExplicitAndVirtualRemainsCanonicalDefault",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testThePostingDateDeclarationIsABooleanOnADateCarryingType",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testThePostingDateDeclarationNamesExactlyOneDateField",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testTranslatedWordingSurvivesTheCanonicalDocumentAndItsChecksum",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\EntityTypeDefinitionTest::testVarcharBackedFieldsCannotExceedTheirPortablePhysicalLength"
+        ],
+        "retained": "Keep SDK presentation-profile budget and FieldPresentationInput integration methods, plus runtime invariant assertions until native cutover."
+      },
+      {
+        "source_test": "tests/Unit/BusinessDefinition/Domain/ExpressionLineAggregateTest.php",
+        "action": "retain-until-runtime-cutover",
+        "package_tests": [
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\ExpressionLineAggregateTest::testACountCarryingALineFieldIsRefused",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\ExpressionLineAggregateTest::testACountNamesItsCollectionWithoutFoldingAField",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\ExpressionLineAggregateTest::testAMalformedCollectionHandleIsRefused",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\ExpressionLineAggregateTest::testAReductionDeclaringAnImpossibleResultTypeIsRefused",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\ExpressionLineAggregateTest::testASumRefusesALineValueThatIsNotAnExactDecimal",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\ExpressionLineAggregateTest::testASumSkipsALineWithNoValueForTheFoldedField",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\ExpressionLineAggregateTest::testASumWithoutALineFieldIsRefused",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\ExpressionLineAggregateTest::testAThousandLinesFoldThroughExactDecimalArithmetic",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\ExpressionLineAggregateTest::testATotalAgreeingWithItsLinesIsExpressibleAndExact",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\ExpressionLineAggregateTest::testAnEmptyCollectionCountsZeroAndSumsToZero",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\ExpressionLineAggregateTest::testAnUngatheredCollectionIsRefusedRatherThanJudgedAgainstNothing",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\ExpressionLineAggregateTest::testAnUnsupportedReductionIsRefused",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\ExpressionLineAggregateTest::testTheAggregationRefusesNestedArguments",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\ExpressionLineAggregateTest::testTheAggregationRoundTripsThroughItsCanonicalDocument",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\ExpressionLineAggregateTest::testTheFoldedLineFieldIsNamedAsALineDependencyAndNotAsAHeaderField",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\ExpressionLineAggregateTest::testTheTotalRuleIsJudgedByValueRatherThanBySpelling"
+        ],
+        "retained": "App still executes the old PHP implementation until verified native computation cutover; then remove duplicated semantics tests."
+      },
+      {
+        "source_test": "tests/Unit/BusinessDefinition/Domain/ExpressionPropertyTest.php",
+        "action": "retain-until-runtime-cutover",
+        "package_tests": [
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\ExpressionPropertyTest::testCanonicalObjectsHaveTheSameChecksumForEveryKeyPermutation",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\ExpressionPropertyTest::testEvaluationRejectsWrongRuntimeTypesAndIntegerOverflow",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\ExpressionPropertyTest::testFuzzedExecutableOperatorsAreAlwaysRejected",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\ExpressionPropertyTest::testGeneratedExpressionTreesCannotExceedComplexityLimits",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\ExpressionPropertyTest::testIntegerAndExactDecimalOperatorsRemainDeterministicAcrossGeneratedInputs",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\ExpressionPropertyTest::testStrictAstShapesAndTypesRejectAmbiguousExecution"
+        ],
+        "retained": "App still executes the old PHP implementation until verified native computation cutover; then remove duplicated semantics tests."
+      },
+      {
+        "source_test": "tests/Unit/BusinessDefinition/Domain/ExpressionTest.php",
+        "action": "retain-until-runtime-cutover",
+        "package_tests": [
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\ExpressionTest::testDecimalDivisionUsesExplicitScaleAndDeterministicRounding",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\ExpressionTest::testExactDecimalFormulaHasCanonicalDependenciesAndNoFloatConversion",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\ExpressionTest::testFormulaRejectsMissingDependenciesAtEvaluation",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\ExpressionTest::testFormulaRejectsStoredExecutableCodeAndFloatLiterals"
+        ],
+        "retained": "App still executes the old PHP implementation until verified native computation cutover; then remove duplicated semantics tests."
+      },
+      {
+        "source_test": "tests/Unit/BusinessDefinition/Domain/LocalizedDefinitionLabelTest.php",
+        "action": "remove-on-adoption",
+        "package_tests": [
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\LocalizedDefinitionLabelTest::testAMemberDeclaringNoTranslationsIsDroppedInsteadOfWrittenAsAnEmptyObject",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\LocalizedDefinitionLabelTest::testANonStringLocaleKeyAndANonStringTranslationAreBothRefused",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\LocalizedDefinitionLabelTest::testATranslatedDefinitionCarriesItsWordingThroughTheCanonicalDocument",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\LocalizedDefinitionLabelTest::testAnUntranslatedDefinitionKeepsTheBytesItsChecksumWasTakenOver",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\LocalizedDefinitionLabelTest::testDeclarationOrderAndLocaleSpellingDoNotChangeTheChecksum",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\LocalizedDefinitionLabelTest::testDuplicateNormalizedLocaleKeysAreRefused",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\LocalizedDefinitionLabelTest::testTheDimensionRefusesAListShapedMapAndAMemberPastTheLocaleCeiling",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\LocalizedDefinitionLabelTest::testTheDimensionRefusesUntranslatableMembersMalformedLocalesAndOverlongText",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\LocalizedDefinitionLabelTest::testWordingResolvesThroughTheLocaleChainAndThenToTheDeclaredText"
+        ],
+        "retained": "No class behavior remains in App after adopting this implementation; retain separate host integration tests."
+      },
+      {
+        "source_test": "tests/Unit/BusinessDefinition/Domain/WorkflowBindingTest.php",
+        "action": "remove-on-adoption",
+        "package_tests": [
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\WorkflowBindingTest::testABindingWithoutTheDeclarationKeepsItsCanonicalBytes",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\WorkflowBindingTest::testAMalformedImmutableStateCollectionIsRefused",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\WorkflowBindingTest::testAnUndeclaredImmutableStateIsRefused",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\WorkflowBindingTest::testDeclaredImmutableStatesAreKeptAndAnswered",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\WorkflowBindingTest::testTheDeclarationRoundTripsThroughTheCanonicalDocument",
+          "Kumwe\\BusinessDefinition\\Tests\\Unit\\Domain\\WorkflowBindingTest::testTheInitialStateCannotBeDeclaredImmutable"
+        ],
+        "retained": "No class behavior remains in App after adopting this implementation; retain separate host integration tests."
+      }
+    ],
+    "retained_responsibilities": [
+      "Database publication and immutable version history across MariaDB, MySQL and PostgreSQL",
+      "Authorization, approval, step-up, audit, transaction and trusted extension generation",
+      "SDK presentation configuration profile adapter and integration",
+      "Compiled-plan invalidation, runtime native readiness, recovery and backup/restore",
+      "Handlers and graphical adapters; active App PHP executor tests until native cutover"
+    ]
+  }
+}

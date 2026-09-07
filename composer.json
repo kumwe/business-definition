@@ -48,7 +48,7 @@
     "cs": "phpcs -q",
     "cs:fix": "phpcbf",
     "analyse": "phpstan analyse --no-progress --memory-limit=1G",
-    "test": "phpunit",
+    "test": "php tests/run.php",
     "clean-consumer": "php tools/verify-clean-consumer.php",
     "check": [
       "@composer:validate",

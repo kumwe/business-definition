@@ -41,7 +41,10 @@ final class EntityTypeDefinitionTest extends TestCase
             'entities' => [],
             'field_types' => ['core.computed', 'core.text', 'core.uuid'],
         ], $definition->dependencyGraph());
-        (new BusinessDefinitionValidator(new FieldTypeRegistry(), new AcceptedConfiguration()))->validateGraph([$definition]);
+        (new BusinessDefinitionValidator(
+            new FieldTypeRegistry(),
+            new AcceptedConfiguration()
+        ))->validateGraph([$definition]);
     }
 
     /**
@@ -156,7 +159,10 @@ final class EntityTypeDefinitionTest extends TestCase
 
         $this->expectException(InvalidBusinessDefinition::class);
         $definition = EntityTypeDefinition::fromArray($document);
-        (new BusinessDefinitionValidator(new FieldTypeRegistry(), new AcceptedConfiguration()))->validateGraph([$definition]);
+        (new BusinessDefinitionValidator(
+            new FieldTypeRegistry(),
+            new AcceptedConfiguration()
+        ))->validateGraph([$definition]);
     }
 
     /**
@@ -192,7 +198,10 @@ final class EntityTypeDefinitionTest extends TestCase
         $this->expectException(InvalidBusinessDefinition::class);
         $this->expectExceptionMessage('required, non-null, unique, and immutable');
         $definition = EntityTypeDefinition::fromArray($document);
-        (new BusinessDefinitionValidator(new FieldTypeRegistry(), new AcceptedConfiguration()))->validateGraph([$definition]);
+        (new BusinessDefinitionValidator(
+            new FieldTypeRegistry(),
+            new AcceptedConfiguration()
+        ))->validateGraph([$definition]);
     }
 
     public function testFormulaDependencyCyclesFailBeforePersistence(): void
@@ -271,7 +280,10 @@ final class EntityTypeDefinitionTest extends TestCase
         $this->expectExceptionMessage('cannot declare a reusable plaintext default');
 
         $definition = EntityTypeDefinition::fromArray($document);
-        (new BusinessDefinitionValidator(new FieldTypeRegistry(), new AcceptedConfiguration()))->validateGraph([$definition]);
+        (new BusinessDefinitionValidator(
+            new FieldTypeRegistry(),
+            new AcceptedConfiguration()
+        ))->validateGraph([$definition]);
     }
 
     public function testRuntimeRevisionEvidenceHandleIsReservedAtPublication(): void
@@ -287,7 +299,10 @@ final class EntityTypeDefinitionTest extends TestCase
         $this->expectExceptionMessage('reserved for immutable runtime revision evidence');
 
         $definition = EntityTypeDefinition::fromArray($document);
-        (new BusinessDefinitionValidator(new FieldTypeRegistry(), new AcceptedConfiguration()))->validateGraph([$definition]);
+        (new BusinessDefinitionValidator(
+            new FieldTypeRegistry(),
+            new AcceptedConfiguration()
+        ))->validateGraph([$definition]);
     }
 
     public function testExactNumericFieldScaleCannotExceedThePortableMysqlCeiling(): void
@@ -322,7 +337,10 @@ final class EntityTypeDefinitionTest extends TestCase
         $this->expectExceptionMessage('default must be one of its declared options');
 
         $definition = EntityTypeDefinition::fromArray($document);
-        (new BusinessDefinitionValidator(new FieldTypeRegistry(), new AcceptedConfiguration()))->validateGraph([$definition]);
+        (new BusinessDefinitionValidator(
+            new FieldTypeRegistry(),
+            new AcceptedConfiguration()
+        ))->validateGraph([$definition]);
     }
 
     public function testInvalidScalarAndTemporalDefaultsFailBeforeSchemaPlanning(): void
@@ -353,7 +371,10 @@ final class EntityTypeDefinitionTest extends TestCase
 
             try {
                 $definition = EntityTypeDefinition::fromArray($document);
-                (new BusinessDefinitionValidator(new FieldTypeRegistry(), new AcceptedConfiguration()))->validateGraph([$definition]);
+                (new BusinessDefinitionValidator(
+                    new FieldTypeRegistry(),
+                    new AcceptedConfiguration()
+                ))->validateGraph([$definition]);
                 self::fail('An invalid default reached schema planning for ' . $type . '.');
             } catch (InvalidBusinessDefinition $exception) {
                 self::assertStringContainsString('invalid default', $exception->getMessage());
@@ -383,7 +404,10 @@ final class EntityTypeDefinitionTest extends TestCase
 
             try {
                 $definition = EntityTypeDefinition::fromArray($document);
-                (new BusinessDefinitionValidator(new FieldTypeRegistry(), new AcceptedConfiguration()))->validateGraph([$definition]);
+                (new BusinessDefinitionValidator(
+                    new FieldTypeRegistry(),
+                    new AcceptedConfiguration()
+                ))->validateGraph([$definition]);
                 self::fail('An oversized VARCHAR-backed field published for ' . $type . '.');
             } catch (InvalidBusinessDefinition $exception) {
                 self::assertStringContainsString('portable physical storage limit', $exception->getMessage());
@@ -395,7 +419,10 @@ final class EntityTypeDefinitionTest extends TestCase
         $document['fields'][2]['length'] = 1001;
         try {
             $definition = EntityTypeDefinition::fromArray($document);
-            (new BusinessDefinitionValidator(new FieldTypeRegistry(), new AcceptedConfiguration()))->validateGraph([$definition]);
+            (new BusinessDefinitionValidator(
+                new FieldTypeRegistry(),
+                new AcceptedConfiguration()
+            ))->validateGraph([$definition]);
             self::fail('An oversized stored string computation was published.');
         } catch (InvalidBusinessDefinition $exception) {
             self::assertStringContainsString('portable physical storage limit', $exception->getMessage());
@@ -414,7 +441,10 @@ final class EntityTypeDefinitionTest extends TestCase
         ];
         try {
             $definition = EntityTypeDefinition::fromArray($document);
-            (new BusinessDefinitionValidator(new FieldTypeRegistry(), new AcceptedConfiguration()))->validateGraph([$definition]);
+            (new BusinessDefinitionValidator(
+                new FieldTypeRegistry(),
+                new AcceptedConfiguration()
+            ))->validateGraph([$definition]);
             self::fail('An enum option longer than its physical field was published.');
         } catch (InvalidBusinessDefinition $exception) {
             self::assertStringContainsString('option exceeds the field storage length', $exception->getMessage());
@@ -432,7 +462,10 @@ final class EntityTypeDefinitionTest extends TestCase
         $this->expectException(InvalidBusinessDefinition::class);
         $this->expectExceptionMessage('invalid unit');
         $definition = EntityTypeDefinition::fromArray($document);
-        (new BusinessDefinitionValidator(new FieldTypeRegistry(), new AcceptedConfiguration()))->validateGraph([$definition]);
+        (new BusinessDefinitionValidator(
+            new FieldTypeRegistry(),
+            new AcceptedConfiguration()
+        ))->validateGraph([$definition]);
     }
 
 
@@ -448,7 +481,10 @@ final class EntityTypeDefinitionTest extends TestCase
         ];
         try {
             $definition = EntityTypeDefinition::fromArray($document);
-            (new BusinessDefinitionValidator(new FieldTypeRegistry(), new AcceptedConfiguration()))->validateGraph([$definition]);
+            (new BusinessDefinitionValidator(
+                new FieldTypeRegistry(),
+                new AcceptedConfiguration()
+            ))->validateGraph([$definition]);
             self::fail('A text normalizer was accepted for a boolean field.');
         } catch (InvalidBusinessDefinition $exception) {
             self::assertStringContainsString('normalizer trim is incompatible', $exception->getMessage());
@@ -464,7 +500,10 @@ final class EntityTypeDefinitionTest extends TestCase
         $this->expectException(InvalidBusinessDefinition::class);
         $this->expectExceptionMessage('validator min is incompatible');
         $definition = EntityTypeDefinition::fromArray($document);
-        (new BusinessDefinitionValidator(new FieldTypeRegistry(), new AcceptedConfiguration()))->validateGraph([$definition]);
+        (new BusinessDefinitionValidator(
+            new FieldTypeRegistry(),
+            new AcceptedConfiguration()
+        ))->validateGraph([$definition]);
     }
 
     public function testSortsRequireVisibleNonSensitiveBoundedScalarStorage(): void
@@ -496,7 +535,10 @@ final class EntityTypeDefinitionTest extends TestCase
             $document['fields'][] = $field;
             try {
                 $definition = EntityTypeDefinition::fromArray($document);
-                (new BusinessDefinitionValidator(new FieldTypeRegistry(), new AcceptedConfiguration()))->validateGraph([$definition]);
+                (new BusinessDefinitionValidator(
+                    new FieldTypeRegistry(),
+                    new AcceptedConfiguration()
+                ))->validateGraph([$definition]);
                 self::fail('A cursor-leaking or unbounded sortable field was accepted.');
             } catch (InvalidBusinessDefinition $exception) {
                 self::assertStringContainsString('sortable business field', strtolower($exception->getMessage()));
@@ -518,7 +560,10 @@ final class EntityTypeDefinitionTest extends TestCase
         $this->expectException(InvalidBusinessDefinition::class);
         $this->expectExceptionMessage('optional non-null business field');
         $definition = EntityTypeDefinition::fromArray($document);
-        (new BusinessDefinitionValidator(new FieldTypeRegistry(), new AcceptedConfiguration()))->validateGraph([$definition]);
+        (new BusinessDefinitionValidator(
+            new FieldTypeRegistry(),
+            new AcceptedConfiguration()
+        ))->validateGraph([$definition]);
     }
 
     public function testRequiredRelationshipsCannotPublishWithoutAtomicCreateInputs(): void
@@ -535,7 +580,10 @@ final class EntityTypeDefinitionTest extends TestCase
         $this->expectException(InvalidBusinessDefinition::class);
         $this->expectExceptionMessage('Required relationships need atomic create inputs');
         $definition = EntityTypeDefinition::fromArray($document);
-        (new BusinessDefinitionValidator(new FieldTypeRegistry(), new AcceptedConfiguration()))->validateGraph([$definition]);
+        (new BusinessDefinitionValidator(
+            new FieldTypeRegistry(),
+            new AcceptedConfiguration()
+        ))->validateGraph([$definition]);
     }
 
     public function testInverseRelationshipsMustBeReciprocalAndCardinalityCompatible(): void
@@ -558,7 +606,10 @@ final class EntityTypeDefinitionTest extends TestCase
         $this->expectException(InvalidBusinessDefinition::class);
         $this->expectExceptionMessage('cardinality-compatible');
         $definition = EntityTypeDefinition::fromArray($document);
-        (new BusinessDefinitionValidator(new FieldTypeRegistry(), new AcceptedConfiguration()))->validateGraph([$definition]);
+        (new BusinessDefinitionValidator(
+            new FieldTypeRegistry(),
+            new AcceptedConfiguration()
+        ))->validateGraph([$definition]);
     }
 
     /**
@@ -693,7 +744,10 @@ final class EntityTypeDefinitionTest extends TestCase
             'configuration' => ['posting_date' => true],
         ];
         $declared = EntityTypeDefinition::fromArray($document);
-        (new BusinessDefinitionValidator(new FieldTypeRegistry(), new AcceptedConfiguration()))->validateGraph([$declared]);
+        (new BusinessDefinitionValidator(
+            new FieldTypeRegistry(),
+            new AcceptedConfiguration()
+        ))->validateGraph([$declared]);
         self::assertSame('posted_on', $declared->postingDateField()?->handle);
 
         $document['fields'][] = [
@@ -706,7 +760,10 @@ final class EntityTypeDefinitionTest extends TestCase
         $twice = EntityTypeDefinition::fromArray($document);
         $this->expectException(InvalidBusinessDefinition::class);
         $this->expectExceptionMessage('more than one posting date field');
-        (new BusinessDefinitionValidator(new FieldTypeRegistry(), new AcceptedConfiguration()))->validateGraph([$twice]);
+        (new BusinessDefinitionValidator(
+            new FieldTypeRegistry(),
+            new AcceptedConfiguration()
+        ))->validateGraph([$twice]);
     }
 
     /**
