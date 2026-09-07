@@ -115,6 +115,24 @@ final class AdmissionAndRegistryTest extends TestCase
             'services' => [FieldConfigurationAdmission::class => new AcceptedConfiguration()],
         ]);
         self::assertNotSame($container->get(FieldTypeRegistry::class), $other->get(FieldTypeRegistry::class));
+        foreach (
+            [
+            [new BusinessDefinitionContributionRegistryFactory(), [
+                    BusinessDefinitionValidator::class => new \stdClass(),
+                ]],
+            [new BusinessDefinitionValidatorFactory(), [
+                FieldTypeDefinitionResolver::class => new FieldTypeRegistry(),
+                FieldConfigurationAdmission::class => new \stdClass(),
+            ]],
+            ] as [$factory, $services]
+        ) {
+            try {
+                $factory(new ServiceManager(['services' => $services]));
+                self::fail('A factory accepted an incompatible mandatory collaborator.');
+            } catch (InvalidArgumentException) {
+                self::assertTrue(true);
+            }
+        }
         $this->expectException(InvalidArgumentException::class);
         (new BusinessDefinitionValidatorFactory())(new ServiceManager([
             'services' => [FieldTypeDefinitionResolver::class => new \stdClass()],

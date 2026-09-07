@@ -469,7 +469,9 @@ Explicit runtime services; host admission must be registered separately. @since 
 ### `__invoke(): array`
 
 Return deterministic Mezzio configuration without consulting runtime state.
-@return array{dependencies: array{factories: array<class-string, class-string>,
+@return array{dependencies: array{factories: array<class-string,
+    class-string<FieldTypeRegistryFactory>|class-string<BusinessDefinitionValidatorFactory>
+    |class-string<BusinessDefinitionContributionRegistryFactory>>,
     aliases: array<class-string, class-string>, shared: array<class-string, bool>}}
 @since 0.1.0
 

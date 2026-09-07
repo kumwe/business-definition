@@ -1106,6 +1106,7 @@ documentation:
   integration_or_consumer: "docs/integration.md"
   examples:
     - "examples/definition.php"
+    - "examples/container.php"
   changelog_record: "CHANGELOG.md / 0.1.0 (NRM-2026-012 extraction candidate, no release claimed)"
 release_expectations:
   version_policy: "Exact pre-1.0 pins, independently verified upstream releases required before publication; protected main and immutable future releases."
@@ -1569,3 +1570,7 @@ Corpus provenance binds six exact App source hashes and two frozen oracle files;
 their bytes and namespace-only oracle transformation. The archive consumer uses a real built ZIP installed as a no-dev
 authoritative dependency. Local Packagist advisory lookup times out; CI retains the mandatory online audit, and final
 CI results are the authoritative security gate. No release or native performance result is claimed.
+
+Final local implementation evidence: 126 PHPUnit cases / 1,708 assertions; 41 API exports; 117 named discovered test
+methods; 16 architecture, nine ownership and 31 release-integrity negative fixtures; 12 release-parser cases. The
+68-file consumer archive passes canonical autoload and real Laminas composition after no-dev authoritative installation.
