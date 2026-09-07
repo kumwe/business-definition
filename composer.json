@@ -12,7 +12,7 @@
     "php": "^8.5",
     "php-64bit": "*",
     "kumwe/localization": "0.1.0",
-    "kumwe/sequence": "0.2.0",
+    "kumwe/sequence": "dev-main",
     "psr/container": "^2.0",
     "ramsey/uuid": "^4.9"
   },
@@ -74,6 +74,12 @@
   "config": {
     "sort-packages": true
   },
-  "minimum-stability": "stable",
-  "prefer-stable": true
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/kumwe/sequence.git"
+    }
+  ]
 }
