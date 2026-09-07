@@ -18,3 +18,5 @@
 
 /phpunit.xml export-ignore
 /.phpunit.cache export-ignore
+
+/AGENTS.md export-ignore
