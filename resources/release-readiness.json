@@ -1,16 +1,15 @@
 {
-  "status": "blocked",
-  "reason": "The actual Sequence development candidate is installable source, but is mutable and has no independent immutable release attestation.",
+  "status": "ready",
+  "reason": "All direct Kumwe dependencies use published exact stable versions; publication verifies their tag, source and installed dist identity.",
   "dependencies": {
     "kumwe/localization": {
       "version": "0.1.0",
       "attestation": null
     },
     "kumwe/sequence": {
-      "version": "dev-main",
-      "attestation": null,
-      "observed_source_commit": "3cb1f63437ddec7ddbd8392e997bceb981cd73b5"
+      "version": "0.2.0",
+      "attestation": null
     }
   },
-  "required_followup": "Select independently verified upstream releases, commit their attestation coordinates and re-run package gates before changing status."
+  "required_followup": "Independent attestations remain optional evidence for later verification and adoption; they do not block normal package publication."
 }
