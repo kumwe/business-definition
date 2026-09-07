@@ -7,8 +7,8 @@
 - Classify entity label translation changes as behavior-changing and require mbstring for text default admission.
   Public signatures, canonical formula bytes and the frozen native formula corpus remain unchanged.
 
-- Unify PR and post-rebase release gates, dynamic release identity, tested publication retries,
-  and administrator setup across the package family. Preserve immutable release and dependency evidence requirements.
+- Unify PR and post-rebase release gates, dynamic release identity and tested publication retries.
+  Normal publication verifies stable dependency tag/source/dist identity; independent attestations remain optional.
 
 - Extract 36 portable definition types, canonical semantics, validation and compatibility.
 - Require explicit host FieldConfigurationAdmission; remove PHP evaluation methods from the semantic package.
