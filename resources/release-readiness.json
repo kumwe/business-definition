@@ -1,0 +1,15 @@
+{
+  "status": "blocked",
+  "reason": "Exact draft dependency pins lack independent immutable release attestations.",
+  "dependencies": {
+    "kumwe/localization": {
+      "version": "0.1.0",
+      "attestation": null
+    },
+    "kumwe/sequence": {
+      "version": "0.2.0",
+      "attestation": null
+    }
+  },
+  "required_followup": "Select independently verified upstream releases, commit their attestation coordinates and re-run package gates before changing status."
+}

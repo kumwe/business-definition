@@ -49,13 +49,14 @@ final readonly class BusinessDefinitionValidator
      * @param  FieldTypeDefinitionResolver  $fieldTypes  Answers what a declared field-type identifier means,
      *         including for a type whose owning extension is no longer running.
      *
+     * @param FieldConfigurationAdmission $fieldConfiguration Host-selected presentation contract admission.
+     *
      * @since  2.0.0
      */
     public function __construct(
         private FieldTypeDefinitionResolver $fieldTypes,
         private FieldConfigurationAdmission $fieldConfiguration,
-    )
-    {
+    ) {
     }
 
     /**

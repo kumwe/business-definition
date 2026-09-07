@@ -19,6 +19,8 @@
 
 declare(strict_types=1);
 
+require dirname(__DIR__) . '/vendor/autoload.php';
+
 const BUSINESS_DEFINITION_ROOT = __DIR__ . '/..';
 const BUSINESS_DEFINITION_SOURCE = BUSINESS_DEFINITION_ROOT . '/src';
 const BUSINESS_DEFINITION_PACKAGE = 'kumwe/business-definition';
@@ -35,7 +37,7 @@ const BUSINESS_DEFINITION_LIFETIMES = ['shared', 'non-shared', 'request-supplied
 $arguments = $_SERVER['argv'] ?? [];
 
 try {
-    exit(business-definitionManifestsMain($arguments));
+    exit(businessDefinitionManifestsMain($arguments));
 } catch (Throwable $error) {
     fwrite(STDERR, "Manifest verification failed: {$error->getMessage()}\n");
     exit(1);
@@ -50,7 +52,7 @@ try {
  *
  * @since   0.1.0
  */
-function business-definitionManifestsMain(array $arguments): int
+function businessDefinitionManifestsMain(array $arguments): int
 {
     $options = array_slice($arguments, 1);
     if ($options !== [] && $options !== ['--write']) {
@@ -59,40 +61,40 @@ function business-definitionManifestsMain(array $arguments): int
         return 2;
     }
 
-    business-definitionRegisterAutoloader();
-    $release = business-definitionRecordedRelease();
-    $symbols = business-definitionReflectedSymbols();
-    $manifest = business-definitionPublicApiManifest($symbols, $release);
+    businessDefinitionRegisterAutoloader();
+    $release = businessDefinitionRecordedRelease();
+    $symbols = businessDefinitionReflectedSymbols();
+    $manifest = businessDefinitionPublicApiManifest($symbols, $release);
     $bytes = json_encode(
         $manifest,
         JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR,
     ) . "\n";
 
     if ($options === ['--write']) {
-        business-definitionWriteFile(BUSINESS_DEFINITION_PUBLIC_API, $bytes);
+        businessDefinitionWriteFile(BUSINESS_DEFINITION_PUBLIC_API, $bytes);
         fwrite(STDOUT, sprintf(
             "Public API manifest recorded: %d symbols for release %s written to %s.\n",
             count($symbols),
             $release,
             BUSINESS_DEFINITION_PUBLIC_API,
         ));
-    } elseif (!is_file(business-definitionPath(BUSINESS_DEFINITION_PUBLIC_API))) {
+    } elseif (!is_file(businessDefinitionPath(BUSINESS_DEFINITION_PUBLIC_API))) {
         fwrite(STDERR, "The public API manifest is missing; review the generated surface, then run --write.\n");
 
         return 1;
     } else {
-        $recorded = business-definitionReadFile(BUSINESS_DEFINITION_PUBLIC_API);
+        $recorded = businessDefinitionReadFile(BUSINESS_DEFINITION_PUBLIC_API);
         if ($recorded !== $bytes) {
-            business-definitionReportDifference($recorded, $bytes);
+            businessDefinitionReportDifference($recorded, $bytes);
 
             return 1;
         }
     }
 
     $exported = array_keys($symbols);
-    $capabilities = business-definitionVerifyCapabilities($exported, $release);
-    $provider = business-definitionVerifyServiceMap($exported, $release);
-    business-definitionVerifyDocumentation($symbols);
+    $capabilities = businessDefinitionVerifyCapabilities($exported, $release);
+    $provider = businessDefinitionVerifyServiceMap($exported, $release);
+    businessDefinitionVerifyDocumentation($symbols);
 
     fwrite(STDOUT, sprintf(
         "Package manifests verified: %d public symbols, %d capabilities, %s, release %s documented.\n",
@@ -112,7 +114,7 @@ function business-definitionManifestsMain(array $arguments): int
  *
  * @since   0.1.0
  */
-function business-definitionRegisterAutoloader(): void
+function businessDefinitionRegisterAutoloader(): void
 {
     spl_autoload_register(static function (string $class): void {
         if (!str_starts_with($class, BUSINESS_DEFINITION_NAMESPACE)) {
@@ -135,9 +137,9 @@ function business-definitionRegisterAutoloader(): void
  *
  * @since   0.1.0
  */
-function business-definitionRecordedRelease(): string
+function businessDefinitionRecordedRelease(): string
 {
-    $lines = preg_split('/\R/', business-definitionReadFile(BUSINESS_DEFINITION_CHANGELOG));
+    $lines = preg_split('/\R/', businessDefinitionReadFile(BUSINESS_DEFINITION_CHANGELOG));
     foreach ($lines === false ? [] : $lines as $line) {
         if (!str_starts_with($line, '## ')) {
             continue;
@@ -167,7 +169,7 @@ function business-definitionRecordedRelease(): string
  *
  * @since   0.1.0
  */
-function business-definitionReflectedSymbols(): array
+function businessDefinitionReflectedSymbols(): array
 {
     if (!is_dir(BUSINESS_DEFINITION_SOURCE)) {
         throw new RuntimeException('The source directory is missing.');
@@ -188,11 +190,11 @@ function business-definitionReflectedSymbols(): array
     foreach ($paths as $path) {
         $relative = substr($path, strlen(BUSINESS_DEFINITION_SOURCE) + 1, -4);
         $name = BUSINESS_DEFINITION_NAMESPACE . str_replace('/', '\\', $relative);
-        $reflection = business-definitionReflect($name);
+        $reflection = businessDefinitionReflect($name);
         if ($reflection === null) {
             throw new RuntimeException(sprintf(
                 '%s does not declare its expected PSR-4 type %s.',
-                business-definitionRelativePath($path),
+                businessDefinitionRelativePath($path),
                 $name,
             ));
         }
@@ -220,7 +222,7 @@ function business-definitionReflectedSymbols(): array
  *
  * @since   0.1.0
  */
-function business-definitionReflect(string $name): ?ReflectionClass
+function businessDefinitionReflect(string $name): ?ReflectionClass
 {
     if (class_exists($name) || interface_exists($name) || trait_exists($name) || enum_exists($name)) {
         return new ReflectionClass($name);
@@ -239,12 +241,12 @@ function business-definitionReflect(string $name): ?ReflectionClass
  *
  * @since   0.1.0
  */
-function business-definitionPublicApiManifest(array $symbols, string $release): array
+function businessDefinitionPublicApiManifest(array $symbols, string $release): array
 {
     $entries = [];
     $extensionPoints = [];
     foreach ($symbols as $name => $reflection) {
-        $entries[$name] = business-definitionSymbol($reflection);
+        $entries[$name] = businessDefinitionSymbol($reflection);
         if ($reflection->isInterface() || ($reflection->isAbstract() && !$reflection->isEnum())) {
             $extensionPoints[] = $name;
         }
@@ -272,7 +274,7 @@ function business-definitionPublicApiManifest(array $symbols, string $release): 
  *
  * @since   0.1.0
  */
-function business-definitionSymbol(ReflectionClass $type): array
+function businessDefinitionSymbol(ReflectionClass $type): array
 {
     $name = $type->getName();
     $parent = $type->getParentClass();
@@ -311,9 +313,9 @@ function business-definitionSymbol(ReflectionClass $type): array
         'readonly' => $type->isReadOnly(),
         'parent' => $parent === false ? null : $parent->getName(),
         'interfaces' => $interfaces,
-        'constants' => business-definitionConstants($type, $name),
-        'properties' => business-definitionProperties($type, $name),
-        'methods' => business-definitionMethods($type, $name),
+        'constants' => businessDefinitionConstants($type, $name),
+        'properties' => businessDefinitionProperties($type, $name),
+        'methods' => businessDefinitionMethods($type, $name),
         'deprecated' => $deprecated,
     ];
 }
@@ -328,7 +330,7 @@ function business-definitionSymbol(ReflectionClass $type): array
  *
  * @since   0.1.0
  */
-function business-definitionConstants(ReflectionClass $type, string $owner): stdClass
+function businessDefinitionConstants(ReflectionClass $type, string $owner): stdClass
 {
     $constants = [];
     foreach ($type->getReflectionConstants(ReflectionClassConstant::IS_PUBLIC) as $constant) {
@@ -341,7 +343,7 @@ function business-definitionConstants(ReflectionClass $type, string $owner): std
         }
         $constantType = $constant->getType();
         $constants[$constant->getName()] = [
-            'type' => $constantType === null ? null : business-definitionType($constantType, $owner),
+            'type' => $constantType === null ? null : businessDefinitionType($constantType, $owner),
         ];
     }
     ksort($constants, SORT_STRING);
@@ -359,7 +361,7 @@ function business-definitionConstants(ReflectionClass $type, string $owner): std
  *
  * @since   0.1.0
  */
-function business-definitionProperties(ReflectionClass $type, string $owner): stdClass
+function businessDefinitionProperties(ReflectionClass $type, string $owner): stdClass
 {
     $properties = [];
     foreach ($type->getProperties(ReflectionProperty::IS_PUBLIC) as $property) {
@@ -371,7 +373,7 @@ function business-definitionProperties(ReflectionClass $type, string $owner): st
         }
         $propertyType = $property->getType();
         $properties[$property->getName()] = [
-            'type' => $propertyType === null ? null : business-definitionType($propertyType, $owner),
+            'type' => $propertyType === null ? null : businessDefinitionType($propertyType, $owner),
             'static' => $property->isStatic(),
             'readonly' => $property->isReadOnly(),
         ];
@@ -391,7 +393,7 @@ function business-definitionProperties(ReflectionClass $type, string $owner): st
  *
  * @since   0.1.0
  */
-function business-definitionMethods(ReflectionClass $type, string $owner): stdClass
+function businessDefinitionMethods(ReflectionClass $type, string $owner): stdClass
 {
     $methods = [];
     foreach ($type->getMethods(ReflectionMethod::IS_PUBLIC) as $method) {
@@ -406,7 +408,7 @@ function business-definitionMethods(ReflectionClass $type, string $owner): stdCl
             $parameterType = $parameter->getType();
             $parameters[] = [
                 'name' => $parameter->getName(),
-                'type' => $parameterType === null ? null : business-definitionType($parameterType, $owner),
+                'type' => $parameterType === null ? null : businessDefinitionType($parameterType, $owner),
                 'optional' => $parameter->isOptional(),
                 'variadic' => $parameter->isVariadic(),
                 'by_reference' => $parameter->isPassedByReference(),
@@ -417,7 +419,7 @@ function business-definitionMethods(ReflectionClass $type, string $owner): stdCl
             'visibility' => 'public',
             'static' => $method->isStatic(),
             'parameters' => $parameters,
-            'return' => $returnType === null ? null : business-definitionType($returnType, $owner),
+            'return' => $returnType === null ? null : businessDefinitionType($returnType, $owner),
         ];
     }
     ksort($methods, SORT_STRING);
@@ -437,7 +439,7 @@ function business-definitionMethods(ReflectionClass $type, string $owner): stdCl
  *
  * @since   0.1.0
  */
-function business-definitionType(ReflectionType $type, string $owner): string
+function businessDefinitionType(ReflectionType $type, string $owner): string
 {
     if ($type instanceof ReflectionNamedType) {
         $name = $type->getName();
@@ -455,13 +457,13 @@ function business-definitionType(ReflectionType $type, string $owner): string
     }
     if ($type instanceof ReflectionUnionType) {
         return implode('|', array_map(
-            static fn (ReflectionType $member): string => business-definitionType($member, $owner),
+            static fn (ReflectionType $member): string => businessDefinitionType($member, $owner),
             $type->getTypes(),
         ));
     }
     if ($type instanceof ReflectionIntersectionType) {
         return implode('&', array_map(
-            static fn (ReflectionType $member): string => business-definitionType($member, $owner),
+            static fn (ReflectionType $member): string => businessDefinitionType($member, $owner),
             $type->getTypes(),
         ));
     }
@@ -481,15 +483,15 @@ function business-definitionType(ReflectionType $type, string $owner): string
  *
  * @since   0.1.0
  */
-function business-definitionVerifyCapabilities(array $exported, string $release): int
+function businessDefinitionVerifyCapabilities(array $exported, string $release): int
 {
     $file = BUSINESS_DEFINITION_CAPABILITIES;
-    $document = business-definitionJsonObject($file);
-    business-definitionExpect($document, 'schema', 'kumwe-package-capabilities/v1', $file);
-    business-definitionExpect($document, 'package', BUSINESS_DEFINITION_PACKAGE, $file);
-    business-definitionExpect($document, 'release', $release, $file);
-    business-definitionExpect($document, 'namespace', BUSINESS_DEFINITION_NAMESPACE, $file);
-    business-definitionExpectText($document, 'responsibility', $file);
+    $document = businessDefinitionJsonObject($file);
+    businessDefinitionExpect($document, 'schema', 'kumwe-package-capabilities/v1', $file);
+    businessDefinitionExpect($document, 'package', BUSINESS_DEFINITION_PACKAGE, $file);
+    businessDefinitionExpect($document, 'release', $release, $file);
+    businessDefinitionExpect($document, 'namespace', BUSINESS_DEFINITION_NAMESPACE, $file);
+    businessDefinitionExpectText($document, 'responsibility', $file);
     if (!is_array($document['non_responsibilities'] ?? null)) {
         throw new RuntimeException($file . ' must list non_responsibilities.');
     }
@@ -521,8 +523,8 @@ function business-definitionVerifyCapabilities(array $exported, string $release)
             throw new RuntimeException($file . ' declares the capability ' . $id . ' twice.');
         }
         $seen[$id] = true;
-        business-definitionExpectText($capability, 'title', $file . ' capability ' . $id);
-        business-definitionExpectText($capability, 'description', $file . ' capability ' . $id);
+        businessDefinitionExpectText($capability, 'title', $file . ' capability ' . $id);
+        businessDefinitionExpectText($capability, 'description', $file . ' capability ' . $id);
         $symbols = $capability['symbols'] ?? null;
         if (!is_array($symbols) || $symbols === []) {
             throw new RuntimeException($file . ' capability ' . $id . ' names no symbol.');
@@ -543,7 +545,7 @@ function business-definitionVerifyCapabilities(array $exported, string $release)
             throw new RuntimeException($file . ' capability ' . $id . ' has no documentation list.');
         }
         foreach ($documents as $document_) {
-            if (!is_string($document_) || !is_file(business-definitionPath($document_))) {
+            if (!is_string($document_) || !is_file(businessDefinitionPath($document_))) {
                 throw new RuntimeException($file . ' capability ' . $id . ' links a document that does not exist.');
             }
         }
@@ -580,13 +582,13 @@ function business-definitionVerifyCapabilities(array $exported, string $release)
  *
  * @since   0.1.0
  */
-function business-definitionVerifyServiceMap(array $exported, string $release): string
+function businessDefinitionVerifyServiceMap(array $exported, string $release): string
 {
     $file = BUSINESS_DEFINITION_SERVICE_MAP;
-    $document = business-definitionJsonObject($file);
-    business-definitionExpect($document, 'schema', 'kumwe-package-service-map/v1', $file);
-    business-definitionExpect($document, 'package', BUSINESS_DEFINITION_PACKAGE, $file);
-    business-definitionExpect($document, 'release', $release, $file);
+    $document = businessDefinitionJsonObject($file);
+    businessDefinitionExpect($document, 'schema', 'kumwe-package-service-map/v1', $file);
+    businessDefinitionExpect($document, 'package', BUSINESS_DEFINITION_PACKAGE, $file);
+    businessDefinitionExpect($document, 'release', $release, $file);
     if (!array_key_exists('config_provider', $document)) {
         throw new RuntimeException($file . ' must record config_provider, as a name or null.');
     }
@@ -597,7 +599,7 @@ function business-definitionVerifyServiceMap(array $exported, string $release): 
     }
 
     if ($provider === null) {
-        business-definitionExpectText($document, 'provider_absence_reason', $file);
+        businessDefinitionExpectText($document, 'provider_absence_reason', $file);
         if ($factories !== []) {
             throw new RuntimeException($file . ' declares factories without a provider.');
         }
@@ -683,9 +685,9 @@ function business-definitionVerifyServiceMap(array $exported, string $release): 
  *
  * @since   0.1.0
  */
-function business-definitionVerifyDocumentation(array $symbols): void
+function businessDefinitionVerifyDocumentation(array $symbols): void
 {
-    $document = business-definitionReadFile(BUSINESS_DEFINITION_API_DOCUMENT);
+    $document = businessDefinitionReadFile(BUSINESS_DEFINITION_API_DOCUMENT);
     $sections = preg_split('/^(?=## )/m', $document);
     $sections = $sections === false ? [] : $sections;
 
@@ -699,7 +701,11 @@ function business-definitionVerifyDocumentation(array $symbols): void
             }
         }
         if ($section === null) {
-            throw new RuntimeException(sprintf('%s has no "## `%s`" section.', BUSINESS_DEFINITION_API_DOCUMENT, $name));
+            throw new RuntimeException(sprintf(
+                '%s has no "## `%s`" section.',
+                BUSINESS_DEFINITION_API_DOCUMENT,
+                $name
+            ));
         }
         foreach ($reflection->getMethods(ReflectionMethod::IS_PUBLIC) as $method) {
             if ($method->getDeclaringClass()->getName() !== $name) {
@@ -760,7 +766,7 @@ function business-definitionVerifyDocumentation(array $symbols): void
  *
  * @since   0.1.0
  */
-function business-definitionReportDifference(string $recordedBytes, string $generatedBytes): void
+function businessDefinitionReportDifference(string $recordedBytes, string $generatedBytes): void
 {
     $recorded = json_decode($recordedBytes, true);
     $generated = json_decode($generatedBytes, true);
@@ -769,7 +775,7 @@ function business-definitionReportDifference(string $recordedBytes, string $gene
 
         return;
     }
-    $difference = business-definitionFirstDifference($recorded, $generated);
+    $difference = businessDefinitionFirstDifference($recorded, $generated);
     if ($difference === null) {
         fwrite(
             STDERR,
@@ -782,8 +788,8 @@ function business-definitionReportDifference(string $recordedBytes, string $gene
         "The public API manifest drifted at %s.\nRecorded:  %s\nGenerated: %s\n"
             . "Treat an incompatible change as a new major; run --write only after compatibility review.\n",
         $difference['path'],
-        business-definitionDisplay($difference['recorded']),
-        business-definitionDisplay($difference['generated']),
+        businessDefinitionDisplay($difference['recorded']),
+        businessDefinitionDisplay($difference['generated']),
     ));
 }
 
@@ -798,7 +804,7 @@ function business-definitionReportDifference(string $recordedBytes, string $gene
  *
  * @since   0.1.0
  */
-function business-definitionFirstDifference(mixed $recorded, mixed $generated, string $path = '$'): ?array
+function businessDefinitionFirstDifference(mixed $recorded, mixed $generated, string $path = '$'): ?array
 {
     if (!is_array($recorded) || !is_array($generated)) {
         return $recorded === $generated
@@ -814,7 +820,7 @@ function business-definitionFirstDifference(mixed $recorded, mixed $generated, s
         if (!array_key_exists($key, $generated)) {
             return ['path' => $memberPath, 'recorded' => $recorded[$key], 'generated' => '<absent>'];
         }
-        $difference = business-definitionFirstDifference($recorded[$key], $generated[$key], $memberPath);
+        $difference = businessDefinitionFirstDifference($recorded[$key], $generated[$key], $memberPath);
         if ($difference !== null) {
             return $difference;
         }
@@ -832,7 +838,7 @@ function business-definitionFirstDifference(mixed $recorded, mixed $generated, s
  *
  * @since   0.1.0
  */
-function business-definitionDisplay(mixed $value): string
+function businessDefinitionDisplay(mixed $value): string
 {
     $encoded = json_encode($value, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 
@@ -853,7 +859,7 @@ function business-definitionDisplay(mixed $value): string
  *
  * @since   0.1.0
  */
-function business-definitionExpect(array $document, string $field, string $expected, string $file): void
+function businessDefinitionExpect(array $document, string $field, string $expected, string $file): void
 {
     if (($document[$field] ?? null) !== $expected) {
         throw new RuntimeException(sprintf('%s must record %s as %s.', $file, $field, $expected));
@@ -873,7 +879,7 @@ function business-definitionExpect(array $document, string $field, string $expec
  *
  * @since   0.1.0
  */
-function business-definitionExpectText(array $document, string $field, string $where): void
+function businessDefinitionExpectText(array $document, string $field, string $where): void
 {
     $value = $document[$field] ?? null;
     if (!is_string($value) || trim($value) === '') {
@@ -892,10 +898,10 @@ function business-definitionExpectText(array $document, string $field, string $w
  *
  * @since   0.1.0
  */
-function business-definitionJsonObject(string $relative): array
+function businessDefinitionJsonObject(string $relative): array
 {
     try {
-        $decoded = json_decode(business-definitionReadFile($relative), true, 512, JSON_THROW_ON_ERROR);
+        $decoded = json_decode(businessDefinitionReadFile($relative), true, 512, JSON_THROW_ON_ERROR);
     } catch (JsonException $error) {
         throw new RuntimeException($relative . ' is not valid JSON: ' . $error->getMessage(), 0, $error);
     }
@@ -919,7 +925,7 @@ function business-definitionJsonObject(string $relative): array
  *
  * @since   0.1.0
  */
-function business-definitionPath(string $relative): string
+function businessDefinitionPath(string $relative): string
 {
     return BUSINESS_DEFINITION_ROOT . '/' . $relative;
 }
@@ -935,9 +941,9 @@ function business-definitionPath(string $relative): string
  *
  * @since   0.1.0
  */
-function business-definitionReadFile(string $relative): string
+function businessDefinitionReadFile(string $relative): string
 {
-    $path = business-definitionPath($relative);
+    $path = businessDefinitionPath($relative);
     $bytes = is_file($path) ? file_get_contents($path) : false;
     if (!is_string($bytes)) {
         throw new RuntimeException('Cannot read ' . $relative . '.');
@@ -958,9 +964,9 @@ function business-definitionReadFile(string $relative): string
  *
  * @since   0.1.0
  */
-function business-definitionWriteFile(string $relative, string $bytes): void
+function businessDefinitionWriteFile(string $relative, string $bytes): void
 {
-    $path = business-definitionPath($relative);
+    $path = businessDefinitionPath($relative);
     $directory = dirname($path);
     if (!is_dir($directory) && !mkdir($directory, 0777, true) && !is_dir($directory)) {
         throw new RuntimeException('Cannot create the directory of ' . $relative . '.');
@@ -992,7 +998,7 @@ function business-definitionWriteFile(string $relative, string $bytes): void
  *
  * @since   0.1.0
  */
-function business-definitionRelativePath(string $path): string
+function businessDefinitionRelativePath(string $path): string
 {
     $rootPath = realpath(BUSINESS_DEFINITION_ROOT);
     $real = realpath($path);

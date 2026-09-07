@@ -1,0 +1,3594 @@
+{
+    "schema": "kumwe-package-public-api/v1",
+    "package": "kumwe/business-definition",
+    "release": "0.1.0",
+    "namespace": "Kumwe\\BusinessDefinition\\",
+    "symbols": {
+        "Kumwe\\BusinessDefinition\\Application\\BusinessDefinitionCompatibilityAnalyzer": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Application/BusinessDefinitionCompatibilityAnalyzer.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "analyze": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "before",
+                            "type": "?Kumwe\\BusinessDefinition\\Domain\\EntityTypeDefinition",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "draft",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\EntityTypeDefinition",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessDefinition\\Domain\\CompatibilityPlan"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Application\\BusinessDefinitionContributionRegistry": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Application/BusinessDefinitionContributionRegistry.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "validator",
+                            "type": "Kumwe\\BusinessDefinition\\Application\\BusinessDefinitionValidator",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": null
+                },
+                "all": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                "ownedBy": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "owner",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\DefinitionOwner",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "array"
+                },
+                "register": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "owner",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\DefinitionOwner",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "definition",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\EntityTypeDefinition",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "void"
+                },
+                "remove": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "owner",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\DefinitionOwner",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "void"
+                },
+                "validate": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "void"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Application\\BusinessDefinitionValidator": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Application/BusinessDefinitionValidator.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "fieldTypes",
+                            "type": "Kumwe\\BusinessDefinition\\Application\\FieldTypeDefinitionResolver",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "fieldConfiguration",
+                            "type": "Kumwe\\BusinessDefinition\\Application\\FieldConfigurationAdmission",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": null
+                },
+                "validateGraph": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "definitions",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "void"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Application\\DefinitionCatalogEntry": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Application/DefinitionCatalogEntry.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {
+                "draftRevision": {
+                    "type": "int",
+                    "static": false,
+                    "readonly": true
+                },
+                "handle": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "id": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "owner": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\DefinitionOwner",
+                    "static": false,
+                    "readonly": true
+                },
+                "ownerActive": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "publishedVersion": {
+                    "type": "?int",
+                    "static": false,
+                    "readonly": true
+                },
+                "siteIdentifier": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "status": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\DefinitionStatus",
+                    "static": false,
+                    "readonly": true
+                },
+                "updatedAt": {
+                    "type": "DateTimeImmutable",
+                    "static": false,
+                    "readonly": true
+                }
+            },
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "siteIdentifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "handle",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "owner",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\DefinitionOwner",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "ownerActive",
+                            "type": "bool",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "draftRevision",
+                            "type": "int",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "publishedVersion",
+                            "type": "?int",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "status",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\DefinitionStatus",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "updatedAt",
+                            "type": "DateTimeImmutable",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": null
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Application\\DefinitionDraft": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Application/DefinitionDraft.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {
+                "checksum": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "definition": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\EntityTypeDefinition",
+                    "static": false,
+                    "readonly": true
+                },
+                "revision": {
+                    "type": "int",
+                    "static": false,
+                    "readonly": true
+                },
+                "updatedAt": {
+                    "type": "DateTimeImmutable",
+                    "static": false,
+                    "readonly": true
+                },
+                "updatedBy": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                }
+            },
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "definition",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\EntityTypeDefinition",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "revision",
+                            "type": "int",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "checksum",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "updatedBy",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "updatedAt",
+                            "type": "DateTimeImmutable",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": null
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Application\\DefinitionVersionRecord": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Application/DefinitionVersionRecord.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {
+                "compatibility": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\CompatibilityPlan",
+                    "static": false,
+                    "readonly": true
+                },
+                "definition": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\EntityTypeDefinition",
+                    "static": false,
+                    "readonly": true
+                },
+                "publishedAt": {
+                    "type": "DateTimeImmutable",
+                    "static": false,
+                    "readonly": true
+                },
+                "publishedBy": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "status": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\DefinitionStatus",
+                    "static": false,
+                    "readonly": true
+                }
+            },
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "definition",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\EntityTypeDefinition",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "compatibility",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\CompatibilityPlan",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "status",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\DefinitionStatus",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "publishedBy",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "publishedAt",
+                            "type": "DateTimeImmutable",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": null
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Application\\FieldConfigurationAdmission": {
+            "kind": "interface",
+            "stability": "stable",
+            "file": "src/Application/FieldConfigurationAdmission.php",
+            "abstract": false,
+            "final": false,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "assertAdmissible": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "configuration",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "void"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Application\\FieldTypeDefinitionResolver": {
+            "kind": "interface",
+            "stability": "stable",
+            "file": "src/Application/FieldTypeDefinitionResolver.php",
+            "abstract": false,
+            "final": false,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "get": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "identifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessDefinition\\Domain\\FieldTypeDefinition"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Application\\FieldTypeRegistry": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Application/FieldTypeRegistry.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [
+                "Kumwe\\BusinessDefinition\\Application\\FieldTypeDefinitionResolver"
+            ],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "withCore",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": null
+                },
+                "all": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                "get": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "identifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessDefinition\\Domain\\FieldTypeDefinition"
+                },
+                "has": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "identifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "bool"
+                },
+                "ownedBy": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "owner",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\DefinitionOwner",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "array"
+                },
+                "register": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "owner",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\DefinitionOwner",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "definition",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\FieldTypeDefinition",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "void"
+                },
+                "remove": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "owner",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\DefinitionOwner",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "void"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\ConfigProvider": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/ConfigProvider.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "__invoke": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Container\\BusinessDefinitionContributionRegistryFactory": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Container/BusinessDefinitionContributionRegistryFactory.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "__invoke": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "container",
+                            "type": "Psr\\Container\\ContainerInterface",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessDefinition\\Application\\BusinessDefinitionContributionRegistry"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Container\\BusinessDefinitionValidatorFactory": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Container/BusinessDefinitionValidatorFactory.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "__invoke": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "container",
+                            "type": "Psr\\Container\\ContainerInterface",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessDefinition\\Application\\BusinessDefinitionValidator"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Container\\FieldTypeRegistryFactory": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Container/FieldTypeRegistryFactory.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "__invoke": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "container",
+                            "type": "Psr\\Container\\ContainerInterface",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessDefinition\\Application\\FieldTypeRegistry"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Domain\\ActionDefinition": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Domain/ActionDefinition.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {
+                "administrator": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "bulk": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "capability": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "condition": {
+                    "type": "?Kumwe\\BusinessDefinition\\Domain\\Expression",
+                    "static": false,
+                    "readonly": true
+                },
+                "handle": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "handler": {
+                    "type": "?string",
+                    "static": false,
+                    "readonly": true
+                },
+                "highImpact": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "label": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "portal": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "public": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "schema": {
+                    "type": "?string",
+                    "static": false,
+                    "readonly": true
+                },
+                "transition": {
+                    "type": "?string",
+                    "static": false,
+                    "readonly": true
+                }
+            },
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "handle",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "label",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "capability",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "bulk",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "administrator",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "portal",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "public",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "highImpact",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "condition",
+                            "type": "?Kumwe\\BusinessDefinition\\Domain\\Expression",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "transition",
+                            "type": "?string",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "handler",
+                            "type": "?string",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "schema",
+                            "type": "?string",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": null
+                },
+                "fromArray": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessDefinition\\Domain\\ActionDefinition"
+                },
+                "toArray": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Domain\\BuiltInFieldTypes": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Domain/BuiltInFieldTypes.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "all": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [],
+                    "return": "array"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Domain\\CanonicalDefinitionJson": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Domain/CanonicalDefinitionJson.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {},
+            "methods": {
+                "checksum": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "value",
+                            "type": "mixed",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "string"
+                },
+                "encode": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "value",
+                            "type": "mixed",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "string"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Domain\\CompatibilityChange": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Domain/CompatibilityChange.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {
+                "classification": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\CompatibilityClassification",
+                    "static": false,
+                    "readonly": true
+                },
+                "message": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "path": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                }
+            },
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "path",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "classification",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\CompatibilityClassification",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "message",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": null
+                },
+                "toArray": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Domain\\CompatibilityClassification": {
+            "kind": "enum",
+            "stability": "stable",
+            "file": "src/Domain/CompatibilityClassification.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [
+                "BackedEnum",
+                "UnitEnum"
+            ],
+            "constants": {
+                "Additive": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\CompatibilityClassification"
+                },
+                "BehaviorChanging": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\CompatibilityClassification"
+                },
+                "CompatibleConstraintTightening": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\CompatibilityClassification"
+                },
+                "DataMigrationRequired": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\CompatibilityClassification"
+                },
+                "Destructive": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\CompatibilityClassification"
+                }
+            },
+            "properties": {},
+            "methods": {
+                "requiresConfirmation": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "bool"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Domain\\CompatibilityPlan": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Domain/CompatibilityPlan.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {
+                "fromChecksum": {
+                    "type": "?string",
+                    "static": false,
+                    "readonly": true
+                },
+                "fromVersion": {
+                    "type": "?int",
+                    "static": false,
+                    "readonly": true
+                },
+                "toChecksum": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "toVersion": {
+                    "type": "int",
+                    "static": false,
+                    "readonly": true
+                }
+            },
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "fromVersion",
+                            "type": "?int",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "toVersion",
+                            "type": "int",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "fromChecksum",
+                            "type": "?string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "toChecksum",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "changes",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": null
+                },
+                "changes": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                "destructive": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "bool"
+                },
+                "requiresConfirmation": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "bool"
+                },
+                "toArray": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Domain\\ComputationMode": {
+            "kind": "enum",
+            "stability": "stable",
+            "file": "src/Domain/ComputationMode.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [
+                "BackedEnum",
+                "UnitEnum"
+            ],
+            "constants": {
+                "Stored": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\ComputationMode"
+                },
+                "Virtual": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\ComputationMode"
+                }
+            },
+            "properties": {},
+            "methods": {},
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Domain\\DefinitionOwner": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Domain/DefinitionOwner.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {
+                "identifier": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "type": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\DefinitionOwnerType",
+                    "static": false,
+                    "readonly": true
+                }
+            },
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "type",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\DefinitionOwnerType",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "identifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": null
+                },
+                "assertOwns": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "handle",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "void"
+                },
+                "core": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [],
+                    "return": "Kumwe\\BusinessDefinition\\Domain\\DefinitionOwner"
+                },
+                "extension": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "identifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessDefinition\\Domain\\DefinitionOwner"
+                },
+                "namespace": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "string"
+                },
+                "site": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "identifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessDefinition\\Domain\\DefinitionOwner"
+                },
+                "toArray": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Domain\\DefinitionOwnerType": {
+            "kind": "enum",
+            "stability": "stable",
+            "file": "src/Domain/DefinitionOwnerType.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [
+                "BackedEnum",
+                "UnitEnum"
+            ],
+            "constants": {
+                "Core": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\DefinitionOwnerType"
+                },
+                "Extension": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\DefinitionOwnerType"
+                },
+                "Site": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\DefinitionOwnerType"
+                }
+            },
+            "properties": {},
+            "methods": {},
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Domain\\DefinitionStatus": {
+            "kind": "enum",
+            "stability": "stable",
+            "file": "src/Domain/DefinitionStatus.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [
+                "BackedEnum",
+                "UnitEnum"
+            ],
+            "constants": {
+                "Deprecated": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\DefinitionStatus"
+                },
+                "Draft": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\DefinitionStatus"
+                },
+                "Published": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\DefinitionStatus"
+                },
+                "Rejected": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\DefinitionStatus"
+                },
+                "Superseded": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\DefinitionStatus"
+                }
+            },
+            "properties": {},
+            "methods": {},
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Domain\\DeleteBehavior": {
+            "kind": "enum",
+            "stability": "stable",
+            "file": "src/Domain/DeleteBehavior.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [
+                "BackedEnum",
+                "UnitEnum"
+            ],
+            "constants": {
+                "Cascade": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\DeleteBehavior"
+                },
+                "Restrict": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\DeleteBehavior"
+                },
+                "SetNull": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\DeleteBehavior"
+                }
+            },
+            "properties": {},
+            "methods": {},
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Domain\\DocumentViewDefinition": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Domain/DocumentViewDefinition.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {
+                "groups": {
+                    "type": "array",
+                    "static": false,
+                    "readonly": true
+                },
+                "identity": {
+                    "type": "?string",
+                    "static": false,
+                    "readonly": true
+                },
+                "lines": {
+                    "type": "?string",
+                    "static": false,
+                    "readonly": true
+                },
+                "parties": {
+                    "type": "array",
+                    "static": false,
+                    "readonly": true
+                },
+                "totals": {
+                    "type": "array",
+                    "static": false,
+                    "readonly": true
+                }
+            },
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "identity",
+                            "type": "?string",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "groups",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "parties",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "lines",
+                            "type": "?string",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "totals",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": null
+                },
+                "fieldHandles": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                "fromArray": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessDefinition\\Domain\\DocumentViewDefinition"
+                },
+                "toArray": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Domain\\EntityTypeDefinition": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Domain/EntityTypeDefinition.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {
+                "administratorExposure": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "auditEnabled": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "definitionVersion": {
+                    "type": "int",
+                    "static": false,
+                    "readonly": true
+                },
+                "handle": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "id": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "identityStrategy": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\IdentityStrategy",
+                    "static": false,
+                    "readonly": true
+                },
+                "owner": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\DefinitionOwner",
+                    "static": false,
+                    "readonly": true
+                },
+                "pluralLabel": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "portalExposure": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "publicExposure": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "revisionsEnabled": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "scope": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\ScopeMode",
+                    "static": false,
+                    "readonly": true
+                },
+                "singularLabel": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "siteIdentifier": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "softDeleteEnabled": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "status": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\DefinitionStatus",
+                    "static": false,
+                    "readonly": true
+                },
+                "storageMode": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\StorageMode",
+                    "static": false,
+                    "readonly": true
+                },
+                "workflow": {
+                    "type": "?Kumwe\\BusinessDefinition\\Domain\\WorkflowBinding",
+                    "static": false,
+                    "readonly": true
+                }
+            },
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "owner",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\DefinitionOwner",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "siteIdentifier",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "handle",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "singularLabel",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "pluralLabel",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "status",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\DefinitionStatus",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "definitionVersion",
+                            "type": "int",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "storageMode",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\StorageMode",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "identityStrategy",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\IdentityStrategy",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "scope",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\ScopeMode",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "auditEnabled",
+                            "type": "bool",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "revisionsEnabled",
+                            "type": "bool",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "fields",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "relationships",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "views",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "actions",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "workflow",
+                            "type": "?Kumwe\\BusinessDefinition\\Domain\\WorkflowBinding",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "compatibilityMetadata",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "administratorExposure",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "portalExposure",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "publicExposure",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "softDeleteEnabled",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "recordInvariants",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "portalOperations",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "labelTranslations",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": null
+                },
+                "actions": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                "allowsPortalOperation": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "operation",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\PortalOperation",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "bool"
+                },
+                "checksum": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "string"
+                },
+                "compatibilityMetadata": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                "dependencyGraph": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                "fields": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                "fromArray": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessDefinition\\Domain\\EntityTypeDefinition"
+                },
+                "invariantLineDependencies": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                "labelTranslations": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                "pluralLabelIn": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "locale",
+                            "type": "Kumwe\\Localization\\Domain\\LocaleTag|string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "string"
+                },
+                "portalOperations": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                "postingDateField": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "?Kumwe\\BusinessDefinition\\Domain\\FieldDefinition"
+                },
+                "published": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "version",
+                            "type": "int",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessDefinition\\Domain\\EntityTypeDefinition"
+                },
+                "recordInvariants": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                "relationships": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                "runtimeRelationship": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "handle",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "?Kumwe\\BusinessDefinition\\Domain\\RelationshipDefinition"
+                },
+                "singularLabelIn": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "locale",
+                            "type": "Kumwe\\Localization\\Domain\\LocaleTag|string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "string"
+                },
+                "toArray": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                "views": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                "withStatus": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "status",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\DefinitionStatus",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessDefinition\\Domain\\EntityTypeDefinition"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Domain\\Expression": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Domain/Expression.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {
+                "aggregate": {
+                    "type": "?string",
+                    "static": false,
+                    "readonly": true
+                },
+                "field": {
+                    "type": "?string",
+                    "static": false,
+                    "readonly": true
+                },
+                "lines": {
+                    "type": "?string",
+                    "static": false,
+                    "readonly": true
+                },
+                "literal": {
+                    "type": "mixed",
+                    "static": false,
+                    "readonly": true
+                },
+                "operator": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "scale": {
+                    "type": "?int",
+                    "static": false,
+                    "readonly": true
+                },
+                "type": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                }
+            },
+            "methods": {
+                "arguments": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                "dependencies": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                "fromArray": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessDefinition\\Domain\\Expression"
+                },
+                "lineDependencies": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                "toArray": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Domain\\FieldDefinition": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Domain/FieldDefinition.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {
+                "computationMode": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\ComputationMode",
+                    "static": false,
+                    "readonly": true
+                },
+                "computed": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "configuration": {
+                    "type": "array",
+                    "static": false,
+                    "readonly": true
+                },
+                "createVisible": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "default": {
+                    "type": "mixed",
+                    "static": false,
+                    "readonly": true
+                },
+                "description": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "editabilityCondition": {
+                    "type": "?Kumwe\\BusinessDefinition\\Domain\\Expression",
+                    "static": false,
+                    "readonly": true
+                },
+                "exportable": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "filterable": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "formGroup": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "formula": {
+                    "type": "?Kumwe\\BusinessDefinition\\Domain\\Expression",
+                    "static": false,
+                    "readonly": true
+                },
+                "handle": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "helpText": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "immutableAfterCreate": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "indexed": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "label": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "length": {
+                    "type": "?int",
+                    "static": false,
+                    "readonly": true
+                },
+                "localized": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "normalizers": {
+                    "type": "array",
+                    "static": false,
+                    "readonly": true
+                },
+                "nullable": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "order": {
+                    "type": "int",
+                    "static": false,
+                    "readonly": true
+                },
+                "placements": {
+                    "type": "array",
+                    "static": false,
+                    "readonly": true
+                },
+                "precision": {
+                    "type": "?int",
+                    "static": false,
+                    "readonly": true
+                },
+                "readOnly": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "readVisible": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "reportable": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "required": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "scale": {
+                    "type": "?int",
+                    "static": false,
+                    "readonly": true
+                },
+                "searchable": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "sensitivity": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\Sensitivity",
+                    "static": false,
+                    "readonly": true
+                },
+                "serverOnly": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "sortable": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "textTranslations": {
+                    "type": "array",
+                    "static": false,
+                    "readonly": true
+                },
+                "type": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "unique": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "updateVisible": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "validators": {
+                    "type": "array",
+                    "static": false,
+                    "readonly": true
+                },
+                "visibilityCondition": {
+                    "type": "?Kumwe\\BusinessDefinition\\Domain\\Expression",
+                    "static": false,
+                    "readonly": true
+                }
+            },
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "handle",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "label",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "type",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "description",
+                            "type": "string",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "required",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "nullable",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "default",
+                            "type": "mixed",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "length",
+                            "type": "?int",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "precision",
+                            "type": "?int",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "scale",
+                            "type": "?int",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "configuration",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "normalizers",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "validators",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "unique",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "indexed",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "immutableAfterCreate",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "serverOnly",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "computed",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "readOnly",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "createVisible",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "updateVisible",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "readVisible",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "searchable",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "filterable",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "sortable",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "reportable",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "exportable",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "sensitivity",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\Sensitivity",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "localized",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "helpText",
+                            "type": "string",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "formGroup",
+                            "type": "string",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "order",
+                            "type": "int",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "placements",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "visibilityCondition",
+                            "type": "?Kumwe\\BusinessDefinition\\Domain\\Expression",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "editabilityCondition",
+                            "type": "?Kumwe\\BusinessDefinition\\Domain\\Expression",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "formula",
+                            "type": "?Kumwe\\BusinessDefinition\\Domain\\Expression",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "computationMode",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\ComputationMode",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "textTranslations",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": null
+                },
+                "descriptionIn": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "locale",
+                            "type": "Kumwe\\Localization\\Domain\\LocaleTag|string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "string"
+                },
+                "fromArray": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessDefinition\\Domain\\FieldDefinition"
+                },
+                "helpTextIn": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "locale",
+                            "type": "Kumwe\\Localization\\Domain\\LocaleTag|string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "string"
+                },
+                "labelIn": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "locale",
+                            "type": "Kumwe\\Localization\\Domain\\LocaleTag|string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "string"
+                },
+                "toArray": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Domain\\FieldTypeDefinition": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Domain/FieldTypeDefinition.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {
+                "configurationKeys": {
+                    "type": "array",
+                    "static": false,
+                    "readonly": true
+                },
+                "description": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "id": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "label": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "storageType": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "valueType": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                }
+            },
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "id",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "label",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "description",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "valueType",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "storageType",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "configurationKeys",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": null
+                },
+                "fromArray": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessDefinition\\Domain\\FieldTypeDefinition"
+                },
+                "toArray": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Domain\\IdentityStrategy": {
+            "kind": "enum",
+            "stability": "stable",
+            "file": "src/Domain/IdentityStrategy.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [
+                "BackedEnum",
+                "UnitEnum"
+            ],
+            "constants": {
+                "Reference": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\IdentityStrategy"
+                },
+                "Uuid": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\IdentityStrategy"
+                }
+            },
+            "properties": {},
+            "methods": {},
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Domain\\InvalidBusinessDefinition": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Domain/InvalidBusinessDefinition.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": "InvalidArgumentException",
+            "interfaces": [
+                "Stringable",
+                "Throwable"
+            ],
+            "constants": {},
+            "properties": {},
+            "methods": {},
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Domain\\LocalizedDefinitionText": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Domain/LocalizedDefinitionText.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [],
+            "constants": {
+                "MAXIMUM_LOCALES": {
+                    "type": null
+                }
+            },
+            "properties": {},
+            "methods": {
+                "normalize": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "translations",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "members",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "array"
+                },
+                "resolve": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "translations",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "member",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "declared",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "locale",
+                            "type": "Kumwe\\Localization\\Domain\\LocaleTag|string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "string"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Domain\\PortalOperation": {
+            "kind": "enum",
+            "stability": "stable",
+            "file": "src/Domain/PortalOperation.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [
+                "BackedEnum",
+                "UnitEnum"
+            ],
+            "constants": {
+                "Action": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\PortalOperation"
+                },
+                "Approval": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\PortalOperation"
+                },
+                "Archive": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\PortalOperation"
+                },
+                "Browse": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\PortalOperation"
+                },
+                "Create": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\PortalOperation"
+                },
+                "Delete": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\PortalOperation"
+                },
+                "Export": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\PortalOperation"
+                },
+                "History": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\PortalOperation"
+                },
+                "Read": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\PortalOperation"
+                },
+                "Relation": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\PortalOperation"
+                },
+                "Reorder": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\PortalOperation"
+                },
+                "Report": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\PortalOperation"
+                },
+                "Restore": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\PortalOperation"
+                },
+                "Status": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\PortalOperation"
+                },
+                "Update": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\PortalOperation"
+                }
+            },
+            "properties": {},
+            "methods": {},
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Domain\\RecordInvariantDefinition": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Domain/RecordInvariantDefinition.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {
+                "condition": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\Expression",
+                    "static": false,
+                    "readonly": true
+                },
+                "handle": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "message": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                }
+            },
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "handle",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "message",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "condition",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\Expression",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": null
+                },
+                "fromArray": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessDefinition\\Domain\\RecordInvariantDefinition"
+                },
+                "lineDependencies": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                },
+                "toArray": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Domain\\RelationshipDefinition": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Domain/RelationshipDefinition.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {
+                "handle": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "inverse": {
+                    "type": "?string",
+                    "static": false,
+                    "readonly": true
+                },
+                "kind": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\RelationshipKind",
+                    "static": false,
+                    "readonly": true
+                },
+                "label": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "onDelete": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\DeleteBehavior",
+                    "static": false,
+                    "readonly": true
+                },
+                "ordered": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "required": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "target": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "unique": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                }
+            },
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "handle",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "label",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "kind",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\RelationshipKind",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "target",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "inverse",
+                            "type": "?string",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "required",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "unique",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "ordered",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "onDelete",
+                            "type": "Kumwe\\BusinessDefinition\\Domain\\DeleteBehavior",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": null
+                },
+                "fromArray": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessDefinition\\Domain\\RelationshipDefinition"
+                },
+                "toArray": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Domain\\RelationshipKind": {
+            "kind": "enum",
+            "stability": "stable",
+            "file": "src/Domain/RelationshipKind.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [
+                "BackedEnum",
+                "UnitEnum"
+            ],
+            "constants": {
+                "ManyToMany": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\RelationshipKind"
+                },
+                "ManyToOne": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\RelationshipKind"
+                },
+                "OneToMany": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\RelationshipKind"
+                },
+                "OneToOne": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\RelationshipKind"
+                },
+                "OwnedLineCollection": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\RelationshipKind"
+                },
+                "Reversal": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\RelationshipKind"
+                }
+            },
+            "properties": {},
+            "methods": {},
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Domain\\ScopeMode": {
+            "kind": "enum",
+            "stability": "stable",
+            "file": "src/Domain/ScopeMode.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [
+                "BackedEnum",
+                "UnitEnum"
+            ],
+            "constants": {
+                "Installation": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\ScopeMode"
+                },
+                "Organization": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\ScopeMode"
+                },
+                "Site": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\ScopeMode"
+                },
+                "SiteOrganization": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\ScopeMode"
+                }
+            },
+            "properties": {},
+            "methods": {},
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Domain\\Sensitivity": {
+            "kind": "enum",
+            "stability": "stable",
+            "file": "src/Domain/Sensitivity.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [
+                "BackedEnum",
+                "UnitEnum"
+            ],
+            "constants": {
+                "Confidential": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\Sensitivity"
+                },
+                "Internal": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\Sensitivity"
+                },
+                "Public": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\Sensitivity"
+                },
+                "Restricted": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\Sensitivity"
+                },
+                "Secret": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\Sensitivity"
+                }
+            },
+            "properties": {},
+            "methods": {},
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Domain\\StorageMode": {
+            "kind": "enum",
+            "stability": "stable",
+            "file": "src/Domain/StorageMode.php",
+            "abstract": false,
+            "final": true,
+            "readonly": false,
+            "parent": null,
+            "interfaces": [
+                "BackedEnum",
+                "UnitEnum"
+            ],
+            "constants": {
+                "Relational": {
+                    "type": "Kumwe\\BusinessDefinition\\Domain\\StorageMode"
+                }
+            },
+            "properties": {},
+            "methods": {},
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Domain\\ViewDefinition": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Domain/ViewDefinition.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {
+                "administrator": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "document": {
+                    "type": "?Kumwe\\BusinessDefinition\\Domain\\DocumentViewDefinition",
+                    "static": false,
+                    "readonly": true
+                },
+                "fields": {
+                    "type": "array",
+                    "static": false,
+                    "readonly": true
+                },
+                "filters": {
+                    "type": "array",
+                    "static": false,
+                    "readonly": true
+                },
+                "handle": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "handler": {
+                    "type": "?string",
+                    "static": false,
+                    "readonly": true
+                },
+                "kind": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "label": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "portal": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "public": {
+                    "type": "bool",
+                    "static": false,
+                    "readonly": true
+                },
+                "schema": {
+                    "type": "?string",
+                    "static": false,
+                    "readonly": true
+                },
+                "sorts": {
+                    "type": "array",
+                    "static": false,
+                    "readonly": true
+                }
+            },
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "handle",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "label",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "kind",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "fields",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "filters",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "sorts",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "administrator",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "portal",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "public",
+                            "type": "bool",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "handler",
+                            "type": "?string",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "schema",
+                            "type": "?string",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "document",
+                            "type": "?Kumwe\\BusinessDefinition\\Domain\\DocumentViewDefinition",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": null
+                },
+                "fromArray": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessDefinition\\Domain\\ViewDefinition"
+                },
+                "toArray": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                }
+            },
+            "deprecated": null
+        },
+        "Kumwe\\BusinessDefinition\\Domain\\WorkflowBinding": {
+            "kind": "class",
+            "stability": "stable",
+            "file": "src/Domain/WorkflowBinding.php",
+            "abstract": false,
+            "final": true,
+            "readonly": true,
+            "parent": null,
+            "interfaces": [],
+            "constants": {},
+            "properties": {
+                "immutableStates": {
+                    "type": "array",
+                    "static": false,
+                    "readonly": true
+                },
+                "initialState": {
+                    "type": "string",
+                    "static": false,
+                    "readonly": true
+                },
+                "states": {
+                    "type": "array",
+                    "static": false,
+                    "readonly": true
+                },
+                "transitions": {
+                    "type": "array",
+                    "static": false,
+                    "readonly": true
+                }
+            },
+            "methods": {
+                "__construct": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "initialState",
+                            "type": "string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "states",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "transitions",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        },
+                        {
+                            "name": "immutableStates",
+                            "type": "array",
+                            "optional": true,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": null
+                },
+                "fromArray": {
+                    "visibility": "public",
+                    "static": true,
+                    "parameters": [
+                        {
+                            "name": "document",
+                            "type": "array",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "Kumwe\\BusinessDefinition\\Domain\\WorkflowBinding"
+                },
+                "immutableIn": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [
+                        {
+                            "name": "state",
+                            "type": "?string",
+                            "optional": false,
+                            "variadic": false,
+                            "by_reference": false
+                        }
+                    ],
+                    "return": "bool"
+                },
+                "toArray": {
+                    "visibility": "public",
+                    "static": false,
+                    "parameters": [],
+                    "return": "array"
+                }
+            },
+            "deprecated": null
+        }
+    },
+    "extension_points": [
+        "Kumwe\\BusinessDefinition\\Application\\FieldConfigurationAdmission",
+        "Kumwe\\BusinessDefinition\\Application\\FieldTypeDefinitionResolver"
+    ],
+    "digest_of": "src"
+}

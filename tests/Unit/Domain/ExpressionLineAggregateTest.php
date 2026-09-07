@@ -160,7 +160,11 @@ final class ExpressionLineAggregateTest extends TestCase
         ]);
 
         self::assertSame(['lines' => []], $expression->lineDependencies());
-        self::assertSame(2, FrozenEvaluator::evaluate($expression, [], ['lines' => [['amount' => '1'], ['amount' => '2']]]));
+        self::assertSame(
+            2,
+            FrozenEvaluator::evaluate($expression, [], ['lines' => [['amount' => '1'],
+            ['amount' => '2']]])
+        );
     }
 
     /**

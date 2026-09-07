@@ -1,0 +1,23 @@
+{
+  "schema": "kumwe-business-definition-corpus-provenance/v1",
+  "app_repository": "https://github.com/kumwe/app",
+  "app_commit": "960ce8ec00cf724a7cae03e5ba09c4852c9ab54e",
+  "status": "reviewed-draft-not-release-attestation",
+  "original_files": {
+    "src/BusinessDefinition/Domain/Expression.php": "414ff21f7fc06322af08766c12548cd8094b3d25a9b87cc9eff5f6a10a115000",
+    "src/BusinessDefinition/Domain/ExpressionEvaluator.php": "32aa83d57ab323e5268e2b91f712516a710c42f69cb338888c8d104bdb98807d",
+    "src/BusinessDefinition/Domain/DecimalValue.php": "5cf0d98bb0b325f5dbf91184c85209c88488d005e7ed04a033f20963c6e0a642",
+    "src/BusinessDefinition/Domain/CanonicalDefinitionJson.php": "7b7feffa7e01eaab66682ed248d682d6f0ac9a59d4749c366e9337c58586cb25",
+    "src/BusinessDefinition/Domain/EntityTypeDefinition.php": "cbcd1856e5562160112d08a34713de45b25215bb36b0165d83f8bc8184fc92d9",
+    "src/BusinessDefinition/Domain/RecordInvariantDefinition.php": "d4a6668df356322d5fd97fe71b14835d078f63cda759ae636eba66ed0536c4e4"
+  },
+  "oracle_files": {
+    "tests/Oracle/FrozenEvaluator.php": "ea17eefecda278b6d01ba6366e7ab1194b61f27477476ca30f20e452215592a5",
+    "tests/Oracle/FrozenDecimal.php": "3bb4cff73576f172ba12675349dda8308cb3c619f800afbb083459d5b9bcc399"
+  },
+  "corpora": {
+    "resources/corpus/formula-v1.json": "11033679b018fdc9a192e954ef11089444a00a1d89c6279d3c192be9252cf42f",
+    "resources/corpus/definition-v1.json": "3d5b5c2d218e95aa9f8310d88b88b373ccd31c16b03d303fa1432c72dc533b4e"
+  },
+  "transformation": "Namespace-only frozen evaluator/decimal oracle; no runtime executor distributed. AST parser removes execution method only. Existing 26 formula tests retained against test-only oracle. Core definition graph fixture uses explicit admitted host test double; SDK presentation conformance remains host/upstream-owned."
+}
