@@ -121,8 +121,8 @@ final readonly class FieldDefinition
      *          wording is declared in one language only.
      *
      * @throws  InvalidBusinessDefinition  When an identifier, label, or numeric bound is malformed, a
-     *          combination of flags contradicts itself, the default or the configuration is not
-     *          canonically serializable, a computed field is missing the formula and the server-only and
+     *          combination of flags contradicts itself, a field condition is not boolean, the default or
+     *          configuration is not canonically serializable, a computed field is missing its formula, server-only and
      *          read-only rules it needs, the normalizer or validator lists are over length or repeat an
      *          entry, the placements are empty or name a surface that does not exist, or a translation
      *          names an untranslatable member, a malformed locale or text over its member's bound.
@@ -228,6 +228,11 @@ final readonly class FieldDefinition
         $this->configuration = $configuration;
         if ($computed && (!$readOnly || !$serverOnly || $formula === null)) {
             throw new InvalidBusinessDefinition('A computed field must be server-only, read-only, and have a formula.');
+        }
+        foreach ([$visibilityCondition, $editabilityCondition] as $condition) {
+            if ($condition !== null && $condition->type !== 'boolean') {
+                throw new InvalidBusinessDefinition('A business field condition must produce boolean.');
+            }
         }
         if (!$computed && $computationMode !== ComputationMode::Virtual) {
             throw new InvalidBusinessDefinition('Only a computed field can use stored computation.');

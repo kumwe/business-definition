@@ -40,6 +40,8 @@ $definition = EntityTypeDefinition::fromArray([
         'handle' => 'id', 'label' => 'ID', 'type' => 'core.uuid',
         'required' => true, 'nullable' => false, 'unique' => true,
         'immutable_after_create' => true, 'server_only' => true, 'read_only' => true,
+    ], [
+        'handle' => 'name', 'label' => 'Name', 'type' => 'core.text', 'default' => 'Asset',
     ]],
 ]);
 (new BusinessDefinitionValidator(new FieldTypeRegistry(), $admission))->validateGraph([$definition]);

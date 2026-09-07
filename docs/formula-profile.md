@@ -18,6 +18,12 @@ and null line field values. Record and line dependencies are separately deduplic
 validation determines whether a collection is owned, a reference exists, a type matches and cycles are absent; it
 rejects aggregates in computed fields or action conditions where the baseline forbids them.
 
+Field visibility and editability conditions require boolean results. Graph admission checks concrete scalar
+field-read declarations in formulas, field conditions, actions and invariants against registered field families
+and computed result types. Decimal and temporal values keep their scalar string representation; `any`, `null`
+and families without one known scalar representation retain runtime checks. This corrects previously accepted
+contradictory definitions without changing the formula AST or its frozen execution corpus.
+
 The normative corpus carries exact JSON integer tokens with `integer_bits: 64`; consumers must parse integers
 losslessly. Each vector contains expression, fields and lines; accepted ASTs add canonical documents and dependency
 lists. Expected outcomes are exact values or a refusal phase, stable category and baseline message. Refusal categories

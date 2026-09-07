@@ -1571,6 +1571,17 @@ their bytes and namespace-only oracle transformation. The archive consumer uses 
 authoritative dependency. Local Packagist advisory lookup times out; CI retains the mandatory online audit, and final
 CI results are the authoritative security gate. No release or native performance result is claimed.
 
-Final local implementation evidence: 126 PHPUnit cases / 1,708 assertions; 41 API exports; 117 named discovered test
-methods; 16 architecture, nine ownership and 31 release-integrity negative fixtures; 12 release-parser cases. The
-68-file consumer archive passes canonical autoload and real Laminas composition after no-dev authoritative installation.
+Final local implementation evidence: 131 PHPUnit cases / 1,743 assertions; 41 API exports; 122 named discovered test
+methods; 16 architecture, nine ownership and 92 release-integrity negative fixtures; 12 release-parser cases. The
+71-file archive passes no-dev authoritative installation, canonical autoload and real Laminas composition using
+the corrected runtime requirements; all 41 public symbols are present and no development paths are shipped.
+
+## Definition admission corrections
+
+The reviewed candidate now rejects non-boolean field visibility/editability conditions and field expression reads
+whose concrete scalar declarations contradict registered or computed field families. This is an intentional
+validation correction: previously admitted contradictory definitions require correction before revalidation.
+Decimal/temporal string representations and dynamic any/null checks remain unchanged. Entity label translation
+changes now appear as behavior-changing compatibility changes. The runtime explicitly requires ext-mbstring, and
+the archived example exercises text default admission. Public signatures and the frozen native formula corpus
+remain unchanged. These corrections do not authorize App adoption or publication of this development candidate.

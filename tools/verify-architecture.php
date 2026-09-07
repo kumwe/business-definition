@@ -91,7 +91,7 @@ if (!is_array($symbols) || !is_array($expected) || array_keys($symbols) !== $exp
 $require = $metadata['require'] ?? null;
 if (
     !is_array($require) || $require !== [
-    'php' => '^8.5', 'php-64bit' => '*', 'kumwe/localization' => '0.1.0',
+    'php' => '^8.5', 'php-64bit' => '*', 'ext-mbstring' => '*', 'kumwe/localization' => '0.1.0',
     'kumwe/sequence' => 'dev-main', 'psr/container' => '^2.0', 'ramsey/uuid' => '^4.9',
     ]
 ) {

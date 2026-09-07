@@ -10,6 +10,7 @@ use InvalidArgumentException;
 use Kumwe\BusinessDefinition\Domain\ComputationMode;
 use Kumwe\BusinessDefinition\Domain\DeleteBehavior;
 use Kumwe\BusinessDefinition\Domain\EntityTypeDefinition;
+use Kumwe\BusinessDefinition\Domain\Expression;
 use Kumwe\BusinessDefinition\Domain\FieldDefinition;
 use Kumwe\BusinessDefinition\Domain\InvalidBusinessDefinition;
 use Kumwe\BusinessDefinition\Domain\IdentityStrategy;
@@ -158,6 +159,7 @@ final readonly class BusinessDefinitionValidator
                     $definition->handle,
                 ));
             }
+            $this->validateExpressionFieldTypes($definition);
         }
         $ownershipEdges = [];
         foreach ($fieldTargets as [$definition, $field, $targetHandle]) {
@@ -246,6 +248,84 @@ final readonly class BusinessDefinitionValidator
             }
         }
         $this->assertAcyclicOwnership($ownershipEdges);
+    }
+
+    /**
+     * Check declared field reads after the entity's registered field families have been admitted.
+     *
+     * AST construction checks operators against their declared argument types. This pass connects those
+     * declarations to the actual fields, including reads in actions and record invariants.
+     *
+     * @param EntityTypeDefinition $definition Entity whose local references are already resolved.
+     * @return void
+     * @throws InvalidBusinessDefinition When a field read declares an incompatible scalar family.
+     * @since 0.1.0
+     */
+    private function validateExpressionFieldTypes(EntityTypeDefinition $definition): void
+    {
+        $fields = [];
+        $expressions = [];
+        foreach ($definition->fields() as $field) {
+            $fields[$field->handle] = $field;
+            foreach ([$field->formula, $field->visibilityCondition, $field->editabilityCondition] as $expression) {
+                if ($expression !== null) {
+                    $expressions[] = $expression;
+                }
+            }
+        }
+        foreach ($definition->actions() as $action) {
+            if ($action->condition !== null) {
+                $expressions[] = $action->condition;
+            }
+        }
+        foreach ($definition->recordInvariants() as $invariant) {
+            $expressions[] = $invariant->condition;
+        }
+        foreach ($expressions as $expression) {
+            $this->validateExpressionFieldRead($expression, $fields);
+        }
+    }
+
+    /**
+     * Walk a bounded expression without evaluating it or changing its serialized program.
+     *
+     * Decimal and temporal values retain their admitted string representation. Null and any declarations
+     * remain runtime checks, and families without one statically known scalar representation are deferred.
+     *
+     * @param Expression $expression Validated expression node.
+     * @param array<string, FieldDefinition> $fields Declared local fields keyed by handle.
+     * @return void
+     * @throws InvalidBusinessDefinition When a concrete scalar read contradicts its field family.
+     * @since 0.1.0
+     */
+    private function validateExpressionFieldRead(Expression $expression, array $fields): void
+    {
+        if ($expression->operator === 'field' && $expression->field !== null) {
+            $field = $fields[$expression->field];
+            $family = $field->type === 'core.computed'
+                ? $field->formula?->type
+                : $this->fieldTypes->get($field->type)->valueType;
+            $expected = match ($family) {
+                'string', 'reference', 'decimal', 'date', 'time', 'datetime' => 'string',
+                'integer', 'boolean' => $family,
+                default => null,
+            };
+            $declared = match ($expression->type) {
+                'decimal', 'date', 'time', 'datetime' => 'string',
+                default => $expression->type,
+            };
+            if ($expected !== null && !in_array($declared, ['any', 'null', $expected], true)) {
+                throw new InvalidBusinessDefinition(sprintf(
+                    'Expression field %s declares %s but its field supplies %s.',
+                    $field->handle,
+                    $expression->type,
+                    $expected,
+                ));
+            }
+        }
+        foreach ($expression->arguments() as $argument) {
+            $this->validateExpressionFieldRead($argument, $fields);
+        }
     }
 
     /**
