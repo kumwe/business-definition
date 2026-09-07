@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Kumwe\BusinessDefinition\Domain;
 
+use Kumwe\BusinessDefinition\Internal\ValueSnapshot;
+
 /**
  * Typed layout metadata a `document` view uses to render a record as a business document.
  *
@@ -82,8 +84,8 @@ final readonly class DocumentViewDefinition
             self::label($party['label']);
             self::handles([$party['relationship']], false, 1);
         }
-        $this->groups = $groups;
-        $this->parties = $parties;
+        $this->groups = ValueSnapshot::copy($groups);
+        $this->parties = ValueSnapshot::copy($parties);
         $this->totals = self::handles($totals, true, 16);
     }
 

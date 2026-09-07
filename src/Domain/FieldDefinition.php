@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Kumwe\BusinessDefinition\Domain;
 
+use Kumwe\BusinessDefinition\Internal\ValueSnapshot;
 use Kumwe\Localization\Domain\LocaleTag;
 
 /**
@@ -23,6 +24,9 @@ use Kumwe\Localization\Domain\LocaleTag;
  */
 final readonly class FieldDefinition
 {
+    /** @var mixed Independent admitted default value. @since 0.1.1 */
+    public mixed $default;
+
     /**
      * Normalizer identifiers applied to a submitted value, in declared order, before validation.
      *
@@ -136,7 +140,7 @@ final readonly class FieldDefinition
         public string $description = '',
         public bool $required = false,
         public bool $nullable = true,
-        public mixed $default = null,
+        mixed $default = null,
         public ?int $length = null,
         public ?int $precision = null,
         public ?int $scale = null,
@@ -225,7 +229,7 @@ final readonly class FieldDefinition
         }
         CanonicalDefinitionJson::encode($configuration);
         ksort($configuration, SORT_STRING);
-        $this->configuration = $configuration;
+        $this->configuration = ValueSnapshot::copy($configuration);
         if ($computed && (!$readOnly || !$serverOnly || $formula === null)) {
             throw new InvalidBusinessDefinition('A computed field must be server-only, read-only, and have a formula.');
         }
@@ -279,19 +283,20 @@ final readonly class FieldDefinition
         foreach ($validators as $validator) {
             CanonicalDefinitionJson::encode($validator);
         }
-        $this->validators = $validators;
+        $this->validators = ValueSnapshot::copy($validators);
         $allowedPlacements = ['list', 'detail', 'form', 'history', 'relation'];
         $placements = array_values(array_unique($placements));
         if ($placements === [] || array_diff($placements, $allowedPlacements) !== []) {
             throw new InvalidBusinessDefinition('A business field placement is invalid.');
         }
         sort($placements, SORT_STRING);
-        $this->placements = $placements;
+        $this->placements = ValueSnapshot::copy($placements);
         $this->textTranslations = LocalizedDefinitionText::normalize($textTranslations, [
             'label' => 120,
             'description' => 1000,
             'help_text' => 1000,
         ]);
+        $this->default = ValueSnapshot::copy($default);
     }
 
     /**

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Kumwe\BusinessDefinition\Domain;
 
+use Kumwe\BusinessDefinition\Internal\ValueSnapshot;
+
 /**
  * Validated expression tree behind every business-definition condition and computed-field formula.
  *
@@ -145,7 +147,7 @@ final readonly class Expression
         public ?string $lines = null,
         public ?string $aggregate = null,
     ) {
-        $this->arguments = $arguments;
+        $this->arguments = ValueSnapshot::copy($arguments);
     }
 
     /**

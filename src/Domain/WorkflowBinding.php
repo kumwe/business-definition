@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Kumwe\BusinessDefinition\Domain;
 
+use Kumwe\BusinessDefinition\Internal\ValueSnapshot;
+
 /**
  * The state machine a business entity's records move through, declared as part of its definition.
  *
@@ -123,9 +125,9 @@ final readonly class WorkflowBinding
                 );
             }
         }
-        $this->states = $states;
-        $this->transitions = $transitions;
-        $this->immutableStates = $immutableStates;
+        $this->states = ValueSnapshot::copy($states);
+        $this->transitions = ValueSnapshot::copy($transitions);
+        $this->immutableStates = ValueSnapshot::copy($immutableStates);
     }
 
     /**

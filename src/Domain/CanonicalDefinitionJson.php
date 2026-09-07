@@ -91,11 +91,12 @@ final class CanonicalDefinitionJson
         if (array_is_list($value)) {
             return array_map(self::normalize(...), $value);
         }
-        ksort($value, SORT_STRING);
+        $normalized = [];
         foreach ($value as $key => $item) {
-            $value[$key] = self::normalize($item);
+            $normalized[$key] = self::normalize($item);
         }
-        return $value;
+        ksort($normalized, SORT_STRING);
+        return $normalized;
     }
 
     /**
