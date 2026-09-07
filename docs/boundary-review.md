@@ -3,7 +3,8 @@
 Reviewed by root extraction coordinator on 2026-09-07 before source edits.
 
 The portable closure is 28 existing domain and eight application types. Sequence declarations use the canonical
-Sequence types; Localization supplies locale semantics. Source candidate constraints (Sequence dev-main, Localization 0.1.0) are not
+Sequence types; Localization supplies locale semantics. Source candidate constraints
+(Sequence dev-main, Localization 0.1.0) are not
 release attestations. Publication is blocked until independent release verification succeeds.
 
 FieldConfigurationAdmission is mandatory and has no permissive production default. The host supplies its SDK-backed
