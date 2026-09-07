@@ -3,7 +3,7 @@
 Reviewed by root extraction coordinator on 2026-09-07 before source edits.
 
 The portable closure is 28 existing domain and eight application types. Sequence declarations use the canonical
-Sequence types; Localization supplies locale semantics. Exact draft pins (Sequence 0.2.0, Localization 0.1.0) are not
+Sequence types; Localization supplies locale semantics. Source candidate constraints (Sequence dev-main, Localization 0.1.0) are not
 release attestations. Publication is blocked until independent release verification succeeds.
 
 FieldConfigurationAdmission is mandatory and has no permissive production default. The host supplies its SDK-backed
@@ -24,3 +24,8 @@ including original SDK presentation admission. Canonical documents, dependencies
 first
 refusals match. Case-insensitive and qualified-name architecture bypasses found during review are fixed and covered by
 16 negative fixtures. This review is source/conformance evidence and is not a release attestation.
+
+The Sequence constraint change is an explicit candidate metadata correction: its
+actual main source already supplies the required format and fiscal reset values.
+The dependency ceiling stays closed to the same packages. The candidate must be
+replaced by an independently verified immutable release before publication.
