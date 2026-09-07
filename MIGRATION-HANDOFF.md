@@ -1509,7 +1509,8 @@ execution parity independently. tests/ownership.json owns executable test transf
 host responsibility.
 
 Run composer check on the final PR tree. Upstream verification, protected-main immutable publication and fresh
-independent package attestation remain separate gates. resources/release-readiness.json records published dependency identities without replacing independent verification.
+independent package attestation remain separate gates. resources/release-readiness.json records published
+dependency identities without replacing independent verification.
 
 ## Migration/implementation summary
 
@@ -1527,7 +1528,9 @@ implementation ships in the consumer archive.
 ## Capability reuse/semantic input review
 
 Reviewed App's exact locked Conversion 0.1.2, SDK 0.2.4 and Producer 0.2.0 APIs and the prepared extraction closure.
-Localization supplies locale semantics; Sequence supplies proven format/scope/reset types. Their exact published pins do not assert independently verified releases. DefinitionOwner's site dimension and persisted grammar are distinct from
+Localization supplies locale semantics; Sequence supplies proven format/scope/reset types. Their exact published
+pins do not assert independently verified releases. DefinitionOwner's site dimension and persisted grammar are
+distinct from
 ContributionOwner. Mandatory FieldConfigurationAdmission keeps SDK profile implementation at its existing owner and
 host composition boundary.
 
@@ -1567,11 +1570,12 @@ architecture, real discovered test-ownership checks, strict static analysis and 
 Corpus provenance binds six exact App source hashes and two frozen oracle files; an independent reviewer confirmed
 their bytes and namespace-only oracle transformation. The archive consumer uses a real built ZIP installed as a no-dev
 authoritative dependency. Local Packagist advisory lookup times out; CI retains the mandatory online audit, and final
-CI results are the authoritative security gate. The published 0.1.0 release is observed; no native performance result or independent attestation is claimed.
+CI results are the authoritative security gate. The published 0.1.0 release is observed; no native performance
+result or independent attestation is claimed.
 
-Final local implementation evidence: 131 PHPUnit cases / 1,743 assertions; 41 API exports; 122 named discovered test
+Final local implementation evidence: 134 PHPUnit cases / 1,747 assertions; 41 API exports; 125 named discovered test
 methods; 16 architecture, nine ownership and 92 release-integrity negative fixtures; 12 release-parser cases. The
-71-file archive passes no-dev authoritative installation, canonical autoload and real Laminas composition using
+72-file archive passes no-dev authoritative installation, canonical autoload and real Laminas composition using
 the corrected runtime requirements; all 41 public symbols are present and no development paths are shipped.
 
 ## Definition admission corrections
