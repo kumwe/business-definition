@@ -204,7 +204,10 @@ if (($composer['license'] ?? null) !== 'Apache-2.0') {
     $errors[] = 'The archived composer.json does not advertise the Apache-2.0 license.';
 }
 $runtime = is_array($composer['require'] ?? null) ? array_keys($composer['require']) : [];
-if ($runtime !== ['php', 'php-64bit', 'kumwe/localization', 'kumwe/sequence', 'psr/container', 'ramsey/uuid']) {
+if (
+    $runtime !== ['php', 'php-64bit', 'ext-mbstring', 'kumwe/localization', 'kumwe/sequence',
+    'psr/container', 'ramsey/uuid']
+) {
     $errors[] = 'The archived composer.json does not match the reviewed PHP, ICU and PSR-11 requirements.';
 }
 if (($composer['autoload'] ?? null) !== ['psr-4' => ['Kumwe\\BusinessDefinition\\' => 'src/']]) {

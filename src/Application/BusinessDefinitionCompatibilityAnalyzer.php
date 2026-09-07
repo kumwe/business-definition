@@ -125,6 +125,7 @@ final class BusinessDefinitionCompatibilityAnalyzer
         if (
             $before->singularLabel !== $after->singularLabel
             || $before->pluralLabel !== $after->pluralLabel
+            || $before->labelTranslations() !== $after->labelTranslations()
             || $before->auditEnabled !== $after->auditEnabled
             || $before->revisionsEnabled !== $after->revisionsEnabled
             || $before->compatibilityMetadata() !== $after->compatibilityMetadata()

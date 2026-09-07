@@ -1,7 +1,7 @@
 # Kumwe Business Definition
 
 Immutable business definitions, typed bounded formula ASTs, canonical profiles, structural validation, compatibility
-and registries. Requires PHP 8.5 on 64-bit platforms.
+and registries. Requires PHP 8.5 on 64-bit platforms with mbstring for Unicode text default validation.
 
 This is an extraction candidate. Exact draft dependencies are installable but not independently release-verified;
 publication and App adoption are blocked. No release is claimed.

@@ -12,7 +12,8 @@
   "exports": {
     "Kumwe\\BusinessDefinition\\Application\\BusinessDefinitionCompatibilityAnalyzer": {
       "behavior": [
-        "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testDefinitionAndCompatibilityCorpusMatchesFrozenBaseline"
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testDefinitionAndCompatibilityCorpusMatchesFrozenBaseline",
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\BusinessDefinitionCompatibilityAnalyzerTest::testEntityTranslationChangesAreClassifiedAndCanonicalReorderingIsUnchanged"
       ],
       "boundary": [
         "Kumwe\\BusinessDefinition\\Tests\\Unit\\ConformanceTest::testDefinitionAndCompatibilityCorpusMatchesFrozenBaseline"
@@ -28,10 +29,13 @@
     },
     "Kumwe\\BusinessDefinition\\Application\\BusinessDefinitionValidator": {
       "behavior": [
-        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testAdmissionIsMandatoryInvokedAndFailClosed"
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testAdmissionIsMandatoryInvokedAndFailClosed",
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\ExpressionFieldValidationTest::testGraphPreservesMatchingScalarAndNullableExpressionDeclarations"
       ],
       "boundary": [
-        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testAdmissionIsMandatoryInvokedAndFailClosed"
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\AdmissionAndRegistryTest::testAdmissionIsMandatoryInvokedAndFailClosed",
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\ExpressionFieldValidationTest::testGraphRejectsIncompatibleFieldReadsInEveryExpressionContext",
+        "Kumwe\\BusinessDefinition\\Tests\\Unit\\Application\\ExpressionFieldValidationTest::testGraphUsesTheComputedFieldResultFamily"
       ]
     },
     "Kumwe\\BusinessDefinition\\Application\\DefinitionCatalogEntry": {

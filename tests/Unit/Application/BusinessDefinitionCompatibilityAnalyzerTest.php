@@ -14,6 +14,31 @@ use PHPUnit\Framework\TestCase;
 #[CoversClass(BusinessDefinitionCompatibilityAnalyzer::class)]
 final class BusinessDefinitionCompatibilityAnalyzerTest extends TestCase
 {
+    public function testEntityTranslationChangesAreClassifiedAndCanonicalReorderingIsUnchanged(): void
+    {
+        $initial = EntityTypeDefinitionTest::document();
+        $translated = $initial;
+        $translated['label_translations'] = ['singular_label' => ['fr' => 'Actif', 'de' => 'Anlage']];
+        foreach ([[$initial, $translated], [$translated, $initial]] as [$old, $new]) {
+            $plan = (new BusinessDefinitionCompatibilityAnalyzer())->analyze(
+                EntityTypeDefinition::fromArray($old)->published(1),
+                EntityTypeDefinition::fromArray($new),
+            );
+            self::assertTrue($plan->requiresConfirmation());
+            self::assertCount(1, $plan->changes());
+            self::assertSame('/definition/behavior', $plan->changes()[0]->path);
+            self::assertSame(CompatibilityClassification::BehaviorChanging, $plan->changes()[0]->classification);
+        }
+        $reordered = $translated;
+        $reordered['label_translations']['singular_label'] = ['de' => 'Anlage', 'fr' => 'Actif'];
+        $plan = (new BusinessDefinitionCompatibilityAnalyzer())->analyze(
+            EntityTypeDefinition::fromArray($translated)->published(1),
+            EntityTypeDefinition::fromArray($reordered),
+        );
+        self::assertSame([], $plan->changes());
+        self::assertFalse($plan->requiresConfirmation());
+    }
+
     public function testFirstPublicationIsAdditiveAndDeterministic(): void
     {
         $draft = EntityTypeDefinition::fromArray(EntityTypeDefinitionTest::document());
