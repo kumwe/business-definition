@@ -162,6 +162,10 @@ $consumer = $workspace . '/consumer';
 if (!mkdir($consumer)) {
     consumerFail('the fresh consumer directory cannot be created.', $workspace);
 }
+$repositories = $metadata['repositories'] ?? [];
+if (!is_array($repositories)) {
+    consumerFail('the archived repositories must be an array.', $workspace);
+}
 $consumerMetadata = [
     'name' => 'kumwe/clean-consumer',
     'description' => 'Isolated verification of the built package archive.',
@@ -169,7 +173,7 @@ $consumerMetadata = [
     'require' => ['kumwe/business-definition' => $candidateVersion, 'laminas/laminas-servicemanager' => '^4.0'],
     'repositories' => [
         ['type' => 'package', 'package' => $metadata],
-        ...($metadata['repositories'] ?? []),
+        ...$repositories,
     ],
     'minimum-stability' => 'dev',
     'prefer-stable' => true,
