@@ -6,9 +6,8 @@
  * The Kumwe App adoption gate reads CHARTER.md, README.md, CHANGELOG.md, MIGRATION-HANDOFF.md, docs/,
  * resources/ and src/ from the release archive, and the clean-consumer gate runs examples/ from it, so all
  * of them must be present. Development state — tests, tools, workflows, lint configuration, the lock file,
- * the vendor tree — must be absent. Every source file must be an exported symbol of the public API manifest
- * and every exported symbol must be shipped, and the archived Composer metadata must still name PHP as the
- * only runtime requirement.
+ * the vendor tree — must be absent. Every source file must be an exported symbol or the reviewed internal
+ * value snapshot helper. Every exported symbol must ship with the canonical Composer metadata.
  *
  * @since 0.1.0
  */
@@ -150,7 +149,7 @@ $forbiddenRoots = [
     'vendor',
 ];
 $allowedRoots = [...$requiredRoots, 'docs', 'examples', 'resources', 'src'];
-$expected = array_fill_keys([...$requiredRoots, ...$requiredShipped], true);
+$expected = array_fill_keys([...$requiredRoots, ...$requiredShipped, 'src/Internal/ValueSnapshot.php'], true);
 
 $manifest = archiveJsonObject($root . '/resources/public-api/v1.json', $errors);
 $symbols = $manifest['symbols'] ?? null;

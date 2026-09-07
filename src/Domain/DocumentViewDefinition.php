@@ -86,7 +86,7 @@ final readonly class DocumentViewDefinition
         }
         $this->groups = ValueSnapshot::copy($groups);
         $this->parties = ValueSnapshot::copy($parties);
-        $this->totals = self::handles($totals, true, 16);
+        $this->totals = ValueSnapshot::copy(self::handles($totals, true, 16));
     }
 
     /**
