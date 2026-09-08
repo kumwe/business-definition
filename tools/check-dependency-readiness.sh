@@ -27,6 +27,7 @@ if [[ -f "$dependencies" ]]; then
       and ($recorded.dependencies | type == "array")
       and (($recorded.dependencies | map(.package) | sort) == ($required | keys))
       and ($recorded.dependencies | all(. as $entry | $required[$entry.package] == $entry.constraint))
-  ' "$manifest" >/dev/null || fail 'release dependency inventory must match Composer without missing or duplicate entries.'
+  ' "$manifest" >/dev/null || fail \
+    'release dependency inventory must match Composer without missing or duplicate entries.'
 fi
 echo 'Exact Composer requirements and dependency evidence coordinates agree.'
