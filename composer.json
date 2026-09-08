@@ -53,6 +53,7 @@
     "clean-consumer": "php tools/verify-clean-consumer.php",
     "check": [
       "@composer:validate",
+      "@dependencies:check",
       "@security:audit",
       "@release:check",
       "@lint",
@@ -70,7 +71,11 @@
     ],
     "security:audit": "composer audit --abandoned=fail",
     "release:integrity": "bash tools/test-release-integrity.sh",
-    "test:ownership": "php tools/verify-test-ownership.php --self-test"
+    "test:ownership": "php tools/verify-test-ownership.php --self-test",
+    "dependencies:check": [
+      "bash tools/check-dependency-readiness.sh",
+      "bash tools/test-dependency-readiness.sh"
+    ]
   },
   "config": {
     "sort-packages": true

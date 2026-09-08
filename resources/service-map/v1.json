@@ -1,7 +1,7 @@
 {
     "schema": "kumwe-package-service-map/v1",
     "package": "kumwe/business-definition",
-    "release": "0.1.1",
+    "release": "0.1.2",
     "config_provider": "Kumwe\\BusinessDefinition\\ConfigProvider",
     "provider_absence_reason": null,
     "factories": [

@@ -70,6 +70,7 @@ jobs:
           bash tools/test-configure-release-repositories.sh
           bash tools/test-release-dependencies.sh
           bash tools/test-package-dependencies.sh
+          bash tools/test-dependency-readiness.sh
 
   package-gate:
     name: Package gate
