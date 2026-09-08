@@ -13,7 +13,8 @@ JSON
 {"dependencies":{"kumwe/upstream":{"version":"0.1.3","attestation":null}}}
 JSON
   cat > "$work/resources/release-dependencies/v1.json" <<'JSON'
-{"schema":"kumwe-release-dependencies/v1","package":"kumwe/consumer","dependencies":[{"package":"kumwe/upstream","constraint":"0.1.3"}]}
+{"schema":"kumwe-release-dependencies/v1","package":"kumwe/consumer",
+ "dependencies":[{"package":"kumwe/upstream","constraint":"0.1.3"}]}
 JSON
 }
 reject() {
