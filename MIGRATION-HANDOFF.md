@@ -53,13 +53,13 @@ ownership:
   public_manifests:
     - 
       path: "resources/public-api/v1.json"
-      sha256: "1dc8eee145c2ceadc8cb56f2ec20981c404fef6c1b1b9864940386ce98598a91"
+      sha256: "3df7be6ece4d1e4641cb1f4bea82d14c09a646b17e965ffb9a294f93d8575fbf"
     - 
       path: "resources/capabilities/v1.json"
-      sha256: "bf58d886792915c0a33e236713dda587c85a3a64bcea3c77359193faf45ba2f4"
+      sha256: "7fcdbf45a74c50036f4b3250e3367d16546f7d0d45cf4a1bdee5849232d57455"
     - 
       path: "resources/service-map/v1.json"
-      sha256: "3e77901220b9b54e2cf9297ea038343325c692d4fa60edb13967861a4636789a"
+      sha256: "de7d6161f1aa527a44d746ecdc04d02859bab27adf8b7125f580eda7d580856f"
     - 
       path: "resources/native-ownership/v1.json"
       sha256: "eb0ed6131fd12b32d4fa73991bdfdd53ba42a0614587317108e05cd0687a13b7"
@@ -1107,7 +1107,7 @@ documentation:
   examples:
     - "examples/definition.php"
     - "examples/container.php"
-  changelog_record: "CHANGELOG.md / 0.1.1 (maintenance release record; human merge triggers publication)"
+  changelog_record: "CHANGELOG.md / 0.1.2 (maintenance release record; human merge triggers publication)"
 release_expectations:
   version_policy: "Exact pre-1.0 pins; publication verifies dependency tag/source/dist identity. Independent final release verification precedes App adoption."
   expected_artifact_types:
@@ -1600,3 +1600,13 @@ Version 0.1.0 is published at f3b86f8af1469066637fd1b4b8f71c4df634adf8. This PR 
 0.1.1 and uses published Localization 0.1.1 and Sequence 0.2.1. These are exact pins, with
 grouped update PRs for later releases. Dependent libraries remain on their coherent published
 graph until this maintenance release is merged, published and independently verified.
+
+## Dependency readiness update — 0.1.2
+
+The 0.1.1 release is published. This candidate uses `kumwe/localization 0.1.1`, `kumwe/sequence 0.2.1`.
+The Composer install and no-dev archive consumer resolve the complete transitive graph; the readiness
+regression gate prevents its direct dependency records from drifting again. Null attestation coordinates
+remain an explicit absence of independent verification, not a completed adoption claim.
+
+Maintainer merge, final release publication and independent artifact/dependency verification remain
+required before downstream adoption. No App implementation or integration changes are included.
