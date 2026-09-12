@@ -7,4 +7,4 @@ App owns publication, persistence, trusted generation selection, authorization, 
 Computation owns coarse execution contracts; Engine owns execution. This package does not execute PHP formulas,
 implement decimal arithmetic, or enforce an SDK presentation profile.
 
-The reviewed boundary and exact dependency rationale are in docs/boundary-review.md.
+See [semantic boundaries](docs/semantic-boundaries.md) for admission, formula and dependency contracts.

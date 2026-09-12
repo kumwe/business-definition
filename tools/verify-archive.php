@@ -3,7 +3,7 @@
 /**
  * Prove an extracted Composer archive ships exactly the reviewed consumer file set.
  *
- * The Kumwe App adoption gate reads CHARTER.md, README.md, CHANGELOG.md, MIGRATION-HANDOFF.md, docs/,
+ * The Kumwe App adoption gate reads CHARTER.md, README.md, CHANGELOG.md, docs/release-record.md, docs/,
  * resources/ and src/ from the release archive, and the clean-consumer gate runs examples/ from it, so all
  * of them must be present. Development state — tests, tools, workflows, lint configuration, the lock file,
  * the vendor tree — must be absent. Every source file must be an exported symbol or the reviewed internal
@@ -105,7 +105,7 @@ foreach ($iterator as $file) {
     }
 }
 
-$requiredRoots = ['CHANGELOG.md', 'CHARTER.md', 'LICENSE', 'MIGRATION-HANDOFF.md', 'README.md', 'composer.json'];
+$requiredRoots = ['CHANGELOG.md', 'CHARTER.md', 'LICENSE', 'docs/release-record.md', 'README.md', 'composer.json'];
 $requiredShipped = [
     'docs/architecture.md',
     'docs/integration.md',
@@ -124,7 +124,7 @@ $requiredShipped = [
     'resources/corpus/provenance-v1.json',
     'resources/native-ownership/v1.json',
     'resources/release-readiness.json',
-    'docs/boundary-review.md',
+    'docs/semantic-boundaries.md',
     'docs/formula-profile.md',
     'docs/test-ownership.md',
     'docs/consumer-inventory.json',

@@ -20,7 +20,7 @@ Business Definition requires exact stable published Sequence and Localization
 releases. After a production Composer install, normal publication runs
 `bash tools/check-package-dependencies.sh` to validate the resolved versions against
 the published upstream releases/tags and Composer source/dist identities before tag
-mutation. Update exact dependency pins, the handoff, manifests and consumer tuple
+mutation. Update exact dependency pins, the release record, manifests and consumer tuple
 consistently, then rerun the complete package and clean-consumer gates. Preserve the
 portable definition/validation semantics and host admission boundary.
 
@@ -30,7 +30,7 @@ immutability and authentic external attestations. Those checks are not required 
 normal publication. `resources/release-readiness.json` records independent evidence
 inputs; a text status does not prove verification. Preserve unresolved evidence
 until obtained, and never invent attestations or relabel a candidate as verified.
-The package's post-publication attestation and shipped handoff remain prerequisites
+The package's post-publication attestation and shipped release record remain prerequisites
 for declaring `release-verified` or SDK/App adoption.
 
 ## Publication evidence and recovery
@@ -42,7 +42,7 @@ release, tag and source identity. Publication does not establish `release-verifi
 Before declaring that state or SDK/App adoption, a fresh independent verifier must
 bind the exact published source/tag, archive digest, manifests, registry coordinate,
 license/security and clean-consumer results in an external RELEASE-ATTESTATION.yaml.
-The artifact and handoff must not invent their own final commit, checksum or
+The artifact and release record must not invent their own final commit, checksum or
 publication evidence. This attestation is separate from normal publication.
 
 Use the current release workflow on the default branch to retry after correcting

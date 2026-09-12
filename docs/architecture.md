@@ -13,4 +13,4 @@ exceptions map to InvalidBusinessDefinition with the original exception as cause
 
 No repository, database, authorization, trust, active generation, event, audit, transaction, transport or runtime VM
 is exported. The frozen tests/Oracle tree is excluded from Composer archives and production autoloading. Native
-execution requires the later verified Computation/Engine/extension chain.
+execution requires the verified Computation/Engine/extension chain.
