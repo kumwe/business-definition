@@ -1,9 +1,9 @@
 # Kumwe Business Definition
 
-[![Packagist version](https://img.shields.io/packagist/v/kumwe/business-definition)](https://packagist.org/packages/kumwe/business-definition)
-[![CI](https://github.com/kumwe/business-definition/actions/workflows/ci.yml/badge.svg?branch=main&event=push)](https://github.com/kumwe/business-definition/actions/workflows/ci.yml)
-[![PHP requirement](https://img.shields.io/packagist/php-v/kumwe/business-definition)](composer.json)
-[![License](https://img.shields.io/packagist/l/kumwe/business-definition)](LICENSE)
+[![Packagist version][version-badge]][package]
+[![CI][ci-badge]][ci]
+[![PHP requirement][php-badge]](composer.json)
+[![License][license-badge]](LICENSE)
 
 Immutable business definitions, typed bounded formula ASTs, canonical profiles,
 structural validation, compatibility plans and portable registries under `Kumwe\BusinessDefinition`.
@@ -61,3 +61,10 @@ updates; each update runs the same gate before review and rebase merge.
 Published tags remain fixed. Consumers independently verify exact releases and their
 dependency graph, then run their own integration checks. Changes on `main` are shipped
 in a subsequent release. Licensed under [Apache-2.0](LICENSE).
+
+[version-badge]: https://img.shields.io/packagist/v/kumwe/business-definition
+[package]: https://packagist.org/packages/kumwe/business-definition
+[ci-badge]: https://img.shields.io/github/actions/workflow/status/kumwe/business-definition/ci.yml?branch=main
+[ci]: https://github.com/kumwe/business-definition/actions/workflows/ci.yml
+[php-badge]: https://img.shields.io/packagist/php-v/kumwe/business-definition
+[license-badge]: https://img.shields.io/packagist/l/kumwe/business-definition

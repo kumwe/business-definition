@@ -4,7 +4,8 @@ This package exports immutable domain values, structural validation and operatio
 
 All source parameters, return types, invariants and exceptions below are the documented contracts. Existing
 @since 2.0.0 tags record App history; package availability begins at 0.1.0. Removed runtime methods are documented in
-[semantic-boundaries.md](semantic-boundaries.md). No public operation performs I/O, starts a transaction or grants authority. Immutable values are
+[semantic-boundaries.md](semantic-boundaries.md). No public operation performs I/O, starts a transaction or grants
+authority. Immutable values are
 process-safe; mutable registries require host operation/container isolation. Factories are explicit and fail on
 missing or incompatible host collaborators.
 
