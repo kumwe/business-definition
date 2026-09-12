@@ -1,9 +1,8 @@
 ---
-schema: "kumwe-migration-handoff/v2"
+schema: "kumwe-package-release-record/v1"
 artifact_kind: "framework_php"
 migration_id: "KUMWE-MIG-2026-010"
 change_set: "KUMWE-CS-2026-010"
-state: "draft_pr_open"
 source:
   app:
     repository: "https://github.com/kumwe/app"
@@ -26,16 +25,10 @@ source:
     - "Sequence 0.2.1 and Localization 0.1.1 exact published stable pins; final independent verification remains separate"
     - "SDK FieldPresentationConfiguration profile is outside allowed ceiling; mandatory host admission port retains this owner"
     - "ContributionOwner does not preserve site owners or the persisted definition extension grammar; no unused dependency"
-  active_related_pull_requests:
-    - "https://github.com/kumwe/app/pull/135"
-    - "https://github.com/kumwe/computation/pull/1"
-    - "https://github.com/kumwe/engine/pull/1"
 target:
   repository: "https://github.com/kumwe/business-definition"
   artifact_identity: "kumwe/business-definition"
   canonical_namespace_or_abi: "Kumwe\\BusinessDefinition"
-  branch: "codex/extraction-readiness-20260907"
-  pull_request: "https://github.com/kumwe/business-definition/pull/7"
 ownership:
   responsibility: "Immutable definition metadata, bounded semantic ASTs, canonical profiles, structural validation, compatibility and registries."
   non_responsibilities:
@@ -51,25 +44,25 @@ ownership:
   implementation_owner: "kumwe/business-definition"
   next_consumer: "kumwe/app"
   public_manifests:
-    - 
+    -
       path: "resources/public-api/v1.json"
       sha256: "3df7be6ece4d1e4641cb1f4bea82d14c09a646b17e965ffb9a294f93d8575fbf"
-    - 
+    -
       path: "resources/capabilities/v1.json"
       sha256: "7fcdbf45a74c50036f4b3250e3367d16546f7d0d45cf4a1bdee5849232d57455"
-    - 
+    -
       path: "resources/service-map/v1.json"
       sha256: "de7d6161f1aa527a44d746ecdc04d02859bab27adf8b7125f580eda7d580856f"
-    - 
+    -
       path: "resources/native-ownership/v1.json"
       sha256: "eb0ed6131fd12b32d4fa73991bdfdd53ba42a0614587317108e05cd0687a13b7"
-    - 
+    -
       path: "resources/corpus/formula-v1.json"
       sha256: "11033679b018fdc9a192e954ef11089444a00a1d89c6279d3c192be9252cf42f"
-    - 
+    -
       path: "resources/corpus/definition-v1.json"
       sha256: "3d5b5c2d218e95aa9f8310d88b88b373ccd31c16b03d303fa1432c72dc533b4e"
-    - 
+    -
       path: "resources/corpus/provenance-v1.json"
       sha256: "74c05b98eb9d13ced22092d819b5a1ed54e986f2502800192bd5397a3118dd7f"
   intentionally_excluded:
@@ -85,7 +78,7 @@ framework_php:
   capability_manifest: "resources/capabilities/v1.json"
   service_map: "resources/service-map/v1.json"
   extracted_symbols:
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Application\\BusinessDefinitionCompatibilityAnalyzer"
       new_fqcn: "Kumwe\\BusinessDefinition\\Application\\BusinessDefinitionCompatibilityAnalyzer"
       source_path: "src/BusinessDefinition/Application/BusinessDefinitionCompatibilityAnalyzer.php"
@@ -98,7 +91,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Application\\BusinessDefinitionContributionRegistry"
       new_fqcn: "Kumwe\\BusinessDefinition\\Application\\BusinessDefinitionContributionRegistry"
       source_path: "src/BusinessDefinition/Application/BusinessDefinitionContributionRegistry.php"
@@ -116,7 +109,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Application\\BusinessDefinitionValidator"
       new_fqcn: "Kumwe\\BusinessDefinition\\Application\\BusinessDefinitionValidator"
       source_path: "src/BusinessDefinition/Application/BusinessDefinitionValidator.php"
@@ -130,7 +123,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Mandatory FieldConfigurationAdmission replaces SDK coupling; other validation semantics preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Application\\DefinitionCatalogEntry"
       new_fqcn: "Kumwe\\BusinessDefinition\\Application\\DefinitionCatalogEntry"
       source_path: "src/BusinessDefinition/Application/DefinitionCatalogEntry.php"
@@ -152,7 +145,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Application\\DefinitionDraft"
       new_fqcn: "Kumwe\\BusinessDefinition\\Application\\DefinitionDraft"
       source_path: "src/BusinessDefinition/Application/DefinitionDraft.php"
@@ -170,7 +163,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Application\\DefinitionVersionRecord"
       new_fqcn: "Kumwe\\BusinessDefinition\\Application\\DefinitionVersionRecord"
       source_path: "src/BusinessDefinition/Application/DefinitionVersionRecord.php"
@@ -188,7 +181,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Application\\FieldTypeDefinitionResolver"
       new_fqcn: "Kumwe\\BusinessDefinition\\Application\\FieldTypeDefinitionResolver"
       source_path: "src/BusinessDefinition/Application/FieldTypeDefinitionResolver.php"
@@ -201,7 +194,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Application\\FieldTypeRegistry"
       new_fqcn: "Kumwe\\BusinessDefinition\\Application\\FieldTypeRegistry"
       source_path: "src/BusinessDefinition/Application/FieldTypeRegistry.php"
@@ -220,7 +213,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Domain\\ActionDefinition"
       new_fqcn: "Kumwe\\BusinessDefinition\\Domain\\ActionDefinition"
       source_path: "src/BusinessDefinition/Domain/ActionDefinition.php"
@@ -247,7 +240,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Domain\\BuiltInFieldTypes"
       new_fqcn: "Kumwe\\BusinessDefinition\\Domain\\BuiltInFieldTypes"
       source_path: "src/BusinessDefinition/Domain/BuiltInFieldTypes.php"
@@ -260,7 +253,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Domain\\CanonicalDefinitionJson"
       new_fqcn: "Kumwe\\BusinessDefinition\\Domain\\CanonicalDefinitionJson"
       source_path: "src/BusinessDefinition/Domain/CanonicalDefinitionJson.php"
@@ -274,7 +267,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Domain\\CompatibilityChange"
       new_fqcn: "Kumwe\\BusinessDefinition\\Domain\\CompatibilityChange"
       source_path: "src/BusinessDefinition/Domain/CompatibilityChange.php"
@@ -291,7 +284,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Domain\\CompatibilityClassification"
       new_fqcn: "Kumwe\\BusinessDefinition\\Domain\\CompatibilityClassification"
       source_path: "src/BusinessDefinition/Domain/CompatibilityClassification.php"
@@ -309,7 +302,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Domain\\CompatibilityPlan"
       new_fqcn: "Kumwe\\BusinessDefinition\\Domain\\CompatibilityPlan"
       source_path: "src/BusinessDefinition/Domain/CompatibilityPlan.php"
@@ -330,7 +323,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Domain\\ComputationMode"
       new_fqcn: "Kumwe\\BusinessDefinition\\Domain\\ComputationMode"
       source_path: "src/BusinessDefinition/Domain/ComputationMode.php"
@@ -344,7 +337,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Domain\\DefinitionOwner"
       new_fqcn: "Kumwe\\BusinessDefinition\\Domain\\DefinitionOwner"
       source_path: "src/BusinessDefinition/Domain/DefinitionOwner.php"
@@ -365,7 +358,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Domain\\DefinitionOwnerType"
       new_fqcn: "Kumwe\\BusinessDefinition\\Domain\\DefinitionOwnerType"
       source_path: "src/BusinessDefinition/Domain/DefinitionOwnerType.php"
@@ -380,7 +373,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Domain\\DefinitionStatus"
       new_fqcn: "Kumwe\\BusinessDefinition\\Domain\\DefinitionStatus"
       source_path: "src/BusinessDefinition/Domain/DefinitionStatus.php"
@@ -397,7 +390,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Domain\\DeleteBehavior"
       new_fqcn: "Kumwe\\BusinessDefinition\\Domain\\DeleteBehavior"
       source_path: "src/BusinessDefinition/Domain/DeleteBehavior.php"
@@ -412,7 +405,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Domain\\DocumentViewDefinition"
       new_fqcn: "Kumwe\\BusinessDefinition\\Domain\\DocumentViewDefinition"
       source_path: "src/BusinessDefinition/Domain/DocumentViewDefinition.php"
@@ -433,7 +426,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Domain\\EntityTypeDefinition"
       new_fqcn: "Kumwe\\BusinessDefinition\\Domain\\EntityTypeDefinition"
       source_path: "src/BusinessDefinition/Domain/EntityTypeDefinition.php"
@@ -484,7 +477,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Domain\\Expression"
       new_fqcn: "Kumwe\\BusinessDefinition\\Domain\\Expression"
       source_path: "src/BusinessDefinition/Domain/Expression.php"
@@ -508,7 +501,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Intentional first-package API break: execution methods removed; AST/metadata preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Domain\\FieldDefinition"
       new_fqcn: "Kumwe\\BusinessDefinition\\Domain\\FieldDefinition"
       source_path: "src/BusinessDefinition/Domain/FieldDefinition.php"
@@ -564,7 +557,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Domain\\FieldTypeDefinition"
       new_fqcn: "Kumwe\\BusinessDefinition\\Domain\\FieldTypeDefinition"
       source_path: "src/BusinessDefinition/Domain/FieldTypeDefinition.php"
@@ -585,7 +578,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Domain\\IdentityStrategy"
       new_fqcn: "Kumwe\\BusinessDefinition\\Domain\\IdentityStrategy"
       source_path: "src/BusinessDefinition/Domain/IdentityStrategy.php"
@@ -599,7 +592,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Domain\\InvalidBusinessDefinition"
       new_fqcn: "Kumwe\\BusinessDefinition\\Domain\\InvalidBusinessDefinition"
       source_path: "src/BusinessDefinition/Domain/InvalidBusinessDefinition.php"
@@ -611,7 +604,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Domain\\LocalizedDefinitionText"
       new_fqcn: "Kumwe\\BusinessDefinition\\Domain\\LocalizedDefinitionText"
       source_path: "src/BusinessDefinition/Domain/LocalizedDefinitionText.php"
@@ -626,7 +619,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Domain\\PortalOperation"
       new_fqcn: "Kumwe\\BusinessDefinition\\Domain\\PortalOperation"
       source_path: "src/BusinessDefinition/Domain/PortalOperation.php"
@@ -653,7 +646,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Domain\\RecordInvariantDefinition"
       new_fqcn: "Kumwe\\BusinessDefinition\\Domain\\RecordInvariantDefinition"
       source_path: "src/BusinessDefinition/Domain/RecordInvariantDefinition.php"
@@ -672,7 +665,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Intentional first-package API break: execution methods removed; AST/metadata preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Domain\\RelationshipDefinition"
       new_fqcn: "Kumwe\\BusinessDefinition\\Domain\\RelationshipDefinition"
       source_path: "src/BusinessDefinition/Domain/RelationshipDefinition.php"
@@ -696,7 +689,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Domain\\RelationshipKind"
       new_fqcn: "Kumwe\\BusinessDefinition\\Domain\\RelationshipKind"
       source_path: "src/BusinessDefinition/Domain/RelationshipKind.php"
@@ -714,7 +707,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Domain\\ScopeMode"
       new_fqcn: "Kumwe\\BusinessDefinition\\Domain\\ScopeMode"
       source_path: "src/BusinessDefinition/Domain/ScopeMode.php"
@@ -730,7 +723,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Domain\\Sensitivity"
       new_fqcn: "Kumwe\\BusinessDefinition\\Domain\\Sensitivity"
       source_path: "src/BusinessDefinition/Domain/Sensitivity.php"
@@ -747,7 +740,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Domain\\StorageMode"
       new_fqcn: "Kumwe\\BusinessDefinition\\Domain\\StorageMode"
       source_path: "src/BusinessDefinition/Domain/StorageMode.php"
@@ -760,7 +753,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Domain\\ViewDefinition"
       new_fqcn: "Kumwe\\BusinessDefinition\\Domain\\ViewDefinition"
       source_path: "src/BusinessDefinition/Domain/ViewDefinition.php"
@@ -787,7 +780,7 @@ framework_php:
       exceptions: []
       serialization_contract: "Canonical toArray profile and persisted metadata are unchanged where exposed; no serialized PHP names migrate."
       compatibility: "Namespace-only portable extraction; approved behavior preserved."
-    - 
+    -
       old_fqcn: "Kumwe\\App\\BusinessDefinition\\Domain\\WorkflowBinding"
       new_fqcn: "Kumwe\\BusinessDefinition\\Domain\\WorkflowBinding"
       source_path: "src/BusinessDefinition/Domain/WorkflowBinding.php"
@@ -1121,8 +1114,7 @@ release_expectations:
     - "Independent package release/archive/manifest/registry verification after human merge"
   required_registry_or_installer: "Packagist + Composer"
   required_external_attestation: true
-next_task:
-  phase_name: "Verify upstream and package releases, then Business Definition App adoption"
+consumer_contract:
   permitted_only_when:
     - "Every selected upstream release independently verified; exact published pins updated with evidence"
     - "Human merge, immutable package publication and independent RELEASE-ATTESTATION.yaml"
@@ -1460,29 +1452,7 @@ next_task:
     - "composer kumwe:capability-index"
     - "composer kumwe:core-growth-check"
     - "Full three-database publication/history, extension trust/disable, recovery/backup and affected delivery suites"
-concurrency:
-  likely_conflict_files:
-    - "composer.json"
-    - "composer.lock"
-    - "src/Kernel/ContainerFactory.php"
-    - "docs/architecture/capability-index.md"
-    - "CHANGELOG.md"
-    - "BusinessDefinition/BusinessRecord/BusinessReporting runtime consumers"
-  related_migrations:
-    - "KUMWE-MIG-2026-002"
-    - "KUMWE-MIG-2026-005"
-    - "KUMWE-MIG-2026-008"
-  ownership_conflicts:
-    - "SDK presentation profile remains upstream; host adapter mandatory"
-    - "Formula meaning is Business Definition; allocation/execution is Computation/Engine/native binding"
-    - "DefinitionOwner site dimension differs from ContributionOwner"
-  integration_train: null
-  resolution_rule: "semantic-preservation"
 governance:
-  roadmap_source_sha256: "a202155ef1a65f5ab293d4f8397ebf4ac430db7f1e877c776bbe7851e6fe18d8"
-  roadmap_refs: []
-  non_roadmap_refs:
-    - "NRM-2026-012"
   completion_claim: false
 decisions:
   - "BUSDEF-001: preserve Core/Extension/Site owner and existing extension grammar; no unused Contribution dependency"
@@ -1491,122 +1461,65 @@ decisions:
   - "BUSDEF-004: exact published Sequence and Localization pins do not themselves establish an independent release attestation"
   - "BUSDEF-005: 36 existing types plus one port, one provider and three factories = 41 public types"
 blockers:
-  - "The 0.1.1 maintenance branch requires maintainer review and merge before release automation"
-  - "Version 0.1.0 is published; independent verification of the final 0.1.1 release and dependency closure remains separate"
   - "App runtime cutover requires verified native chain and readiness; no fallback is shipped"
 ---
 
-# Business Definition migration handoff
+# Business Definition release record
 
-This Phase 1 candidate changes only kumwe/business-definition. The complete original 36-type mapping and 109
-production/106 test-consumer closure above identify later App adoption work; no App source or test has been removed.
-The two runtime methods are an explicit native-boundary API break and cannot be adopted by simply deleting the old
-executor.
+This record binds package manifests, source-to-package mappings, dependency injection,
+consumer responsibilities and test ownership. Baseline paths and commit IDs are
+compatibility evidence; they do not report the live state of another repository.
 
-The package owns 41 exported types and its behavior, boundary, conformance, source architecture, public API and
-archive checks. The exact semantic corpus and original-source provenance are package-owned. Engine and PHPT must prove
-execution parity independently. tests/ownership.json owns executable test transfers; docs/test-ownership.md explains
-host responsibility.
+## Package contract
 
-Run composer check on the final PR tree. Upstream verification, protected-main immutable publication and fresh
-independent package attestation remain separate gates. resources/release-readiness.json records published
-dependency identities without replacing independent verification.
-
-## Migration/implementation summary
-
-The portable closure is 28 domain types and eight application types. One mandatory admission port, one provider and
-three explicit factories bring the public surface to 41. Phase 1 changes only this repository; App still owns and runs
-its current implementations until separate verified adoption.
+The package exports 41 types for immutable definition metadata, bounded semantic
+ASTs, validation, compatibility and portable registries. Core owns publication,
+persistence, trusted generation selection, authorization, lifecycle and recovery.
 
 ## Public API and responsibility
 
-The source-reflected API, capability and service-map manifests plus docs/public-api.md describe every exported member.
-Definition metadata, validation, compatibility and semantic profiles belong here. Native runtime classes and execution
-contracts belong to their named owners in resources/native-ownership/v1.json. No PHP evaluator or decimal
-implementation ships in the consumer archive.
+The source-reflected API, capability and service-map manifests and [public API](public-api.md)
+define exported members. [Semantic boundaries](semantic-boundaries.md) explain the
+mandatory host admission port and native execution boundary. No PHP formula executor
+or decimal implementation ships in the consumer archive.
 
-## Capability reuse/semantic input review
+## Dependencies and semantic inputs
 
-Reviewed App's exact locked Conversion 0.1.2, SDK 0.2.4 and Producer 0.2.0 APIs and the prepared extraction closure.
-Localization supplies locale semantics; Sequence supplies proven format/scope/reset types. Their exact published
-pins do not assert independently verified releases. DefinitionOwner's site dimension and persisted grammar are
-distinct from
-ContributionOwner. Mandatory FieldConfigurationAdmission keeps SDK profile implementation at its existing owner and
-host composition boundary.
+Localization owns locale semantics; Sequence owns format, scope and reset types.
+Exact dependency pins are listed in Composer and the dependency evidence records.
+The frozen semantic corpus and source provenance remain package-owned. Engine and
+PHPT verify native execution parity independently.
 
-## Consumer inventory
+## Consumer contract
 
-The front matter and docs/consumer-inventory.json enumerate 109 external production consumers and 106 test/support
-references against App 960ce8ec00cf724a7cae03e5ba09c4852c9ab54e. This is an adoption inventory, not a blanket deletion
-list. Re-scan imports, signatures, fully qualified strings, container entries and fixtures before adoption.
+The front matter and [consumer inventory](consumer-inventory.json) identify baseline
+production and test/support references. Re-scan imports, signatures, fully qualified
+strings, container entries and fixtures against current Core before changes. Bind a
+production SDK-backed FieldConfigurationAdmission adapter; no permissive default exists.
 
 ## Test ownership
 
-The exact 15 file transfers/splits appear in tests/ownership.json and docs/test-ownership.md. Package class behavior,
-boundary refusal and normative corpora are tested here. App retains real persistence/publication, authorization,
-trusted lifecycle, transaction, recovery and delivery behavior. SDK profile integration and active App execution tests
-remain until their corresponding composed implementation changes. Sequence's formatter matrix is not duplicated here.
+The [test ownership contract](test-ownership.md) and executable tests/ownership.json
+retain exact transfers and splits. Hosts retain publication, authorization, trusted
+lifecycle, transactions, recovery, SDK profile integration and runtime execution tests.
+Package tests verify portable behavior, boundaries, canonical bytes and conformance.
 
-## Next-task execution notes
+## Consumer verification
 
-First independently verify selected upstream releases and update the release-readiness gate with reviewed evidence.
-After human merge and immutable publication, a fresh independent verifier must attest this package archive. The App
-adoption then implements the mandatory SDK-backed admission adapter, uses canonical package types, registers explicit
-provider/factories, updates Composer and ownership indexes, and deletes migrated implementations and duplicate class
-tests together. Runtime method removal waits for verified Computation/native execution and fails readiness when
-missing; no fallback is permitted.
+Verify selected upstream releases and this package's exact published source, archive
+and manifests independently. Pin pre-1.0 releases exactly and run Core integration
+tests after composition. Runtime method removal requires the verified Computation,
+Engine and PHP extension chain; missing native readiness must fail without fallback.
 
-## Drift check
+## Compatibility and drift
 
-Compare all source_path and transfer-test entries against exact App baseline 960ce8ec00cf724a7cae03e5ba09c4852c9ab54e.
-New portable behavior must be brought into this owner and independently released before App adopts it. Preserve
-host-only changes separately and resolve shared configuration/Composer conflicts semantically; never select an entire
-side of a conflict.
+Compare recorded sources and transfer tests with current consumer code before deleting
+implementation copies. Preserve newer portable behavior in this package and host-specific
+changes in Core. Published tags, historical changelog entries and corpus provenance remain fixed.
 
-## Validation recipe and observed local results
+## Validation
 
-Run composer check on 64-bit PHP 8.5. Imported and new PHPUnit behavior/boundary/conformance tests, source
-architecture, real discovered test-ownership checks, strict static analysis and package manifests are local gates.
-Corpus provenance binds six exact App source hashes and two frozen oracle files; an independent reviewer confirmed
-their bytes and namespace-only oracle transformation. The archive consumer uses a real built ZIP installed as a no-dev
-authoritative dependency. Local Packagist advisory lookup times out; CI retains the mandatory online audit, and final
-CI results are the authoritative security gate. The published 0.1.0 release is observed; no native performance
-result or independent attestation is claimed.
-
-Final local implementation evidence: 134 PHPUnit cases / 1,747 assertions; 41 API exports; 125 named discovered test
-methods; 16 architecture, nine ownership and 92 release-integrity negative fixtures; 12 release-parser cases. The
-72-file archive passes no-dev authoritative installation, canonical autoload and real Laminas composition using
-the corrected runtime requirements; all 41 public symbols are present and no development paths are shipped.
-
-## Definition admission corrections
-
-The reviewed candidate now rejects non-boolean field visibility/editability conditions and field expression reads
-whose concrete scalar declarations contradict registered or computed field families. This is an intentional
-validation correction: previously admitted contradictory definitions require correction before revalidation.
-Decimal/temporal string representations and dynamic any/null checks remain unchanged. Entity label translation
-changes now appear as behavior-changing compatibility changes. The runtime explicitly requires ext-mbstring, and
-the archived example exercises text default admission. Public signatures and the frozen native formula corpus
-remain unchanged. App adoption follows independent verification of the final maintenance release.
-
-## Maintenance review 2026-09-07
-
-The current App baseline 24ecf956423c18933e824b43cea1bfb9127a79a9 has no additional
-changes under BusinessDefinition source or unit tests compared with this extraction baseline.
-The library retains the full 41-symbol public closure and frozen semantic corpus. Its internal
-array snapshot helper prevents caller references from changing immutable definitions; canonical
-encoding does not write through caller references. New regression tests belong to this package.
-
-Version 0.1.0 is published at f3b86f8af1469066637fd1b4b8f71c4df634adf8. This PR prepares
-0.1.1 and uses published Localization 0.1.1 and Sequence 0.2.1. These are exact pins, with
-grouped update PRs for later releases. Dependent libraries remain on their coherent published
-graph until this maintenance release is merged, published and independently verified.
-
-## Dependency readiness update — 0.1.2
-
-The 0.1.1 release is published. This candidate uses `kumwe/localization 0.1.1`, `kumwe/sequence 0.2.1`.
-The Composer install and no-dev archive consumer resolve the complete transitive graph; the readiness
-regression gate prevents its direct dependency records from drifting again. Null attestation coordinates
-remain an explicit absence of independent verification, not a completed adoption claim.
-
-Maintainer merge, final release publication and independent artifact/dependency verification remain
-required before downstream adoption. No App implementation or integration changes are included.
+Run `composer check` on 64-bit PHP 8.5. Gates cover dependencies, security audit, syntax,
+docblocks, architecture, API/manifests, autoload/examples, coding standards, analysis,
+behavior, test ownership, release integrity and a no-dev authoritative archive consumer.
+Final CI results and independent attestations establish tested release identities.

@@ -15,9 +15,10 @@ The archive example uses an explicit fixture-specific admission policy that acce
 is not a general host policy. A production adapter must delegate to the actual SDK configuration profile; its
 integration tests stay in App.
 
-Phase 2 updates all exact handoff consumers after verified releases, removes migrated implementations and duplicate
-behavior tests together, preserves persistence/publication/trust/recovery tests, and replaces runtime evaluation only
-with the required verified native computation boundary.
+Core consumers verify exact package releases, use canonical package types and retain persistence, publication, trust
+and recovery tests. Source-to-package mappings and test transfers are recorded in [the release record](release-record.md).
+Replace runtime evaluation only with the required verified native computation boundary; retain runtime tests until
+that composition is verified.
 
 ## Released dependency coordinates
 
@@ -26,5 +27,4 @@ Use `composer install` for source development and `composer clean-consumer` to p
 dependencies only. No root VCS overrides or development constraints are needed.
 
 Exact pins keep pre-1.0 compatibility reviewable. Dependency update pull requests run the complete package gate
-before maintainers merge them. Independent release verification and the separate App adoption train remain the next
-stages.
+before maintainers merge them. Consumers independently verify releases and run their composed Core integration tests after dependency updates.

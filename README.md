@@ -1,22 +1,63 @@
 # Kumwe Business Definition
 
-Immutable business definitions, typed bounded formula ASTs, canonical profiles, structural validation, compatibility
-and registries. Requires PHP 8.5 on 64-bit platforms with mbstring for Unicode text default validation.
+[![Packagist version](https://img.shields.io/packagist/v/kumwe/business-definition)](https://packagist.org/packages/kumwe/business-definition)
+[![CI](https://github.com/kumwe/business-definition/actions/workflows/ci.yml/badge.svg?branch=main&event=push)](https://github.com/kumwe/business-definition/actions/workflows/ci.yml)
+[![PHP requirement](https://img.shields.io/packagist/php-v/kumwe/business-definition)](composer.json)
+[![License](https://img.shields.io/packagist/l/kumwe/business-definition)](LICENSE)
 
-Version 0.1.0 has been published. This branch prepares the 0.1.1 maintenance release.
-App adoption remains a separate task after verification of the final release and dependency closure.
+Immutable business definitions, typed bounded formula ASTs, canonical profiles,
+structural validation, compatibility plans and portable registries under `Kumwe\BusinessDefinition`.
 
-Run `composer install` and `composer check`. The package owns behavior, boundary and conformance tests. Use `php
-examples/definition.php` for an independent definition consumer.
+## Installation
 
-Every validator needs a `FieldConfigurationAdmission` implementation from the host. The ConfigProvider supplies real
-factories but never substitutes a permissive admission policy. See [integration](docs/integration.md), [public
-API](docs/public-api.md), [test ownership](docs/test-ownership.md), [formula profile](docs/formula-profile.md) and
-[handoff](MIGRATION-HANDOFF.md).
+Requires 64-bit PHP 8.5 with `ext-mbstring`. Install an exact pre-1.0 release:
 
-Maintenance release: Detach admitted defaults, configuration, validators, workflow and document collections from
-caller references. Canonical JSON encoding no longer mutates referenced caller arrays.
+```sh
+composer require kumwe/business-definition:0.1.2
+```
 
-Direct Kumwe dependencies use exact stable versions. Dependabot proposes grouped weekly Composer updates; review
-and merge only after the complete package gate passes. The downstream App consumes a verified exact release, never
-an unreviewed moving `latest` constraint.
+Composer declares the exact Kumwe dependency versions. Published versions are linked
+from the badge; default-branch CI reports package checks, not Core integration or
+independent release verification.
+
+## Usage and Core contract
+
+Construct `BusinessDefinitionValidator($fieldTypes, $fieldConfigurationAdmission)`
+with a host-owned `FieldConfigurationAdmission` implementation, or register the
+package's `ConfigProvider` and bind that mandatory port before resolving a validator.
+It must enforce the selected SDK presentation profile; there is no permissive default.
+
+The [standalone definition example](examples/definition.php) constructs and validates
+a definition, checks canonical bytes and compatibility, and demonstrates an explicit
+fixture admission policy. Run it from a source checkout with `composer examples`.
+The [container example](examples/container.php) shows actual Laminas composition.
+
+Core retains publication, persistence, trusted generation selection, authorization,
+lifecycle, invalidation and recovery. This package describes formula semantics; it
+does not execute PHP formulas. Runtime execution uses the separately verified
+Computation/Engine/PHP extension chain. See [host integration](docs/integration.md)
+and [semantic boundaries](docs/semantic-boundaries.md).
+
+## Documentation
+
+- [Public API](docs/public-api.md) and [architecture](docs/architecture.md)
+- [Formula profile](docs/formula-profile.md) and [security/compatibility](docs/security.md)
+- [Test ownership](docs/test-ownership.md) and [consumer release record](docs/release-record.md)
+- [Release process](docs/releasing.md) and [changelog](CHANGELOG.md)
+
+## Development
+
+```sh
+composer install
+composer check
+```
+
+The complete gate covers dependency identity, security audit, syntax/docblocks,
+architecture, manifests/API, production autoload, examples, coding standards,
+static analysis, behavior/conformance, test ownership and a clean no-dev archive
+consumer. CI runs PHP 8.5 on Linux. Dependabot proposes grouped weekly Composer
+updates; each update runs the same gate before review and rebase merge.
+
+Published tags remain fixed. Consumers independently verify exact releases and their
+dependency graph, then run their own integration checks. Changes on `main` are shipped
+in a subsequent release. Licensed under [Apache-2.0](LICENSE).
