@@ -16,7 +16,8 @@ is not a general host policy. A production adapter must delegate to the actual S
 integration tests stay in App.
 
 Core consumers verify exact package releases, use canonical package types and retain persistence, publication, trust
-and recovery tests. Source-to-package mappings and test transfers are recorded in [the release record](release-record.md).
+and recovery tests. Source-to-package mappings and test transfers are recorded in
+[the release record](release-record.md).
 Replace runtime evaluation only with the required verified native computation boundary; retain runtime tests until
 that composition is verified.
 
@@ -27,4 +28,5 @@ Use `composer install` for source development and `composer clean-consumer` to p
 dependencies only. No root VCS overrides or development constraints are needed.
 
 Exact pins keep pre-1.0 compatibility reviewable. Dependency update pull requests run the complete package gate
-before maintainers merge them. Consumers independently verify releases and run their composed Core integration tests after dependency updates.
+before maintainers merge them. Consumers independently verify releases and run their composed Core integration tests
+after dependency updates.
